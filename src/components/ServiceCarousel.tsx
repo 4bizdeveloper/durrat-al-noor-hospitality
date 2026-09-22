@@ -9,37 +9,57 @@ export type HomeService = {title:string;description:string;bullets:string[];imag
 
 export default function ServiceCarousel({services}:{services:HomeService[]}) {
   const trackRef=useRef<HTMLDivElement>(null);
-  const indexRef=useRef(0);
+  const indexRef=useRef(services.length);
 
   const slide=(direction:1|-1)=>{
     const track=trackRef.current;
-    if(!track)return;
+    if(!track||!services.length)return;
     const first=track.querySelector<HTMLElement>(".service-slide");
     if(!first)return;
     const gap=parseFloat(getComputedStyle(track).gap)||0;
     const distance=first.offsetWidth+gap;
-    const max=Math.max(services.length-1,0);
-    indexRef.current=(indexRef.current+direction+services.length)%services.length;
-    if(indexRef.current===0&&direction===1){track.scrollTo({left:0,behavior:"smooth"});return;}
-    if(indexRef.current===max&&direction===-1){track.scrollTo({left:distance*max,behavior:"smooth"});return;}
+    indexRef.current+=direction;
     track.scrollTo({left:distance*indexRef.current,behavior:"smooth"});
+
+    window.setTimeout(()=>{
+      const n=services.length;
+      if(indexRef.current>=n*2){
+        indexRef.current=n;
+        track.scrollTo({left:distance*n,behavior:"auto"});
+      }else if(indexRef.current<n){
+        indexRef.current=n*2-1;
+        track.scrollTo({left:distance*(n*2-1),behavior:"auto"});
+      }
+    },450);
   };
 
   const next=useCallback(()=>slide(1),[services.length]);
   const previous=useCallback(()=>slide(-1),[services.length]);
 
   useEffect(()=>{
+    const track=trackRef.current;
+    if(!track||!services.length)return;
+    const first=track.querySelector<HTMLElement>(".service-slide");
+    if(!first)return;
+    const gap=parseFloat(getComputedStyle(track).gap)||0;
+    track.scrollTo({left:(first.offsetWidth+gap)*services.length,behavior:"auto"});
+    indexRef.current=services.length;
+  },[services.length]);
+
+  useEffect(()=>{
     const timer=window.setInterval(next,4500);
     return()=>window.clearInterval(timer);
   },[next]);
+
+  const loopedServices=[...services,...services,...services];
 
   return <div className="service-carousel mt-10 w-full" aria-label="Our hospitality and cleaning services">
     <div className="service-carousel-controls">
       <button type="button" onClick={previous} aria-label="Previous service" className="service-arrow"><ChevronLeft size={22}/></button>
       <button type="button" onClick={next} aria-label="Next service" className="service-arrow"><ChevronRight size={22}/></button>
     </div>
-    <div ref={trackRef} className="service-track" onMouseEnter={()=>{}} aria-live="polite">
-      {services.map(service=><article key={service.title} className="service-slide card overflow-hidden">
+    <div ref={trackRef} className="service-track" aria-live="polite">
+      {loopedServices.map((service,index)=><article key={service.title+"-"+index} className="service-slide card overflow-hidden">
         <div className="relative aspect-[16/10] overflow-hidden">
           <Image src={service.image} alt={service.alt} fill sizes="(max-width:640px) 82vw, 360px" className="object-cover"/>
         </div>
