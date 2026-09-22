@@ -1,1 +1,27 @@
-import Link from "next/link";import {MapPin,Phone,Mail,Clock} from "lucide-react";export default function Footer(){return <footer className="bg-[#0a192f] text-white"><div className="container grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4"><div className="lg:col-span-2"><div className="flex items-center gap-3"><span className="grid h-11 w-11 place-items-center rounded-full border border-[#d4af37] text-[#d4af37]">DN</span><b className="tracking-[.12em]">DURRAT AL NOOR</b></div><p className="mt-5 max-w-md leading-7 text-white/65">People. Service. Excellence.<br/>Hospitality staffing, housekeeping and deep cleaning services in Dubai and across the UAE.</p></div><div><h3 className="mb-4 font-bold text-[#d4af37]">Explore</h3>{[["Home","/"],["About Us","/about-us/"],["Our Services","/our-services/"],["Our Team","/our-team/"],["Contact Us","/contact-us/"]].map(([x,h])=><Link className="block py-1.5 text-sm text-white/70" key={h} href={h}>{x}</Link>)}</div><div><h3 className="mb-4 font-bold text-[#d4af37]">Contact</h3><div className="grid gap-3 text-sm text-white/70"><p className="flex gap-2"><MapPin size={17} className="text-[#d4af37]"/>104, Crystal Building, Al Karama, Dubai</p><a className="flex gap-2" href="tel:+971582774427"><Phone size={17} className="text-[#d4af37]"/>+971 58 277 4427</a><a className="flex gap-2" href="mailto:info@durratalnoorhospitality.com"><Mail size={17} className="text-[#d4af37]"/>info@durratalnoorhospitality.com</a><p className="flex gap-2"><Clock size={17} className="text-[#d4af37]"/>Mon-Fri, 9:00 AM-6:00 PM</p></div></div></div><div className="border-t border-white/10 py-5 text-center text-xs text-white/45">© {new Date().getFullYear()} Durrat Al Noor Hospitality. All rights reserved. · Developed by 4biz International L.L.C</div></footer>}
+import Image from "next/image";
+import Link from "next/link";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
+
+export default function Footer() {
+  return <footer className="bg-[#0a192f] text-white">
+    <div className="container grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
+      <div className="lg:col-span-2">
+        <Image src="/logo.png" alt="Durrat Al Noor Hospitality Logo" width={180} height={56} className="h-12 w-auto object-contain"
+          onError={(event) => { event.currentTarget.src = "/logo-placeholder.svg"; }} />
+        <p className="mt-5 max-w-md leading-7 text-white/65">People. Service. Excellence.<br />Hospitality staffing, housekeeping and deep cleaning services in Dubai and across the UAE.</p>
+      </div>
+      <div><h3 className="mb-4 font-bold text-[#d4af37]">Explore</h3>
+        {[["Home","/"],["About Us","/about-us/"],["Our Services","/our-services/"],["Our Team","/our-team/"],["Contact Us","/contact-us/"]].map(([label, href]) => <Link className="block py-1.5 text-sm text-white/70 hover:text-white" key={href} href={href}>{label}</Link>)}
+      </div>
+      <div><h3 className="mb-4 font-bold text-[#d4af37]">Contact</h3>
+        <div className="grid gap-3 text-sm text-white/70">
+          <p className="flex gap-2"><MapPin size={17} className="shrink-0 text-[#d4af37]" />104, Crystal Building, Al Karama, Dubai</p>
+          <a className="flex gap-2 hover:text-white" href="tel:+971582774427"><Phone size={17} className="shrink-0 text-[#d4af37]" />+971 58 277 4427</a>
+          <a className="flex gap-2 hover:text-white" href="mailto:info@durratalnoorhospitality.com"><Mail size={17} className="shrink-0 text-[#d4af37]" />info@durratalnoorhospitality.com</a>
+          <p className="flex gap-2"><Clock size={17} className="shrink-0 text-[#d4af37]" />Mon-Fri, 9:00 AM-6:00 PM</p>
+        </div>
+      </div>
+    </div>
+    <div className="border-t border-white/10 py-5 text-center text-xs text-white/45">© {new Date().getFullYear()} Durrat Al Noor Hospitality. All rights reserved. · Developed by 4biz International L.L.C</div>
+  </footer>;
+}
