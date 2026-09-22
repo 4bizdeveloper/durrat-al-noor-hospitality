@@ -32,10 +32,10 @@ export default function Team() {
   return (
     <div>
       <section className="relative overflow-hidden bg-[#0B192C] pb-16 pt-28 text-white md:pb-24 md:pt-36">
-        <div className="absolute inset-0 bg-[url(https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2000&q=85)] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-[#0B192C]/70" />
+        <div className="absolute inset-0 z-0 h-full w-full bg-[url(https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2000&q=85)] bg-cover bg-center" />
+        <div className="absolute inset-0 z-10 h-full w-full bg-[#0B192C]/70" />
 
-        <div className="container relative">
+        <div className="container relative z-20 flex w-full flex-col justify-center py-12">
           <p className="eyebrow">Our Team</p>
 
           <h1 className="mt-4 hero-title">
