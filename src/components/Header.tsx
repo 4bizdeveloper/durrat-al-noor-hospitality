@@ -21,7 +21,7 @@ export default function Header() {
   }, []);
 
   const Logo = ({ mobile = false }: { mobile?: boolean }) => (
-    <Image src="/logo.png" alt="Durrat Al Noor Hospitality Logo" width={mobile ? 160 : 180} height={mobile ? 50 : 56} priority={!mobile} className="h-10 w-auto object-contain" />
+    <Image src="/logo.png" alt="Durrat Al Noor Hospitality Logo" width={mobile ? 160 : 190} height={mobile ? 50 : 60} priority={!mobile} className={mobile ? "h-10 w-auto object-contain" : "h-10 w-auto object-contain md:h-12"} />
   );
 
   return (
