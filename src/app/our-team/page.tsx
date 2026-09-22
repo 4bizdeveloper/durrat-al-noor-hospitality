@@ -26,7 +26,7 @@ const people = [
     role: "HR Manager",
     bio: "Alisha Gautam supports the people behind Durrat Al Noor Hospitality through recruitment, employee coordination and team development.",
     image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=900&q=80",
+      "/alisha_gautham.jpeg",
   },
 ];
 
