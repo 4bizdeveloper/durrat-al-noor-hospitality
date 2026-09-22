@@ -11,8 +11,8 @@ body{margin:0;background:var(--ivory);color:var(--navy);font-family:var(--font-p
 .card{border:1px solid #e6dfd2;background:white;border-radius:24px;box-shadow:0 16px 50px #0b192c0d}
 .gold-button{background:linear-gradient(90deg,#D4AF37,#C5A059,#E6C280);color:#122136;box-shadow:0 8px 24px #1221361f;transition:filter .3s,transform .3s}
 .gold-button:hover{filter:brightness(1.05)}
-.pulse-ring{position:absolute;inset:-7px;border-radius:9999px;border:2px solid currentColor;opacity:.45;animation:pulse-ring 2s cubic-bezier(.2,.7,.3,1) infinite;pointer-events:none}
+.pulse-ring{position:absolute;inset:-7px;border-radius:9999px;border:2px solid rgba(197,160,89,.55);box-shadow:0 0 14px rgba(197,160,89,.25);opacity:.55;animation:pulse-ring 2s cubic-bezier(.2,.7,.3,1) infinite;pointer-events:none}
 .pulse-ring.delay{animation-delay:1s}
-@keyframes pulse-ring{0%{transform:scale(.9);opacity:.55}70%,100%{transform:scale(1.5);opacity:0}}
+@keyframes pulse-ring{0%{transform:scale(.9);opacity:.7;box-shadow:0 0 10px rgba(197,160,89,.35)}70%,100%{transform:scale(1.55);opacity:0;box-shadow:0 0 26px rgba(197,160,89,0)}}
 .hero-title{font-size:clamp(1.875rem,4.5vw,3.75rem);line-height:1.08;font-weight:700;letter-spacing:-.035em}
 @media(max-width:640px){.section{padding:65px 0}.copy{font-size:1rem}}
