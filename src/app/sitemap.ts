@@ -1,1 +1,2 @@
-import type {MetadataRoute} from "next";export default function sitemap():MetadataRoute.Sitemap{return["/","/about-us/","/our-services/","/our-team/","/contact-us/"].map(path=>({url:`https://durratalnoorhospitality.com${path}`,lastModified:new Date(),changeFrequency:"monthly",priority:path==="/" ? 1 : .8}))}
+import type {MetadataRoute} from "next";
+export default function sitemap():MetadataRoute.Sitemap{return["/","/about-us/","/our-services/","/our-team/","/contact-us/","/privacy-policy/","/terms-and-conditions/"].map(path=>({url:`https://durratalnoorhospitality.com${path}`,lastModified:new Date(),changeFrequency:"monthly",priority:path==="/" ? 1 : .8}))}
