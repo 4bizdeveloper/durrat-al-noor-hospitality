@@ -6,8 +6,7 @@ export default function Footer() {
   return <footer className="bg-[#0a192f] text-white">
     <div className="container grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
       <div className="lg:col-span-2">
-        <Image src="/logo.png" alt="Durrat Al Noor Hospitality Logo" width={180} height={56} className="h-12 w-auto object-contain"
-          onError={(event) => { event.currentTarget.src = "/logo-placeholder.svg"; }} />
+        <Image src="/logo-placeholder.svg" alt="Durrat Al Noor Hospitality Logo" width={180} height={56} className="h-12 w-auto object-contain" />
         <p className="mt-5 max-w-md leading-7 text-white/65">People. Service. Excellence.<br />Hospitality staffing, housekeeping and deep cleaning services in Dubai and across the UAE.</p>
       </div>
       <div><h3 className="mb-4 font-bold text-[#d4af37]">Explore</h3>
