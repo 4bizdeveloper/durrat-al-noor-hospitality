@@ -12,14 +12,14 @@ const people = [
     role: "Managing Director",
     bio: "Dipak Shrestha leads Durrat Al Noor Hospitality, guiding the company's direction with a focus on service quality, people and client relationships.",
     image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=900&q=80",
+      "/dipak_shrestha.jpeg",
   },
   {
     name: "Dipak Pandaya",
     role: "Sales Director",
     bio: "Dipak Pandaya focuses on business development and client relationships, helping connect hospitality requirements with suitable service solutions.",
     image:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=80",
+      "/dipak_pandya.jpeg",
   },
   {
     name: "Alisha Gautam",
