@@ -30,4 +30,4 @@ const jsonLd=[
 ...services.map(([name,description])=>({"@context":"https://schema.org","@type":"Service","serviceType":name,"name":name,"description":description,"provider":{"@id":"https://durratalnoorhospitality.com/#organization"},"areaServed":{"@type":"Country","name":"United Arab Emirates"}}))
 ];
 
-export default function Layout({children}:{children:React.ReactNode}){return <html lang="en" className={poppins.variable}><body><header><Header/></header><main>{children}</main><Footer/><FloatingActions/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(jsonLd)}}/></body></html>}
+export default function Layout({children}:{children:React.ReactNode}){return <html lang="en" className={poppins.variable}><body><Header/><main>{children}</main><Footer/><FloatingActions/><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(jsonLd)}}/></body></html>}
