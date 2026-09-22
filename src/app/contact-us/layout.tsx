@@ -1,0 +1,1 @@
+import type {Metadata} from "next";export const metadata:Metadata={title:"Contact Durrat Al Noor Hospitality | Al Karama, Dubai",description:"Contact Durrat Al Noor Hospitality in Al Karama, Dubai. Call +971 58 277 4427 for hospitality staffing, housekeeping and deep cleaning enquiries."};export default function Layout({children}:{children:React.ReactNode}){return children;}
