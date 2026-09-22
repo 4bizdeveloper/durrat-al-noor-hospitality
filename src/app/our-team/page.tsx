@@ -31,7 +31,7 @@ const people = [
 export default function Team() {
   return (
     <div>
-      <section className="relative overflow-hidden bg-[#0B192C] pb-16 pt-28 text-white md:pb-24 md:pt-36">
+      <section className="relative flex min-h-screen min-h-[100dvh] w-full items-center justify-center overflow-hidden bg-[#0B192C] pb-12 pt-28 text-white md:pt-36">
         <div className="absolute inset-0 z-0 h-full w-full bg-[url(https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2000&q=85)] bg-cover bg-center" />
         <div className="absolute inset-0 z-10 h-full w-full bg-[#0B192C]/70" />
 
