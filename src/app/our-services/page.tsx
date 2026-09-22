@@ -109,10 +109,10 @@ export default function Services() {
 
   return (
     <div>
-      <section className="bg-[#0B192C] py-32 text-white">
-        <div className="container">
+      <section className="relative overflow-hidden bg-[#0B192C] py-16 md:py-24 text-white"><div className="absolute inset-0 bg-[url(https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2000&q=85)] bg-cover bg-center"/><div className="absolute inset-0 bg-[#0B192C]/70"/>
+        <div className="container relative">
           <p className="eyebrow">Our Services</p>
-          <h1 className="mt-4 text-[clamp(2.7rem,6vw,5rem)] font-black">
+          <h1 className="mt-4 hero-title">
             Hospitality &amp; Cleaning Services in Dubai and the UAE
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/75">
@@ -157,7 +157,7 @@ export default function Services() {
                 </ul>
                 <Link
                   href="/contact-us/"
-                  className="mt-7 inline-block rounded-full bg-[#0B192C] px-6 py-3 font-bold text-white"
+                  className="gold-button mt-7 inline-block rounded-full px-6 py-3 font-bold"
                 >
                   {service.button}
                 </Link>
@@ -244,7 +244,7 @@ export default function Services() {
           <div className="flex gap-3">
             <Link
               href="/contact-us/"
-              className="rounded-full bg-[#C5A059] px-7 py-3 font-bold text-[#0B192C]"
+              className="gold-button rounded-full px-7 py-3 font-bold"
             >
               Request a Quote
             </Link>
