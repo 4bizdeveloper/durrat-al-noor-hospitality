@@ -12,7 +12,7 @@ const people = [
     name: "Dipak Shrestha",
     role: "Managing Director",
     bio: "Dipak Shrestha leads Durrat Al Noor Hospitality, guiding the company's direction with a focus on service quality, people and client relationships.",
-    image: "/dipak_shrestha.jpeg",
+    image: "/dipak_shrestha.png",
   },
   {
     name: "Dipak Pandaya",
