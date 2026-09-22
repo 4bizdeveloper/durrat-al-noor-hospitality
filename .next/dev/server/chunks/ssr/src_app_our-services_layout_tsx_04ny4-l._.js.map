@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/PC/Desktop/durrat-al-noor-hospitality/src/app/our-services/layout.tsx"],"sourcesContent":["import type {Metadata} from \"next\";export const metadata:Metadata={title:\"Hospitality & Deep Cleaning Services Dubai | Durrat Al Noor\",description:\"Discover housekeeping, F&B staffing, kitchen support, pool and leisure staffing, and deep cleaning in Dubai and the UAE. Request a tailored quotation.\"};export default function Layout({children}:{children:React.ReactNode}){return children;}"],"names":["metadata","title","description","Layout","children"],"mappings":";;;;;;AAA0C,MAAMA,WAAkB;IAACC,OAAM;IAA8DC,aAAY;AAAwJ;AAAiB,SAASC,OAAO,EAACC,QAAQ,EAA4B;IAAE,OAAOA;AAAS"}}]
+}
