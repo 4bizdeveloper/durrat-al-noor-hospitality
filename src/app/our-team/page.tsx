@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
@@ -60,20 +61,31 @@ export default function Team() {
                 key={person.name}
                 className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-md"
               >
-                <div className="aspect-[4/3] w-full overflow-hidden bg-slate-100">
-                  <img
+                <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-50">
+                  <Image
                     src={person.image}
                     alt={person.name}
-                    className="h-full w-full object-cover object-top"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover object-[center_20%] transition-transform duration-300 hover:scale-105"
+                    priority
                   />
                 </div>
 
-                <div className="flex flex-1 flex-col p-7">
-                  <p className="eyebrow">{person.role}</p>
+                <div className="flex flex-grow flex-col justify-between p-6">
+                  <div>
+                    <span className="text-xs font-semibold uppercase tracking-wider text-[#C5A059]">
+                      {person.role}
+                    </span>
 
-                  <h2 className="mt-2 text-2xl font-black">{person.name}</h2>
+                    <h3 className="mt-1 text-xl font-bold text-[#0B192C]">
+                      {person.name}
+                    </h3>
 
-                  <p className="copy mt-4 flex-1 text-base">{person.bio}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                      {person.bio}
+                    </p>
+                  </div>
                 </div>
               </article>
             ))}
