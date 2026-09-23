@@ -59,11 +59,11 @@ export default function Footer() {
               <Image 
                 src="/logo.png" 
                 alt="Durrat Al Noor Hospitality Logo" 
-                width={240} 
-                height={75} 
+                width={320} 
+                height={100} 
                 priority={false}
-                sizes="(max-width: 768px) 180px, 240px" 
-                className="h-10 max-h-12 w-auto object-contain md:h-11"
+                sizes="(max-width: 768px) 240px, 320px" 
+                className="h-14 max-h-16 w-auto object-contain md:h-16"
                 itemProp="logo"
               />
             </Link>

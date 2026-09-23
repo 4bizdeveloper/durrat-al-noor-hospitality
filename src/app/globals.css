@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root{--ivory:#FAF9F6;--navy:#0B192C;--navy-deep:#122136;--gold:#DAB672;--gold-bright:#E6C98B}
+:root{--ivory:#FAF9F6;--navy:#0B192C;--navy-deep:#122136;--gold:rgb(191, 130, 16);--gold-bright:#E6C98B}
 html{scroll-behavior:smooth;scroll-padding-top:82px;overflow-x:hidden}body{min-width:320px}
 body{margin:0;background:var(--ivory);color:var(--navy);font-family:var(--font-poppins),Poppins,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 *,button,input,textarea,select{font-family:inherit}
