@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Mail, MapPin, Phone, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { useState } from "react";
 
 export default function Contact() {
@@ -18,173 +18,276 @@ export default function Contact() {
     }
   }
 
+  // Schema Markup for Search Engines, AI Engines (AEO) & Geo-location (GEO)
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Durrat Al Noor Hospitality & Cleaning",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=85",
+    telePhone: "+971582774427",
+    email: "info@durratalnoorhospitality.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "104, Crystal Building, Al Karama",
+      addressLocality: "Dubai",
+      addressCountry: "AE",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "25.2487",
+      longitude: "55.3023",
+    },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "18:00",
+    },
+    url: "https://durratalnoorhospitality.com/contact",
+    priceRange: "$$",
+  };
+
   return (
-    <div>
-      <section className="relative flex min-h-[100dvh] min-h-screen w-full items-center justify-center overflow-hidden bg-[#0B192C] pb-12 pt-28 text-white md:pt-36">
+    <div className="w-full bg-[#FAF9F6] text-[#1E293B]">
+      {/* Search Engine & AI Knowledge Graph Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* Hero Section - Concise & High Impact */}
+      <section className="relative flex w-full items-center justify-center overflow-hidden bg-[#0B192C] py-16 text-white md:py-24">
         <div
-          className="absolute inset-0 z-0 h-full w-full bg-cover bg-center"
+          className="absolute inset-0 z-0 h-full w-full bg-cover bg-center transition-transform duration-700 hover:scale-105"
           style={{
             backgroundImage:
-              "url(https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=85)",
+              "url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=85')",
           }}
+          aria-hidden="true"
         />
-        <div className="hero-overlay absolute inset-0 z-10 h-full w-full" />
-        <div className="container relative z-20 flex w-full flex-col justify-center">
-          <p className="eyebrow">Contact Us</p>
-          <h1 className="mt-4 hero-title">
-            Let Us Discuss Your Hospitality &amp; Cleaning Requirements
-          </h1>
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#0B192C]/95 via-[#0B192C]/85 to-[#0B192C]/75 backdrop-blur-[2px]" />
+
+        <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <span className="inline-block rounded-full bg-[#DAB672]/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#DAB672]">
+              Contact Us
+            </span>
+            <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+              Let Us Discuss Your Hospitality &amp; Cleaning Requirements
+            </h1>
+            <p className="mt-3 max-w-2xl text-base text-gray-300 sm:text-lg">
+              Partner with Dubai’s leading provider for professional housekeeping, hospitality staffing, and specialized cleaning solutions.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="section"><Reveal>
-        <div className="container">
-          <div className="mb-12 max-w-4xl">
-            <p className="eyebrow">How We Can Help</p>
-            <h2 className="heading mt-3">
-              Tell us about your property and requirements.
-            </h2>
-            <p className="copy mt-5">
-              Looking for housekeeping, hospitality staffing or deep cleaning
-              services in Dubai or elsewhere in the UAE? Tell us about your
-              property, the support you need and your preferred schedule.
-            </p>
-          </div>
-
-          <div className="grid gap-12 lg:grid-cols-[.75fr_1.25fr]">
-            <div className="grid content-start gap-5">
-              <div className="card p-7">
-                <h2 className="text-xl font-black">Call or WhatsApp</h2>
-                <a
-                  href="tel:+971582774427"
-                  className="mt-3 flex gap-3 font-bold hover:text-[#DAB672]"
-                >
-                  <Phone className="text-[#DAB672]" />
-                  +971 58 277 4427
-                </a>
-              </div>
-
-              <div className="card p-7">
-                <h2 className="text-xl font-black">Email Us</h2>
-                <a
-                  href="mailto:info@durratalnoorhospitality.com"
-                  className="mt-3 flex gap-3 font-bold hover:text-[#DAB672]"
-                >
-                  <Mail className="text-[#DAB672]" />
-                  info@durratalnoorhospitality.com
-                </a>
-              </div>
-
-              <div className="card p-7">
-                <h2 className="text-xl font-black">Our Office</h2>
-                <p className="copy mt-3 flex gap-3">
-                  <MapPin className="mt-1 shrink-0 text-[#DAB672]" />
-                  104, Crystal Building, Al Karama, Dubai, United Arab Emirates
-                </p>
-                <p className="copy mt-3 flex gap-3 text-base">
-                  <Clock className="text-[#DAB672]" />
-                  Monday to Friday, 9:00 AM-6:00 PM, UAE time
-                </p>
-              </div>
+      {/* Main Content Section */}
+      <section className="py-12 md:py-20" id="contact-details">
+        <Reveal>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mb-12 max-w-3xl">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#DAB672]">
+                How We Can Help
+              </span>
+              <h2 className="mt-2 text-2xl font-bold tracking-tight text-[#0B192C] sm:text-3xl lg:text-4xl">
+                Tell us about your property and requirements.
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-[#475569] sm:text-lg">
+                Looking for housekeeping, hospitality staffing, or deep cleaning services in Dubai or anywhere across the UAE? Share your project details, staff count required, or cleaning schedule, and our team will prepare a custom proposal tailored to your needs.
+              </p>
             </div>
 
-            <form onSubmit={submit} className="card p-6 md:p-9">
-              <h2 className="text-3xl font-black">Request a Quote</h2>
-              <p className="copy mt-2 text-base">
-                Please complete the form below. Fields marked with an asterisk
-                are required.
-              </p>
-
-              <div className="mt-8 grid gap-5 md:grid-cols-2">
-                {[
-                  ["Full Name*", "text"],
-                  ["Company Name", "text"],
-                  ["Email Address*", "email"],
-                  ["Phone Number*", "tel"],
-                  ["Service Location*", "text"],
-                  ["Preferred Start Date", "date"],
-                ].map(([label, type]) => (
-                  <label
-                    key={label}
-                    className="grid gap-2 text-sm font-bold"
+            <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+              {/* Contact Info Cards */}
+              <div className="grid gap-6 lg:col-span-5">
+                <div className="group rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:border-[#DAB672]/50 hover:shadow-md sm:p-7">
+                  <h3 className="text-lg font-bold text-[#0B192C]">Call or WhatsApp</h3>
+                  <a
+                    href="tel:+971582774427"
+                    className="mt-3 inline-flex items-center gap-3 text-base font-semibold text-[#1E293B] transition-colors hover:text-[#DAB672]"
+                    aria-label="Call or WhatsApp us at +971 58 277 4427"
                   >
-                    {label}
-                    <input
-                      type={type}
-                      required={label.endsWith("*")}
-                      className="h-12 rounded-xl border border-[#d9d0c0] bg-[#FAF9F6] px-4 focus:border-[#DAB672] focus:outline-none focus:ring-2 focus:ring-[#DAB672]/20"
-                    />
-                  </label>
-                ))}
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#DAB672]/10 text-[#DAB672] transition-colors group-hover:bg-[#DAB672] group-hover:text-white">
+                      <Phone className="h-5 w-5" />
+                    </div>
+                    <span>+971 58 277 4427</span>
+                  </a>
+                </div>
 
-                <label className="grid gap-2 text-sm font-bold md:col-span-2">
-                  Service Required*
-                  <select
-                    required
-                    className="h-12 rounded-xl border border-[#d9d0c0] bg-[#FAF9F6] px-4 focus:border-[#DAB672] focus:outline-none focus:ring-2 focus:ring-[#DAB672]/20"
+                <div className="group rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:border-[#DAB672]/50 hover:shadow-md sm:p-7">
+                  <h3 className="text-lg font-bold text-[#0B192C]">Email Us</h3>
+                  <a
+                    href="mailto:info@durratalnoorhospitality.com"
+                    className="mt-3 inline-flex items-center gap-3 text-base font-semibold text-[#1E293B] break-all transition-colors hover:text-[#DAB672]"
+                    aria-label="Email info@durratalnoorhospitality.com"
                   >
-                    <option value="">Select a service</option>
-                    <option value="Housekeeping">Housekeeping</option>
-                    <option value="F&B">F&amp;B</option>
-                    <option value="Kitchen">Kitchen</option>
-                    <option value="Pool">Pool</option>
-                    <option value="Deep Cleaning">Deep Cleaning</option>
-                    <option value="Multiple">Multiple</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </label>
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#DAB672]/10 text-[#DAB672] transition-colors group-hover:bg-[#DAB672] group-hover:text-white">
+                      <Mail className="h-5 w-5" />
+                    </div>
+                    <span>info@durratalnoorhospitality.com</span>
+                  </a>
+                </div>
 
-                <label className="grid gap-2 text-sm font-bold md:col-span-2">
-                  Your Requirements*
-                  <textarea
-                    required
-                    rows={6}
-                    className="rounded-xl border border-[#d9d0c0] bg-[#FAF9F6] p-4 focus:border-[#DAB672] focus:outline-none focus:ring-2 focus:ring-[#DAB672]/20"
-                  />
-                </label>
+                <div className="group rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:border-[#DAB672]/50 hover:shadow-md sm:p-7">
+                  <h3 className="text-lg font-bold text-[#0B192C]">Our Office</h3>
+                  <div className="mt-4 flex items-start gap-3 text-sm text-[#475569] sm:text-base">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#DAB672]/10 text-[#DAB672] transition-colors group-hover:bg-[#DAB672] group-hover:text-white">
+                      <MapPin className="h-5 w-5" />
+                    </div>
+                    <address className="not-italic pt-1 font-medium leading-snug">
+                      104, Crystal Building, Al Karama, Dubai, United Arab Emirates
+                    </address>
+                  </div>
+                  <div className="mt-4 flex items-center gap-3 text-sm text-[#475569] sm:text-base">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#DAB672]/10 text-[#DAB672]">
+                      <Clock className="h-5 w-5" />
+                    </div>
+                    <span className="font-medium">Monday to Friday, 9:00 AM–6:00 PM (UAE Time)</span>
+                  </div>
+                </div>
               </div>
 
-              <p className="mt-5 text-xs leading-5 text-[#667085]">
-                We use your details to review and respond to your enquiry.{" "}
-                <Link
-                  href="/privacy-policy/"
-                  className="underline hover:text-[#DAB672]"
-                >
-                  Please read our Privacy Policy
-                </Link>{" "}
-                for information about how we handle personal information.
-              </p>
+              {/* Inquiry Form */}
+              <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-lg shadow-slate-100 sm:p-8 lg:col-span-7">
+                <h3 className="text-2xl font-bold tracking-tight text-[#0B192C] sm:text-3xl">
+                  Request a Quote
+                </h3>
+                <p className="mt-2 text-sm text-[#64748B] sm:text-base">
+                  Please complete the form below. Fields marked with an asterisk (<span className="text-red-500">*</span>) are required.
+                </p>
 
-              {status === "success" && (
-                <div
-                  role="status"
-                  className="mt-5 rounded-xl bg-green-50 p-4 text-sm font-semibold text-green-800"
-                >
-                  Thank you. Your enquiry has been received and we will discuss
-                  the next steps with you.
-                </div>
-              )}
+                <form onSubmit={submit} className="mt-8 space-y-5">
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <label className="flex flex-col gap-2 text-sm font-semibold text-[#0B192C]">
+                      <span>Full Name <span className="text-red-500">*</span></span>
+                      <input
+                        type="text"
+                        required
+                        placeholder="John Doe"
+                        className="h-12 rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#1E293B] placeholder-slate-400 transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/30"
+                      />
+                    </label>
 
-              {status === "error" && (
-                <div
-                  role="alert"
-                  className="mt-5 rounded-xl bg-red-50 p-4 text-sm font-semibold text-red-800"
-                >
-                  Something went wrong. Please try again or contact us by phone
-                  or WhatsApp.
-                </div>
-              )}
+                    <label className="flex flex-col gap-2 text-sm font-semibold text-[#0B192C]">
+                      <span>Company Name</span>
+                      <input
+                        type="text"
+                        placeholder="Company / Property Name"
+                        className="h-12 rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#1E293B] placeholder-slate-400 transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/30"
+                      />
+                    </label>
 
-              <button
-                type="submit"
-                className="gold-button mt-6 rounded-full px-7 py-3.5 font-bold"
-              >
-                Send Enquiry
-              </button>
-            </form>
+                    <label className="flex flex-col gap-2 text-sm font-semibold text-[#0B192C]">
+                      <span>Email Address <span className="text-red-500">*</span></span>
+                      <input
+                        type="email"
+                        required
+                        placeholder="name@company.com"
+                        className="h-12 rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#1E293B] placeholder-slate-400 transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/30"
+                      />
+                    </label>
+
+                    <label className="flex flex-col gap-2 text-sm font-semibold text-[#0B192C]">
+                      <span>Phone Number <span className="text-red-500">*</span></span>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="+971 50 000 0000"
+                        className="h-12 rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#1E293B] placeholder-slate-400 transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/30"
+                      />
+                    </label>
+
+                    <label className="flex flex-col gap-2 text-sm font-semibold text-[#0B192C]">
+                      <span>Service Location <span className="text-red-500">*</span></span>
+                      <input
+                        type="text"
+                        required
+                        placeholder="e.g. Downtown Dubai / Abu Dhabi"
+                        className="h-12 rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#1E293B] placeholder-slate-400 transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/30"
+                      />
+                    </label>
+
+                    <label className="flex flex-col gap-2 text-sm font-semibold text-[#0B192C]">
+                      <span>Preferred Start Date</span>
+                      <input
+                        type="date"
+                        className="h-12 rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#1E293B] transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/30"
+                      />
+                    </label>
+
+                    <label className="flex flex-col gap-2 text-sm font-semibold text-[#0B192C] sm:col-span-2">
+                      <span>Service Required <span className="text-red-500">*</span></span>
+                      <select
+                        required
+                        className="h-12 rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#1E293B] transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/30"
+                      >
+                        <option value="">Select a service category</option>
+                        <option value="Housekeeping">Housekeeping Services</option>
+                        <option value="F&B">F&amp;B Staffing</option>
+                        <option value="Kitchen">Kitchen Support</option>
+                        <option value="Pool">Pool Maintenance</option>
+                        <option value="Deep Cleaning">Deep Cleaning</option>
+                        <option value="Multiple">Multiple Services</option>
+                        <option value="Other">Other Customized Solutions</option>
+                      </select>
+                    </label>
+
+                    <label className="flex flex-col gap-2 text-sm font-semibold text-[#0B192C] sm:col-span-2">
+                      <span>Your Requirements <span className="text-red-500">*</span></span>
+                      <textarea
+                        required
+                        rows={5}
+                        placeholder="Describe your property size, frequency, and specific requirements..."
+                        className="rounded-xl border border-slate-300 bg-[#FAF9F6] p-4 font-normal text-[#1E293B] placeholder-slate-400 transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/30"
+                      />
+                    </label>
+                  </div>
+
+                  <p className="text-xs leading-relaxed text-[#64748B]">
+                    We respect your privacy and use your contact information exclusively to evaluate and fulfill your enquiry. Read our{" "}
+                    <Link
+                      href="/privacy-policy/"
+                      className="font-semibold text-[#0B192C] underline decoration-[#DAB672] underline-offset-2 transition-colors hover:text-[#DAB672]"
+                    >
+                      Privacy Policy
+                    </Link>{" "}
+                    for full details.
+                  </p>
+
+                  {status === "success" && (
+                    <div
+                      role="status"
+                      className="flex items-center gap-3 rounded-xl bg-emerald-50 p-4 text-sm font-medium text-emerald-900 border border-emerald-200"
+                    >
+                      <CheckCircle2 className="h-5 w-5 shrink-0 text-emerald-600" />
+                      <span>Thank you! Your enquiry has been received. Our team will get in touch with you shortly.</span>
+                    </div>
+                  )}
+
+                  {status === "error" && (
+                    <div
+                      role="alert"
+                      className="flex items-center gap-3 rounded-xl bg-rose-50 p-4 text-sm font-medium text-rose-900 border border-rose-200"
+                    >
+                      <AlertCircle className="h-5 w-5 shrink-0 text-rose-600" />
+                      <span>Something went wrong. Please try submitting again or contact us directly via Phone/WhatsApp.</span>
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#DAB672] px-8 py-3.5 text-base font-bold text-[#0B192C] shadow-md transition-all duration-300 hover:bg-[#c9a35e] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2 active:scale-[0.99]"
+                  >
+                    <span>Send Enquiry</span>
+                    <Send className="h-4 w-4" />
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
-        </div>
-      </Reveal></section>
+        </Reveal>
+      </section>
     </div>
   );
 }

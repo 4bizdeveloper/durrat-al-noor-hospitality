@@ -1,10 +1,223 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
 import Reveal from "@/components/Reveal";
-export const metadata={title:"Our Team | Durrat Al Noor Hospitality Dubai",description:"Meet the leadership, sales and HR team behind Durrat Al Noor Hospitality in Dubai."};
-const people=[{name:"Dipak Shrestha",role:"Managing Director",bio:"Dipak Shrestha leads Durrat Al Noor Hospitality, guiding the company's direction with a focus on service quality, people and client relationships.",image:"/dipak_shrestha.png"},{name:"Dipak Pandaya",role:"Sales Director",bio:"Dipak Pandaya focuses on business development and client relationships, helping connect hospitality requirements with suitable service solutions.",image:"/dipak_pandya.jpeg"},{name:"Alisha Gautam",role:"HR Manager",bio:"Alisha Gautam supports the people behind Durrat Al Noor Hospitality through recruitment, employee coordination and team development.",image:"/alisha_gautham.jpeg"}];
-export default function Team(){return <div>
-<section className="relative flex min-h-[100dvh] min-h-screen w-full items-center justify-center overflow-hidden bg-[#0B192C] pb-12 pt-28 text-white md:pt-36"><div className="absolute inset-0 z-0 h-full w-full bg-[url(https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2000&q=85)] bg-cover bg-center"/><div className="hero-overlay absolute inset-0 z-10 h-full w-full"/><div className="container relative z-20 flex w-full flex-col justify-center"><p className="eyebrow">Our Team</p><h1 className="mt-4 hero-title">The People Behind Durrat Al Noor Hospitality</h1></div></section>
-<section className="section"><Reveal><div className="container"><div className="mb-12 max-w-4xl"><p className="eyebrow">Our People</p><h2 className="heading mt-3">Leadership, client relationships and people support.</h2><p className="copy mt-5">Our team brings together leadership, client relationships and human resources to support our hospitality and cleaning services.</p></div><div className="mt-12 grid items-stretch gap-7 md:grid-cols-3">{people.map(person=><article key={person.name} className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-md"><div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-50"><Image src={person.image} alt={person.name} fill sizes="(max-width:768px) 100vw, 33vw" className="object-cover object-[center_20%]"/></div><div className="flex flex-grow flex-col justify-between p-6"><div><span className="text-xs font-semibold uppercase tracking-wider text-[#DAB672]">{person.role}</span><h3 className="mt-1 text-xl font-bold text-[#0B192C]">{person.name}</h3><p className="mt-2 text-sm leading-relaxed text-slate-600">{person.bio}</p></div></div></article>)}</div></div></Reveal></section>
-<section className="bg-[#F2EEE5] py-16"><Reveal><div className="container flex flex-wrap items-center justify-between gap-6"><div><h2 className="text-3xl font-black">Speak with Our Team</h2><p className="copy mt-2">Tell us about your requirements.</p></div><div className="flex flex-wrap gap-3"><Link href="/contact-us/" className="gold-button rounded-full px-6 py-3 font-bold">Contact Us</Link><Link href="/our-services/" className="rounded-full border border-[#0B192C] px-6 py-3 font-bold hover:border-[#DAB672]">Explore Our Services</Link></div></div></Reveal></section>
-</div>}
+
+export const metadata: Metadata = {
+  title: "Leadership & Team | Durrat Al Noor Hospitality Dubai",
+  description:
+    "Meet the experienced leadership, sales, and HR team behind Durrat Al Noor Hospitality in Dubai. Committed to excellence in hospitality staffing and service quality.",
+  keywords: [
+    "Durrat Al Noor Hospitality",
+    "Hospitality Team Dubai",
+    "Dubai Hospitality Leadership",
+    "Staffing Solutions Dubai",
+    "Dipak Shrestha",
+  ],
+  alternates: {
+    canonical: "https://durratalnoor.com/our-team",
+  },
+  openGraph: {
+    title: "Leadership & Team | Durrat Al Noor Hospitality Dubai",
+    description:
+      "Meet the leadership, sales, and HR professionals behind Durrat Al Noor Hospitality in Dubai.",
+    url: "https://durratalnoor.com/our-team",
+    siteName: "Durrat Al Noor Hospitality",
+    locale: "en_AE",
+    type: "website",
+    images: [
+      {
+        url: "/dipak_shrestha.png",
+        width: 800,
+        height: 600,
+        alt: "Durrat Al Noor Hospitality Leadership Team",
+      },
+    ],
+  },
+};
+
+const people = [
+  {
+    name: "Dipak Shrestha",
+    role: "Managing Director",
+    bio: "Dipak Shrestha leads Durrat Al Noor Hospitality, guiding the company's strategic vision with a steadfast commitment to high service quality, client satisfaction, and workforce excellence across the UAE hospitality sector.",
+    image: "/dipak_shrestha.png",
+  },
+  {
+    name: "Dipak Pandaya",
+    role: "Sales Director",
+    bio: "Dipak Pandaya focuses on strategic business development and long-term client relationships, connecting premier commercial hospitality needs with tailored, efficient staffing and service solutions.",
+    image: "/dipak_pandya.jpeg",
+  },
+  {
+    name: "Alisha Gautam",
+    role: "HR Manager",
+    bio: "Alisha Gautam supports the core workforce at Durrat Al Noor Hospitality through talent recruitment, employee well-being, and structured team development to maintain rigorous service standards.",
+    image: "/alisha_gautham.jpeg",
+  },
+];
+
+export default function Team() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "Our Team - Durrat Al Noor Hospitality",
+    description:
+      "Meet the leadership, sales, and HR team driving excellence at Durrat Al Noor Hospitality Dubai.",
+    publisher: {
+      "@type": "Organization",
+      name: "Durrat Al Noor Hospitality",
+      url: "https://durratalnoor.com",
+      logo: "https://durratalnoor.com/logo.png",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Dubai",
+        addressCountry: "AE",
+      },
+    },
+    employee: people.map((person) => ({
+      "@type": "Person",
+      name: person.name,
+      jobTitle: person.role,
+      description: person.bio,
+      image: `https://durratalnoor.com${person.image}`,
+    })),
+  };
+
+  return {
+    /* Main Content Wrapper */
+  } && (
+    <main className="w-full overflow-x-hidden bg-[#FAFAFA] text-[#0B192C]">
+      {/* Structural Structured Data / JSON-LD for Search Engines & AI Search Assistants */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* Hero Section - Concise Height, Preserved Background & Theme */}
+      <section className="relative flex min-h-[360px] w-full items-center justify-center overflow-hidden bg-[#0B192C] pb-14 pt-28 md:min-h-[420px] md:pt-36">
+        {/* Background Image Layer */}
+        <div
+          className="absolute inset-0 z-0 h-full w-full bg-cover bg-center bg-no-repeat transition-transform duration-700 hover:scale-105"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2000&q=85')`,
+          }}
+          aria-hidden="true"
+        />
+
+        {/* High-Contrast Gradient Overlay for Crisp Text Readability */}
+        <div
+          className="absolute inset-0 z-10 bg-gradient-to-r from-[#0B192C]/95 via-[#0B192C]/85 to-[#0B192C]/75 backdrop-blur-[2px]"
+          aria-hidden="true"
+        />
+
+        {/* Hero Content */}
+        <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <span className="inline-block rounded-full bg-[#DAB672]/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#DAB672] backdrop-blur-md border border-[#DAB672]/30">
+              Our Leadership
+            </span>
+            <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl leading-tight">
+              The Dedicated People Behind Durrat Al Noor Hospitality
+            </h1>
+            <p className="mt-4 text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl">
+              Delivering premier hospitality and cleaning management services
+              across Dubai through experienced leadership, strategic management, and dedicated support.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Team Directory Section */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-white" id="team-members">
+        <Reveal>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Section Header */}
+            <header className="mx-auto max-w-3xl text-center md:text-left md:mx-0 mb-12 sm:mb-16">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#DAB672]">
+                Our Leadership & Specialists
+              </span>
+              <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight">
+                Leadership, Client Relationships & Workforce Support
+              </h2>
+              <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-700">
+                Our team brings together strategic management, active client communication, and robust human resources to ensure top-tier hospitality and facility management solutions.
+              </p>
+            </header>
+
+            {/* Team Grid */}
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
+              {people.map((person) => (
+                <article
+                  key={person.name}
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#DAB672]/50 hover:shadow-xl"
+                >
+                  {/* Card Image Container */}
+                  <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-100">
+                    <Image
+                      src={person.image}
+                      alt={`${person.name} - ${person.role} at Durrat Al Noor Hospitality Dubai`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover object-[center_20%] transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B192C]/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  </div>
+
+                  {/* Card Details */}
+                  <div className="flex flex-1 flex-col justify-between p-6 sm:p-7">
+                    <div>
+                      <span className="inline-block rounded-md bg-[#DAB672]/10 px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-[#9E7A33]">
+                        {person.role}
+                      </span>
+                      <h3 className="mt-3 text-xl font-bold text-[#0B192C] group-hover:text-[#9E7A33] transition-colors">
+                        {person.name}
+                      </h3>
+                      <p className="mt-3 text-sm leading-relaxed text-slate-700">
+                        {person.bio}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="bg-[#F2EEE5] py-16 sm:py-20 border-t border-b border-[#E2DACB]">
+        <Reveal>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+              <div className="max-w-2xl">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight">
+                  Speak with Our Team
+                </h2>
+                <p className="mt-3 text-base sm:text-lg text-slate-700 font-medium">
+                  Tell us about your hospitality staffing or service requirements.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
+                <Link
+                  href="/contact-us/"
+                  className="inline-flex items-center justify-center rounded-full bg-[#DAB672] px-7 py-3.5 text-base font-bold text-[#0B192C] shadow-md transition-all duration-200 hover:bg-[#c9a35e] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2 active:scale-95"
+                >
+                  Contact Us
+                </Link>
+                <Link
+                  href="/our-services/"
+                  className="inline-flex items-center justify-center rounded-full border-2 border-[#0B192C] px-7 py-3.5 text-base font-bold text-[#0B192C] transition-all duration-200 hover:bg-[#0B192C] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#0B192C] focus:ring-offset-2 active:scale-95"
+                >
+                  Explore Our Services
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+    </main>
+  );
+}
