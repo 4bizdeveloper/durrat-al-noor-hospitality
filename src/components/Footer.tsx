@@ -50,7 +50,7 @@ export default function Footer() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-28 lg:pt-16 lg:pb-24">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
           
           {/* Brand Info */}
@@ -136,10 +136,12 @@ export default function Footer() {
 
         </div>
 
-        {/* Legal & Compliance Links Section */}
+        {/* Legal & Compliance Links Section (Centered) */}
         <div className="mt-10 border-t border-slate-700/60 pt-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300">
-            <div className="flex items-center gap-6">
+          <div className="flex flex-col items-center justify-center gap-3 text-xs text-slate-300 text-center">
+            
+            {/* Privacy Policy & Terms Links */}
+            <div className="flex flex-wrap items-center justify-center gap-6">
               {legalLinks.map(({ label, href }) => (
                 <Link
                   key={href}
@@ -157,11 +159,11 @@ export default function Footer() {
             </div>
 
             {/* Copyright & Developer Credits */}
-            <div className="text-center sm:text-right text-slate-400">
+            <div className="text-center text-slate-400 space-y-1">
               <p>
                 © <span suppressHydrationWarning>{currentYear}</span> Durrat Al Noor Hospitality. All rights reserved.
               </p>
-              <p className="mt-1">
+              <p>
                 Developed by{" "}
                 <a
                   href="https://www.4bizinternational.com/"
@@ -173,6 +175,7 @@ export default function Footer() {
                 </a>
               </p>
             </div>
+
           </div>
         </div>
 
