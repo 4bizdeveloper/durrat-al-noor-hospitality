@@ -301,7 +301,7 @@ export default function Home() {
             >
               <div className="relative min-h-[340px] sm:min-h-[420px] lg:min-h-[480px] w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-slate-900/10 bg-slate-200">
                 <Image
-                  src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1400&q=80"
+                  src="/hospitality-1.png"
                   alt="Durrat Al Noor Hospitality Dubai"
                   fill
                   priority={true}

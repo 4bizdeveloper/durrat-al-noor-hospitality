@@ -49,17 +49,17 @@ export default function FloatingActions() {
           href={`tel:${phoneNumber}`}
           aria-label="Call direct phone line at +971 58 277 4427"
           title="Direct Phone Call"
-          className="group relative grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-full bg-gradient-to-r from-[#D4AF37] via-[#C5A059] to-[#E6C280] text-[#122136] shadow-2xl transition-transform duration-300 ease-out hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2"
+          className="group relative grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-full bg-gradient-to-tr from-[#8A6229] via-[#E5C158] to-[#9A7432] border border-[#7A5218]/30 text-[#0F172A] shadow-[0_8px_25px_rgba(138,98,41,0.35),0_4px_10px_rgba(0,0,0,0.12)] transition-transform duration-300 ease-out hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2"
         >
-          {/* Continuous Pulse Effect */}
-          <span className="absolute inset-0 rounded-full bg-[#D4AF37]/60 animate-ping pointer-events-none opacity-75" />
-          <span className="absolute -inset-1 rounded-full bg-[#C5A059]/30 animate-pulse pointer-events-none" />
+          {/* Continuous Pulse Effect - Deep Warm Gold Glow */}
+          <span className="absolute inset-0 rounded-full bg-[#B38728]/40 animate-ping pointer-events-none opacity-80" />
+          <span className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#8A6229]/35 to-[#E5C158]/45 animate-pulse pointer-events-none blur-[1px]" />
 
-          {/* Icon with Zoom Effect on Hover & Preserved Colors */}
+          {/* Icon with Zoom Effect on Hover */}
           <Phone
             size={22}
             strokeWidth={2.4}
-            className="relative z-10 transition-transform duration-300 group-hover:scale-110 text-[#122136]"
+            className="relative z-10 transition-transform duration-300 group-hover:scale-110 text-[#0F172A]"
           />
         </a>
 
@@ -70,14 +70,14 @@ export default function FloatingActions() {
           rel="noopener noreferrer"
           aria-label="Contact us on WhatsApp at +971 58 277 4427"
           title="WhatsApp Chat"
-          className="group relative grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-full bg-gradient-to-r from-[#D4AF37] via-[#C5A059] to-[#E6C280] text-[#122136] shadow-2xl transition-transform duration-300 ease-out hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2"
+          className="group relative grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-full bg-gradient-to-tr from-[#8A6229] via-[#E5C158] to-[#9A7432] border border-[#7A5218]/30 text-[#0F172A] shadow-[0_8px_25px_rgba(138,98,41,0.35),0_4px_10px_rgba(0,0,0,0.12)] transition-transform duration-300 ease-out hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2"
         >
-          {/* Continuous Pulse Effect */}
-          <span className="absolute inset-0 rounded-full bg-[#D4AF37]/60 animate-ping pointer-events-none opacity-75 [animation-delay:500ms]" />
-          <span className="absolute -inset-1 rounded-full bg-[#C5A059]/30 animate-pulse pointer-events-none [animation-delay:500ms]" />
+          {/* Continuous Pulse Effect - Deep Warm Gold Glow */}
+          <span className="absolute inset-0 rounded-full bg-[#B38728]/40 animate-ping pointer-events-none opacity-80 [animation-delay:500ms]" />
+          <span className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#8A6229]/35 to-[#E5C158]/45 animate-pulse pointer-events-none blur-[1px] [animation-delay:500ms]" />
 
-          {/* Icon with Zoom Effect on Hover & Preserved Colors */}
-          <div className="relative z-10 text-[#122136]">
+          {/* Icon with Zoom Effect on Hover */}
+          <div className="relative z-10 text-[#0F172A]">
             <WhatsAppIcon size={22} />
           </div>
         </a>
