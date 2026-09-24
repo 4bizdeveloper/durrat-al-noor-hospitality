@@ -43,7 +43,7 @@ const services: HomeService[] = [
     ],
     button: "Explore Housekeeping",
     image:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=85",
+      "/hose-keeping-service.webp",
     imageAlt: "Housekeeping services in Dubai",
     icon: Sparkles,
   },
@@ -59,7 +59,7 @@ const services: HomeService[] = [
     ],
     button: "Explore F&B Staffing",
     image:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=85",
+      "/food-and-beverage-staffing-service.webp",
     imageAlt: "Food and beverage staffing services in Dubai",
     icon: Utensils,
   },
@@ -75,7 +75,7 @@ const services: HomeService[] = [
     ],
     button: "Explore Kitchen Support",
     image:
-      "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1400&q=85",
+      "/kitchen-stevarding-service.webp",
     imageAlt: "Kitchen and stewarding services in Dubai",
     icon: ChefHat,
   },
@@ -91,7 +91,7 @@ const services: HomeService[] = [
     ],
     button: "Explore Pool & Leisure",
     image:
-      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1400&q=85",
+      "/pool-leisure-service.webp",
     imageAlt: "Pool and leisure staffing services in Dubai",
     icon: Waves,
   },
@@ -107,7 +107,7 @@ const services: HomeService[] = [
     ],
     button: "Explore Deep Cleaning",
     image:
-      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=85",
+      "/deep-cleaning-service.webp",
     imageAlt: "Deep cleaning services in Dubai",
     icon: ShieldCheck,
   },
