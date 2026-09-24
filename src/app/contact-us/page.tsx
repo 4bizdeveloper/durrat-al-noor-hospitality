@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal";
 import { Clock, Mail, MapPin, Phone, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { useState } from "react";
 
-export default function Contact() {
+export default function ContactPage() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
   function submit(e: React.FormEvent<HTMLFormElement>) {
@@ -23,7 +23,7 @@ export default function Contact() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Durrat Al Noor Hospitality & Cleaning",
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=85",
+    image: "/hsopitality-uae.webp",
     telePhone: "+971582774427",
     email: "info@durratalnoorhospitality.com",
     address: {
@@ -49,23 +49,29 @@ export default function Contact() {
 
   return (
     <div className="w-full bg-[#FAF9F6] text-[#0F172A] selection:bg-[#DAB672] selection:text-white">
+      {/* Inline Metadata Tags to allow full Client Component usage in a single file */}
+      <title>Contact Durrat Al Noor Hospitality | Al Karama, Dubai</title>
+      <meta
+        name="description"
+        content="Contact Durrat Al Noor Hospitality in Al Karama, Dubai. Call +971 58 277 4427 for hospitality staffing, housekeeping and deep cleaning enquiries."
+      />
+
       {/* Search Engine & AI Knowledge Graph Markup */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Hero Section - Sharp, High-Contrast & Clear Background */}
-      <section className="relative flex w-full min-h-[420px] items-center justify-center overflow-hidden bg-[#0B192C] py-16 sm:py-20 lg:py-28 text-white">
+      {/* Hero Section - Full Screen with Safe Top Spacing for Navbar */}
+      <section className="relative flex w-full min-h-screen items-center justify-center overflow-hidden bg-[#0B192C] pt-28 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-28 text-white">
         <div
           className="absolute inset-0 z-0 h-full w-full bg-cover bg-center transition-transform duration-1000 ease-out will-change-transform hover:scale-105"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=85')",
+            backgroundImage: "url('/hsopitality-uae.webp')",
           }}
           aria-hidden="true"
         />
-        {/* Crisp multi-stop dark overlay for crisp image visibility with high contrast readability */}
+        {/* Crisp multi-stop dark overlay for high contrast readability */}
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#0B192C]/90 via-[#0B192C]/75 to-[#0B192C]/60" />
 
         <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8">
@@ -79,6 +85,19 @@ export default function Contact() {
             <p className="mt-4 max-w-2xl text-base text-slate-200 sm:text-lg lg:text-xl font-normal leading-relaxed">
               Partner with Dubai’s leading provider for professional housekeeping, hospitality staffing, and specialized cleaning solutions.
             </p>
+
+            {/* Gradient CTA Button linking to /contact-us */}
+            <div className="mt-8">
+              <Link
+                href="/contact-us"
+                className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-bold text-[#0B192C] shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#E5C68D] active:scale-95"
+                style={{
+                  background: "linear-gradient(90deg, #E5C68D 0%, #FDF2E2 100%)",
+                }}
+              >
+                Contact Us
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -92,25 +92,40 @@ export default function About() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Hero Section */}
-      <section className="relative flex w-full items-center justify-center overflow-hidden bg-[#0B192C] pb-16 pt-32 text-white md:pb-24 md:pt-40">
+      {/* Hero Section - Left Aligned Layout */}
+      <section className="relative flex min-h-screen w-full items-center overflow-hidden bg-[#0B192C] px-4 py-20 text-white sm:px-6 lg:px-8">
         <div
-          className="absolute inset-0 z-0 h-full w-full bg-[url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2000&q=85')] bg-cover bg-center"
+          className="absolute inset-0 z-0 h-full w-full bg-[url('/hsopitality-uae.webp')] bg-cover bg-center"
           aria-hidden="true"
         />
         {/* Soft overlay ensuring text visibility without over-darkening the hero */}
         <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#0B192C]/80 via-[#0B192C]/60 to-[#0B192C]/85" />
         
-        <div className="container relative z-20 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <p className="inline-block rounded-full bg-[#DAB672]/20 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-[#DAB672] backdrop-blur-md">
-            About Us
-          </p>
-          <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            About Durrat Al Noor Hospitality
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-slate-200 sm:text-lg">
-            Empowering Dubai & UAE's finest service environments with dedicated staff and precision care.
-          </p>
+        <div className="container relative z-20 mx-auto max-w-7xl text-left">
+          <div className="max-w-3xl">
+            <p className="inline-block rounded-full bg-[#DAB672]/20 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-[#DAB672] backdrop-blur-md">
+              • About Us
+            </p>
+            <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              About Durrat Al Noor Hospitality
+            </h1>
+            <p className="mt-6 text-base text-slate-200 sm:text-lg leading-relaxed">
+              Empowering Dubai & UAE's finest service environments with dedicated staff, tailored operational solutions, and precision care. We specialize in premium hospitality staffing, housekeeping, and deep cleaning services designed for hotels, restaurants, and luxury commercial spaces across the Emirates.
+            </p>
+
+            {/* CTA Button with Custom Gradient */}
+            <div className="mt-8 flex justify-start">
+              <Link
+                href="/contact-us"
+                style={{
+                  background: "linear-gradient(90deg, #E5C68D 0%, #FDF2E2 100%)",
+                }}
+                className="inline-flex items-center rounded-full px-8 py-3.5 text-base font-bold text-[#0B192C] shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#E5C68D] focus:ring-offset-2"
+              >
+                Contact Us
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -158,7 +173,7 @@ export default function About() {
               </div>
               <div className="relative h-[350px] sm:h-[450px] w-full overflow-hidden rounded-3xl shadow-xl transition-transform duration-300 hover:scale-[1.01]">
                 <Image
-                  src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1400&q=80"
+                  src="/hsopitality-uae.webp"
                   alt="Hotel hospitality service management in Dubai UAE"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -197,14 +212,14 @@ export default function About() {
                 </p>
               </div>
 
-              <div className="group rounded-2xl border border-slate-200/80 bg-white p-8 shadow-sm transition-all duration-300 hover:border-[#DAB672] hover:shadow-md">
+              <div className="group rounded-2xl border border-slate-200/80 bg-[#0B192C] p-8 shadow-sm transition-all duration-300 hover:border-[#DAB672] hover:shadow-md text-white">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#0B192C] text-[#DAB672]">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#DAB672]">
                     <Eye className="h-6 w-6" />
                   </div>
-                  <h3 className="text-2xl font-bold text-[#0B192C]">Vision</h3>
+                  <h3 className="text-2xl font-bold text-white">Vision</h3>
                 </div>
-                <p className="mt-4 text-base leading-relaxed text-slate-700">
+                <p className="mt-4 text-base leading-relaxed text-slate-200">
                   To become a trusted hospitality partner across the UAE, building lasting relationships through service quality, professional conduct and care for people.
                 </p>
               </div>

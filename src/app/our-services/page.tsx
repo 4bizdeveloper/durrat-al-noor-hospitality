@@ -33,8 +33,7 @@ const data: Service[] = [
       "School cleaning",
     ],
     button: "Enquire About Housekeeping",
-    image:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=85",
+    image: "/hose-keeping-service.webp",
     imageAlt: "Professional hotel room housekeeping service",
   },
   {
@@ -49,8 +48,7 @@ const data: Service[] = [
       "Event personnel",
     ],
     button: "Enquire About F&B Staffing",
-    image:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=85",
+    image: "/food-and-beverage-staffing-service.webp",
     imageAlt: "Elegant restaurant service and hospitality staff",
   },
   {
@@ -59,8 +57,7 @@ const data: Service[] = [
       "Kitchen support personnel help maintain smooth daily operations across food preparation and stewarding environments.",
     bullets: ["Kitchen stewards", "Commis chefs", "Culinary support"],
     button: "Enquire About Kitchen Support",
-    image:
-      "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1400&q=85",
+    image: "/kitchen-stevarding-service.webp",
     imageAlt: "Professional commercial kitchen staff",
   },
   {
@@ -69,8 +66,7 @@ const data: Service[] = [
       "Pool and leisure personnel support hospitality and recreation environments with the required roles and agreed schedules.",
     bullets: ["Pool lifeguards", "Beach lifeguards", "Recreation attendants"],
     button: "Enquire About Pool & Leisure Staffing",
-    image:
-      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1400&q=85",
+    image: "/pool-leisure-service.webp",
     imageAlt: "Luxury resort pool and leisure environment",
   },
   {
@@ -79,8 +75,7 @@ const data: Service[] = [
       "Deep cleaning is arranged around your property's requirements, scope, tasks, materials, equipment and schedule.",
     bullets: ["Commercial", "Residential", "Villas", "Restaurants"],
     button: "Request a Deep Cleaning Quote",
-    image:
-      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=85",
+    image: "/deep-cleaning-service.webp",
     imageAlt: "Professional deep cleaning service in a commercial property",
   },
 ];
@@ -123,10 +118,73 @@ const faqs: FAQ[] = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What hospitality staffing services do you provide?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We support housekeeping, food and beverage, kitchen and stewarding, pool and leisure, and other applicable hospitality staffing requirements.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you provide housekeeping services for residences and offices?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Housekeeping and cleaning support can be arranged for hotels, residences, offices, schools, government facilities and other agreed environments.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I request temporary or casual staff?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Casual staffing is available for applicable roles and temporary operational requirements.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you provide full-time employment support?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Full-time employment support can be discussed for applicable roles based on your requirements and agreed terms.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What areas do you cover?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We are based in Al Karama, Dubai and support clients in Dubai and across the UAE, subject to the service requirements.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How is deep cleaning quoted?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The scope, tasks, materials, equipment and schedule are discussed around your property's requirements before the quotation is agreed.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do I request a quotation?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Use the enquiry form on our Contact Us page or contact us by phone or WhatsApp to discuss your requirements.",
+      },
+    },
+  ],
+};
+
 export default function Services() {
   const [open, setOpen] = useState<number | null>(null);
 
-  // JSON-LD Structured Data Schema for SEO, AEO & GEO Engine Parsing
+  // JSON-LD Structured Data Schema for Search Engines, Voice Assistants (AEO) & Generative Search Engines (GEO)
   const jsonLdData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -188,37 +246,44 @@ export default function Services() {
     <>
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
       />
 
-      <div className="w-full bg-slate-50 text-slate-800 antialiased selection:bg-[#DEBC7A] selection:text-slate-950">
-        {/* HERO SECTION */}
-        <section className="relative flex w-full items-center justify-center overflow-hidden bg-[#0B192C] py-20 md:py-28 text-white">
+      <div className="w-full bg-[#FAF9F6] text-slate-900 antialiased selection:bg-[#DEBC7A] selection:text-slate-950">
+        {/* HERO SECTION - Controlled Height, Clear Background, Proper Space Below Navbar */}
+        <section className="relative w-full overflow-hidden bg-[#0F2137] pt-32 sm:pt-36 md:pt-40 pb-20 sm:pb-24 lg:pb-28 text-white">
           <Image
-            src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2000&q=85"
+            src="/hsopitality-uae.webp"
             alt="Durrat Al Noor Hospitality Services Dubai"
             fill
             priority
+            quality={90}
             sizes="100vw"
-            className="object-cover object-center brightness-[0.35]"
+            className="object-cover object-center brightness-[0.70] contrast-[1.05]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B192C] via-transparent to-transparent opacity-80" />
-          
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0F2137]/90 via-[#0F2137]/75 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0F2137] via-transparent to-transparent opacity-80" />
+
           <div className="container relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
-              <span className="inline-block rounded-full bg-[#DEBC7A]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#DEBC7A] backdrop-blur-md border border-[#DEBC7A]/30">
+              <span className="inline-flex items-center gap-2 rounded-full bg-[#DEBC7A]/20 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-[#EBD09C] backdrop-blur-md border border-[#DEBC7A]/40 shadow-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#DEBC7A] animate-pulse" />
                 Our Services
               </span>
-              <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl leading-[1.15]">
+              <h1 className="mt-5 text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl leading-[1.15]">
                 Hospitality &amp; Cleaning Services in Dubai and the UAE
               </h1>
-              <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl">
+              <p className="mt-5 text-base sm:text-lg text-slate-100 max-w-2xl leading-relaxed font-normal">
                 Reliable staffing and property support solutions engineered for hotels, restaurants, offices, and residential spaces across Dubai.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
                   href="/contact-us/"
-                  className="inline-flex items-center justify-center rounded-full bg-[#DEBC7A] px-8 py-4 text-base font-bold text-slate-950 transition-all hover:bg-[#C5A361] hover:shadow-lg hover:shadow-[#DEBC7A]/25 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[#DEBC7A] focus:ring-offset-2 focus:ring-offset-[#0B192C]"
+                  className="inline-flex items-center justify-center rounded-full bg-[#DEBC7A] px-8 py-4 text-base font-bold text-slate-950 transition-all duration-300 hover:bg-[#C5A361] hover:shadow-xl hover:shadow-[#DEBC7A]/20 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[#DEBC7A] focus:ring-offset-2 focus:ring-offset-[#0F2137]"
                 >
                   Request a Quote
                 </Link>
@@ -227,41 +292,41 @@ export default function Services() {
           </div>
         </section>
 
-        {/* SERVICES LIST */}
-        <section className="py-16 md:py-24">
+        {/* SERVICES LIST SECTION */}
+        <section className="py-16 sm:py-20 md:py-28">
           <Reveal>
             <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="mb-14 max-w-3xl">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#B89452]">
+              <div className="mb-14 sm:mb-20 max-w-3xl">
+                <span className="text-xs font-black uppercase tracking-widest text-[#9A7432]">
                   Service Overview
                 </span>
-                <h2 className="mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl tracking-tight">
+                <h2 className="mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl lg:text-5xl tracking-tight">
                   Practical support for people, properties and daily operations.
                 </h2>
-                <p className="mt-4 text-lg leading-relaxed text-slate-600">
+                <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-700">
                   Durrat Al Noor Hospitality provides five core services to support
                   people, properties and daily operations. Choose a service below
                   to review the scope and request support.
                 </p>
               </div>
 
-              <div className="space-y-16 lg:space-y-24">
+              <div className="space-y-16 sm:space-y-20 lg:space-y-28">
                 {data.map((service, index) => (
                   <article
                     id={`service-${index + 1}`}
                     key={service.title}
-                    className={`scroll-mt-28 flex flex-col gap-8 rounded-3xl border border-slate-200/80 bg-white p-6 sm:p-8 lg:p-12 shadow-sm transition-all hover:shadow-md lg:items-center lg:gap-12 ${
+                    className={`scroll-mt-32 flex flex-col gap-8 rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 lg:p-12 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-slate-300/80 lg:items-center lg:gap-12 ${
                       index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
                     }`}
                   >
                     <div className="min-w-0 flex-1">
-                      <span className="text-sm font-black text-[#B89452]">
+                      <span className="text-sm font-black text-[#9A7432]">
                         0{index + 1}
                       </span>
-                      <h2 className="mt-1 text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                      <h2 className="mt-1 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
                         {service.title}
                       </h2>
-                      <p className="mt-4 text-base text-slate-600 leading-relaxed">
+                      <p className="mt-4 text-base sm:text-lg text-slate-700 leading-relaxed">
                         {service.description}
                       </p>
 
@@ -269,10 +334,10 @@ export default function Services() {
                         {service.bullets.map((bullet) => (
                           <li
                             key={bullet}
-                            className="flex items-center rounded-xl bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700 border border-slate-100"
+                            className="flex items-center rounded-xl bg-slate-100/80 px-4 py-3 text-sm font-semibold text-slate-900 border border-slate-200/60 transition-colors hover:bg-slate-100"
                           >
                             <span
-                              className="mr-2.5 text-[#DEBC7A] font-bold"
+                              className="mr-3 text-[#9A7432] font-black text-base"
                               aria-hidden="true"
                             >
                               ➔
@@ -285,20 +350,22 @@ export default function Services() {
                       <div className="mt-8">
                         <Link
                           href="/contact-us/"
-                          className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-bold text-white transition-all hover:bg-[#DEBC7A] hover:text-slate-950 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-slate-900"
+                          className="inline-flex items-center justify-center rounded-full bg-slate-950 px-7 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:bg-[#DEBC7A] hover:text-slate-950 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-slate-950"
                         >
                           {service.button}
                         </Link>
                       </div>
                     </div>
 
-                    <div className="relative h-[260px] sm:h-[340px] lg:h-[400px] w-full overflow-hidden rounded-2xl shadow-md lg:w-[46%] lg:shrink-0">
+                    {/* IMAGE CONTAINER WITH CRISP Clarity Filters */}
+                    <div className="relative h-[280px] sm:h-[360px] lg:h-[420px] w-full overflow-hidden rounded-2xl shadow-md lg:w-[48%] lg:shrink-0 bg-slate-100">
                       <Image
                         src={service.image}
                         alt={service.imageAlt}
                         fill
-                        sizes="(max-width: 1024px) 100vw, 46vw"
-                        className="object-cover transition-transform duration-500 hover:scale-105"
+                        quality={90}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 48vw"
+                        className="object-cover transition-transform duration-700 hover:scale-105 contrast-[1.05] saturate-[1.05] [image-rendering:-webkit-optimize-contrast]"
                       />
                     </div>
                   </article>
@@ -309,19 +376,19 @@ export default function Services() {
         </section>
 
         {/* STAFFING OPTIONS */}
-        <section className="py-16 md:py-24 bg-white border-y border-slate-200/60">
+        <section className="py-16 sm:py-20 md:py-28 bg-white border-y border-slate-200/80">
           <Reveal>
             <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="max-w-2xl">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#B89452]">
+                <span className="text-xs font-black uppercase tracking-widest text-[#9A7432]">
                   Solutions
                 </span>
-                <h2 className="mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl tracking-tight">
+                <h2 className="mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl lg:text-5xl tracking-tight">
                   Staffing Options
                 </h2>
               </div>
-              
-              <div className="mt-10 grid gap-6 md:grid-cols-3">
+
+              <div className="mt-10 sm:mt-14 grid gap-6 sm:gap-8 md:grid-cols-3">
                 {[
                   [
                     "Casual Staffing",
@@ -337,11 +404,11 @@ export default function Services() {
                   ],
                 ].map(([title, description]) => (
                   <div
-                    className="rounded-2xl border border-slate-100 bg-slate-50/80 p-8 transition-all hover:border-[#DEBC7A]/50 hover:bg-white hover:shadow-lg hover:shadow-[#DEBC7A]/10"
+                    className="rounded-2xl border border-slate-200/80 bg-slate-50/70 p-8 transition-all duration-300 hover:border-[#DEBC7A]/80 hover:bg-white hover:shadow-xl hover:shadow-[#DEBC7A]/10"
                     key={title}
                   >
                     <h3 className="text-xl font-bold text-slate-900">{title}</h3>
-                    <p className="mt-3 text-slate-600 leading-relaxed text-sm sm:text-base">
+                    <p className="mt-3 text-slate-700 leading-relaxed text-sm sm:text-base">
                       {description}
                     </p>
                   </div>
@@ -352,48 +419,48 @@ export default function Services() {
         </section>
 
         {/* FAQS SECTION */}
-        <section className="py-16 md:py-24">
+        <section className="py-16 sm:py-20 md:py-28">
           <Reveal>
             <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
               <div className="text-center">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#B89452]">
+                <span className="text-xs font-black uppercase tracking-widest text-[#9A7432]">
                   Got Questions?
                 </span>
-                <h2 className="mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl tracking-tight">
+                <h2 className="mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl lg:text-5xl tracking-tight">
                   Frequently Asked Questions
                 </h2>
-                <p className="mt-3 text-slate-600">
+                <p className="mt-3 text-slate-700 text-base sm:text-lg">
                   Common questions about our hospitality and cleaning services in Dubai.
                 </p>
               </div>
 
-              <div className="mt-10 space-y-4">
+              <div className="mt-10 sm:mt-12 space-y-4">
                 {faqs.map((faq, index) => {
                   const isOpen = open === index;
                   return (
                     <div
                       key={faq.question}
-                      className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-colors"
+                      className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-colors duration-200"
                     >
                       <button
                         type="button"
                         onClick={() => setOpen(isOpen ? null : index)}
                         aria-expanded={isOpen}
-                        className="flex w-full items-center justify-between p-5 text-left font-bold text-slate-900 hover:text-[#B89452] focus:outline-none"
+                        className="flex w-full items-center justify-between p-5 sm:p-6 text-left font-bold text-slate-900 hover:text-[#9A7432] focus:outline-none transition-colors"
                       >
-                        <span className="pr-4 text-base sm:text-lg">{faq.question}</span>
-                        <span className="ml-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-100 text-[#B89452] transition-transform duration-200">
+                        <span className="pr-4 text-base sm:text-lg leading-snug">{faq.question}</span>
+                        <span className="ml-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-100 text-[#9A7432] font-black transition-transform duration-200">
                           {isOpen ? "−" : "+"}
                         </span>
                       </button>
 
                       <div
-                        className={`grid transition-[grid-template-rows] duration-200 ease-out ${
+                        className={`grid transition-[grid-template-rows] duration-300 ease-out ${
                           isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                         }`}
                       >
                         <div className="overflow-hidden">
-                          <p className="px-5 pb-5 text-slate-600 leading-relaxed text-sm sm:text-base">
+                          <p className="px-5 pb-5 sm:px-6 sm:pb-6 text-slate-700 leading-relaxed text-sm sm:text-base border-t border-slate-100 pt-4">
                             {faq.answer}
                           </p>
                         </div>
@@ -407,22 +474,22 @@ export default function Services() {
         </section>
 
         {/* CTA FOOTER BANNER */}
-        <section className="bg-[#0B192C] py-16 text-white">
+        <section className="bg-[#0F2137] py-16 sm:py-20 text-white">
           <Reveal>
             <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+              <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
                 <div>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">
                     Ready to discuss your requirements?
                   </h2>
-                  <p className="mt-2 text-slate-300 text-sm sm:text-base">
+                  <p className="mt-2 text-slate-200 text-base">
                     Get in touch with our Dubai team today for custom staffing and cleaning arrangements.
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-4">
                   <Link
                     href="/contact-us/"
-                    className="inline-flex items-center justify-center rounded-full bg-[#DEBC7A] px-7 py-3.5 text-sm font-bold text-slate-950 transition-all hover:bg-[#C5A361] active:scale-[0.98]"
+                    className="inline-flex items-center justify-center rounded-full bg-[#DEBC7A] px-7 py-3.5 text-sm font-bold text-slate-950 transition-all duration-300 hover:bg-[#C5A361] hover:shadow-lg hover:shadow-[#DEBC7A]/20 active:scale-[0.98]"
                   >
                     Request a Quote
                   </Link>
@@ -430,7 +497,7 @@ export default function Services() {
                     href="https://wa.me/971582774427"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-800/80 px-7 py-3.5 text-sm font-bold text-white transition-all hover:border-[#DEBC7A] hover:text-[#DEBC7A] active:scale-[0.98]"
+                    className="inline-flex items-center justify-center rounded-full border border-slate-600 bg-slate-800/80 px-7 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:border-[#DEBC7A] hover:text-[#DEBC7A] active:scale-[0.98]"
                   >
                     WhatsApp Us
                   </a>

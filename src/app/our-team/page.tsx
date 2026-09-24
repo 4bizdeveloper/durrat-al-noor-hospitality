@@ -152,12 +152,12 @@ export default function Team() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Hero Section */}
-      <section className="relative flex min-h-[380px] sm:min-h-[440px] md:min-h-[480px] w-full items-center justify-center overflow-hidden bg-[#0B192C] py-20 md:py-28">
+      {/* Hero Section - Set to Full Viewport Height with Navbar Offset Clearance */}
+      <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#0B192C] pt-32 pb-20 md:pt-40 md:pb-28">
         {/* Crisp Unblurred Next.js Optimized Image */}
         <div className="absolute inset-0 z-0 h-full w-full pointer-events-none">
           <Image
-            src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2000&q=85"
+            src="/hsopitality-uae.webp"
             alt="Durrat Al Noor Hospitality Headquarters Dubai background"
             fill
             priority
@@ -186,6 +186,19 @@ export default function Team() {
               Delivering premier hospitality and cleaning management services
               across Dubai through experienced leadership, strategic management, and dedicated support.
             </p>
+
+            {/* Custom Gradient CTA Button */}
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Link
+                href="/contact-us"
+                className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-base font-bold text-[#0B192C] shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-[#E5C68D] focus:ring-offset-2 active:scale-95"
+                style={{
+                  background: "linear-gradient(90deg, #E5C68D 0%, #FDF2E2 100%)",
+                }}
+              >
+                Contact Us
+              </Link>
+            </div>
           </div>
         </div>
       </section>
