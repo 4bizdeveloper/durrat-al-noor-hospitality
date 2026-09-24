@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { Menu, X, ChevronRight } from "lucide-react";
 
 const NAV_LINKS = [
@@ -10,13 +11,16 @@ const NAV_LINKS = [
   { label: "About Us", href: "/about-us/" },
   { label: "Our Services", href: "/our-services/" },
   { label: "Our Team", href: "/our-team/" },
+  { label: "Contact Us", href: "/contact-us/" },
 ];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
@@ -40,7 +44,7 @@ export default function Header() {
 
   return (
     <>
-      {/* Schema Markup for Structural SEO, Generative AI (AEO), & GEO Search Engine Engine Engines */}
+      {/* Schema Markup for Structural SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -71,14 +75,14 @@ export default function Header() {
 
       <header
         className={[
-          "fixed inset-x-0 top-0 z-50 transition-colors duration-300 ease-out",
+          "fixed inset-x-0 top-0 z-40 transition-colors duration-300 ease-out",
           scrolled
             ? "border-b border-[#DAB672] bg-white/95 shadow-md backdrop-blur-md"
             : "border-b border-transparent bg-transparent"
         ].join(" ")}
       >
         <div className="container mx-auto flex h-[58px] items-center justify-between px-4 sm:h-[62px] sm:px-6 lg:h-[68px] lg:px-8">
-          {/* Logo with optimal height to avoid touching top/bottom header borders */}
+          {/* Logo */}
           <Link
             href="/"
             className="group flex items-center transition-transform duration-300 hover:scale-[1.02]"
@@ -100,21 +104,23 @@ export default function Header() {
             className="hidden items-center gap-8 lg:flex"
             aria-label="Primary navigation"
           >
-            {NAV_LINKS.map(({ label, href }) => (
-              <Link
-                key={href}
-                href={href}
-                className={[
-                  "relative text-sm font-semibold tracking-wide transition-colors duration-200 py-1.5",
-                  "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#DAB672] after:transition-all after:duration-300 after:ease-in-out hover:after:w-full",
-                  scrolled
-                    ? "text-[#0F172A] hover:text-[#B8860B]"
-                    : "text-white hover:text-[#DAB672]"
-                ].join(" ")}
-              >
-                {label}
-              </Link>
-            ))}
+            {NAV_LINKS.filter((link) => link.href !== "/contact-us/").map(
+              ({ label, href }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className={[
+                    "relative text-sm font-semibold tracking-wide transition-colors duration-200 py-1.5",
+                    "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#DAB672] after:transition-all after:duration-300 after:ease-in-out hover:after:w-full",
+                    scrolled
+                      ? "text-[#0F172A] hover:text-[#B8860B]"
+                      : "text-white hover:text-[#DAB672]"
+                  ].join(" ")}
+                >
+                  {label}
+                </Link>
+              )
+            )}
             <Link
               href="/contact-us/"
               className="gold-button transform rounded-full bg-gradient-to-r from-[#DAB672] to-[#B8860B] px-6 py-2.5 text-sm font-bold text-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2"
@@ -139,30 +145,32 @@ export default function Header() {
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
+      </header>
 
-        {/* Mobile & Tablet Drawer Slide-in from RIGHT */}
-        <div
-          className={[
-            "fixed inset-0 z-[60] lg:hidden transition-opacity duration-300",
-            open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
-          ].join(" ")}
-        >
-          {/* Backdrop overlay */}
+      {/* Mobile & Tablet Drawer rendered via Portal outside header context */}
+      {mounted &&
+        createPortal(
           <div
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-            onClick={() => setOpen(false)}
-            aria-hidden="true"
-          />
-
-          {/* Flyout Sidebar from Right */}
-          <aside
             className={[
-              "absolute right-0 top-0 h-full w-[min(86vw,360px)] transform bg-[#0A192F] shadow-2xl transition-transform duration-300 ease-in-out flex flex-col justify-between overflow-y-auto overscroll-contain",
-              open ? "translate-x-0" : "translate-x-full"
+              "fixed inset-0 z-[99999] lg:hidden transition-opacity duration-300",
+              open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
             ].join(" ")}
-            aria-label="Mobile navigation menu"
           >
-            <div>
+            {/* Backdrop overlay */}
+            <div
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              onClick={() => setOpen(false)}
+              aria-hidden="true"
+            />
+
+            {/* Flyout Sidebar from Right */}
+            <aside
+              className={[
+                "absolute right-0 top-0 h-full w-[min(86vw,360px)] transform bg-[#0A192F] shadow-2xl transition-transform duration-300 ease-in-out flex flex-col overflow-y-auto overscroll-contain",
+                open ? "translate-x-0" : "translate-x-full"
+              ].join(" ")}
+              aria-label="Mobile navigation menu"
+            >
               {/* Drawer Header */}
               <div className="flex h-[58px] items-center justify-between border-b border-[#DAB672]/30 px-5 sm:h-[62px]">
                 <Image
@@ -200,21 +208,10 @@ export default function Header() {
                   </Link>
                 ))}
               </nav>
-            </div>
-
-            {/* Bottom Call to Action */}
-            <div className="p-5">
-              <Link
-                href="/contact-us/"
-                onClick={() => setOpen(false)}
-                className="gold-button block w-full rounded-full bg-gradient-to-r from-[#DAB672] to-[#B8860B] py-3.5 text-center text-base font-bold text-white shadow-lg transition-transform duration-200 active:scale-95"
-              >
-                Contact Us
-              </Link>
-            </div>
-          </aside>
-        </div>
-      </header>
+            </aside>
+          </div>,
+          document.body
+        )}
     </>
   );
 }
