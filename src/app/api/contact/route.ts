@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-export async function POST(request: Request) {
+export async function POST(req: Request) {
   try {
-    const body = await request.json();
+    const body = await req.json();
     const {
       fullName,
       companyName,
@@ -15,85 +15,57 @@ export async function POST(request: Request) {
       requirements,
     } = body;
 
-    // Validate required fields
+    // Field validation
     if (!fullName || !email || !phone || !location || !service || !requirements) {
       return NextResponse.json(
-        { error: "Please fill in all required fields." },
+        { error: "Missing required form fields" },
         { status: 400 }
       );
     }
 
-    // Configure Nodemailer Transporter
+    // Configure Nodemailer with Gmail credentials
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || "smtp.gmail.com",
       port: Number(process.env.SMTP_PORT) || 465,
-      secure: true, // true for 465, false for other ports
+      secure: true, // true for port 465
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        user: process.env.SMTP_USER || "4bizdeveloper@gmail.com",
+        pass: process.env.SMTP_PASS || "bxsi tllp aglu mwgf",
       },
     });
 
-    // Email Body
-    const mailOptions = {
-      from: `"Durrat Al Noor Contact Form" <${process.env.SMTP_USER}>`,
-      to: process.env.RECIPIENT_EMAIL || "info@durratalnoorhospitality.com",
+    const recipient = process.env.RECIPIENT_EMAIL || "info@durratalnoorhospitality.com";
+
+    // Send email
+    await transporter.sendMail({
+      from: `"Durrat Al Noor Website" <${process.env.SMTP_USER || "4bizdeveloper@gmail.com"}>`,
+      to: recipient,
       replyTo: email,
-      subject: `New Enquiry from ${fullName} - ${service}`,
+      subject: `New Service Enquiry from ${fullName} - ${service}`,
       html: `
-        <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
-          <h2 style="color: #0B192C; border-bottom: 2px solid #DAB672; padding-bottom: 10px;">
-            New Contact Form Submission
-          </h2>
-          <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
-            <tr>
-              <td style="padding: 8px 0; font-weight: bold; width: 180px;">Full Name:</td>
-              <td style="padding: 8px 0;">${fullName}</td>
-            </tr>
-            <tr>
-              <td style="padding: 8px 0; font-weight: bold;">Company Name:</td>
-              <td style="padding: 8px 0;">${companyName || "N/A"}</td>
-            </tr>
-            <tr>
-              <td style="padding: 8px 0; font-weight: bold;">Email Address:</td>
-              <td style="padding: 8px 0;"><a href="mailto:${email}">${email}</a></td>
-            </tr>
-            <tr>
-              <td style="padding: 8px 0; font-weight: bold;">Phone Number:</td>
-              <td style="padding: 8px 0;"><a href="tel:${phone}">${phone}</a></td>
-            </tr>
-            <tr>
-              <td style="padding: 8px 0; font-weight: bold;">Service Location:</td>
-              <td style="padding: 8px 0;">${location}</td>
-            </tr>
-            <tr>
-              <td style="padding: 8px 0; font-weight: bold;">Preferred Start Date:</td>
-              <td style="padding: 8px 0;">${startDate || "N/A"}</td>
-            </tr>
-            <tr>
-              <td style="padding: 8px 0; font-weight: bold;">Service Required:</td>
-              <td style="padding: 8px 0;">${service}</td>
-            </tr>
-          </table>
-          <div style="margin-top: 20px; padding: 15px; background-color: #FAF9F6; border-left: 4px solid #DAB672;">
-            <h3 style="margin-top: 0; color: #0B192C;">Requirements:</h3>
-            <p style="white-space: pre-wrap; margin: 0;">${requirements}</p>
+        <div style="font-family: Arial, sans-serif; max-width: 600px; color: #0F172A; line-height: 1.5;">
+          <h2 style="color: #0B192C; border-bottom: 2px solid #DAB672; padding-bottom: 8px;">New Service Request</h2>
+          <p><strong>Full Name:</strong> ${fullName}</p>
+          <p><strong>Company / Property Name:</strong> ${companyName || "N/A"}</p>
+          <p><strong>Email Address:</strong> ${email}</p>
+          <p><strong>Phone Number:</strong> ${phone}</p>
+          <p><strong>Service Location:</strong> ${location}</p>
+          <p><strong>Preferred Start Date:</strong> ${startDate || "N/A"}</p>
+          <p><strong>Service Required:</strong> ${service}</p>
+          <div style="margin-top: 16px; background-color: #FAF9F6; padding: 12px; border-radius: 8px; border: 1px solid #E2E8F0;">
+            <strong>Requirements:</strong>
+            <p style="white-space: pre-wrap; margin-top: 6px;">${requirements}</p>
           </div>
         </div>
       `,
-    };
+    });
 
-    // Send email
-    await transporter.sendMail(mailOptions);
-
+    return NextResponse.json({ success: true, message: "Enquiry delivered successfully" });
+  } catch (err: unknown) {
+    const errorDetail = err instanceof Error ? err.message : String(err);
+    console.error("Nodemailer SMTP Error:", errorDetail);
     return NextResponse.json(
-      { message: "Enquiry submitted successfully." },
-      { status: 200 }
-    );
-  } catch (error) {
-    console.error("Failed to send email:", error);
-    return NextResponse.json(
-      { error: "Failed to send email message." },
+      { error: `Mail Delivery Failed: ${errorDetail}` },
       { status: 500 }
     );
   }
