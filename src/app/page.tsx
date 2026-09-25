@@ -159,7 +159,7 @@ export default function Home() {
             loop
             playsInline
             preload="metadata"
-            poster="/images/hero-fallback.jpg"
+            poster="/hsopitality-uae.webp"
             aria-label="Durrat Al Noor Hospitality background video"
             className="absolute inset-0 h-full w-full object-cover opacity-90"
           >

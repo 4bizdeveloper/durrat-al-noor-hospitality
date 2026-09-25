@@ -43,20 +43,27 @@ The content is organized as follows:
 public/
   alisha_gautham.jpeg
   bg-video-2.mp4
+  deep-cleaning-service.webp
   dipak_pandya.jpeg
   dipak_shrestha.png
+  durrat_al_noor_hospitality_Logo.png
+  food-and-beverage-staffing-service.webp
+  hose-keeping-service.webp
+  hospitality-1.png
+  hospitality-about.webp
+  hsopitality-uae.webp
+  kitchen-stevarding-service.webp
   logo-placeholder.svg
   logo-white.png
   logo.png
+  pool-leisure-service.webp
 src/
   app/
     about-us/
       page.tsx
     contact-us/
-      layout.tsx
       page.tsx
     our-services/
-      layout.tsx
       page.tsx
     our-team/
       page.tsx
@@ -88,32 +95,6 @@ This section contains the contents of the repository's files.
 
 <file path="public/logo-placeholder.svg">
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="225" viewBox="0 0 720 225"><rect width="720" height="225" rx="28" fill="#0a192f"/><circle cx="100" cy="112" r="62" fill="none" stroke="#d4af37" stroke-width="5"/><text x="100" y="130" text-anchor="middle" font-family="Arial,sans-serif" font-size="54" font-weight="700" fill="#d4af37">DN</text><text x="185" y="105" font-family="Arial,sans-serif" font-size="30" font-weight="700" letter-spacing="4" fill="#fff">DURRAT AL NOOR</text><text x="185" y="145" font-family="Arial,sans-serif" font-size="19" letter-spacing="7" fill="#d4af37">HOSPITALITY</text></svg>
-</file>
-
-<file path="src/app/contact-us/layout.tsx">
-import type {Metadata} from "next";export const metadata:Metadata={title:"Contact Durrat Al Noor Hospitality | Al Karama, Dubai",description:"Contact Durrat Al Noor Hospitality in Al Karama, Dubai. Call +971 58 277 4427 for hospitality staffing, housekeeping and deep cleaning enquiries."};export default function Layout({children}:{children:React.ReactNode}){return children;}
-</file>
-
-<file path="src/app/our-services/layout.tsx">
-import type {Metadata} from "next";
-
-export const metadata:Metadata={
-title:"Hospitality & Deep Cleaning Services Dubai | Durrat Al Noor",
-description:"Discover housekeeping, F&B staffing, kitchen support, pool and leisure staffing, and deep cleaning in Dubai and the UAE. Request a tailored quotation.",
-openGraph:{title:"Hospitality & Deep Cleaning Services Dubai | Durrat Al Noor",description:"Housekeeping, F&B staffing, kitchen support, pool and leisure staffing, and deep cleaning across Dubai and the UAE.",url:"/our-services/",type:"website"}
-};
-
-const faqSchema={"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"What hospitality staffing services do you provide?","acceptedAnswer":{"@type":"Answer","text":"We support housekeeping, food and beverage, kitchen and stewarding, pool and leisure, and other applicable hospitality staffing requirements."}},
-{"@type":"Question","name":"Do you provide housekeeping services for residences and offices?","acceptedAnswer":{"@type":"Answer","text":"Yes. Housekeeping and cleaning support can be arranged for hotels, residences, offices, schools, government facilities and other agreed environments."}},
-{"@type":"Question","name":"Can I request temporary or casual staff?","acceptedAnswer":{"@type":"Answer","text":"Yes. Casual staffing is available for applicable roles and temporary operational requirements."}},
-{"@type":"Question","name":"Do you provide full-time employment support?","acceptedAnswer":{"@type":"Answer","text":"Yes. Full-time employment support can be discussed for applicable roles based on your requirements and agreed terms."}},
-{"@type":"Question","name":"What areas do you cover?","acceptedAnswer":{"@type":"Answer","text":"We are based in Al Karama, Dubai and support clients in Dubai and across the UAE, subject to the service requirements."}},
-{"@type":"Question","name":"How is deep cleaning quoted?","acceptedAnswer":{"@type":"Answer","text":"The scope, tasks, materials, equipment and schedule are discussed around your property's requirements before the quotation is agreed."}},
-{"@type":"Question","name":"How do I request a quotation?","acceptedAnswer":{"@type":"Answer","text":"Use the enquiry form on our Contact Us page or contact us by phone or WhatsApp to discuss your requirements."}}
-]};
-
-export default function Layout({children}:{children:React.ReactNode}){return <>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqSchema)}}/></>}
 </file>
 
 <file path="src/app/privacy-policy/page.tsx">
@@ -277,737 +258,6 @@ Next.js website.
 }
 </file>
 
-<file path="src/app/about-us/page.tsx">
-import Image from "next/image";
-import Link from "next/link";
-import { Target, Eye, ShieldCheck, Award, HeartHandshake, Clock, Heart } from "lucide-react";
-import Reveal from "@/components/Reveal";
-
-export const metadata = {
-  title: "About Durrat Al Noor Hospitality | Leading Staffing & Cleaning in Dubai, UAE",
-  description:
-    "Learn about Durrat Al Noor Hospitality, Dubai's premier provider of professional hospitality staffing, housekeeping, and deep cleaning services across the UAE.",
-  keywords: [
-    "Hospitality Staffing Dubai",
-    "Housekeeping Services UAE",
-    "Deep Cleaning Dubai",
-    "Durrat Al Noor Hospitality",
-    "Hotel Staffing Agency UAE",
-  ],
-  alternates: {
-    canonical: "https://durratalnoor.com/about",
-  },
-  openGraph: {
-    title: "About Durrat Al Noor Hospitality | Dubai, UAE",
-    description:
-      "Dubai-based provider of hospitality staffing, housekeeping, and deep cleaning support across the UAE.",
-    url: "https://durratalnoor.com/about",
-    siteName: "Durrat Al Noor Hospitality",
-    locale: "en_AE",
-    type: "website",
-  },
-};
-
-const values = [
-  {
-    title: "Integrity",
-    desc: "We value honest communication and a responsible approach to commitments.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Excellence",
-    desc: "We pay attention to the everyday details that contribute to a positive service experience.",
-    icon: Award,
-  },
-  {
-    title: "Respect",
-    desc: "We value the people we work with and the environments in which we operate.",
-    icon: HeartHandshake,
-  },
-  {
-    title: "Reliability",
-    desc: "We focus on organised working arrangements and clear service expectations.",
-    icon: Clock,
-  },
-  {
-    title: "Care",
-    desc: "We recognise that hospitality is about how people are treated, supported and welcomed.",
-    icon: Heart,
-  },
-];
-
-export default function About() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "mainEntity": {
-      "@type": "Organization",
-      "name": "Durrat Al Noor Hospitality",
-      "alternateName": "Pearl of Light Hospitality",
-      "url": "https://durratalnoor.com",
-      "logo": "https://durratalnoor.com/logo.png",
-      "description":
-        "Provider of professional hospitality staffing, housekeeping, and deep cleaning services across Dubai and the UAE.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Dubai",
-        "addressCountry": "AE",
-      },
-      "areaServed": "United Arab Emirates",
-      "knowsAbout": [
-        "Housekeeping Services",
-        "Food & Beverage Staffing",
-        "Kitchen & Stewarding",
-        "Pool & Leisure Services",
-        "Deep Cleaning Services",
-      ],
-    },
-  };
-
-  return (
-    <main className="w-full overflow-x-hidden bg-slate-50 text-slate-900">
-      {/* Search Engine & AI Schema Injection */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
-      {/* Hero Section */}
-      <section className="relative flex w-full items-center justify-center overflow-hidden bg-[#0B192C] pb-16 pt-32 text-white md:pb-24 md:pt-40">
-        <div
-          className="absolute inset-0 z-0 h-full w-full bg-[url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=2000&q=85')] bg-cover bg-center"
-          aria-hidden="true"
-        />
-        {/* Soft overlay ensuring text visibility without over-darkening the hero */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#0B192C]/80 via-[#0B192C]/60 to-[#0B192C]/85" />
-        
-        <div className="container relative z-20 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-          <p className="inline-block rounded-full bg-[#DAB672]/20 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-[#DAB672] backdrop-blur-md">
-            About Us
-          </p>
-          <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            About Durrat Al Noor Hospitality
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-slate-200 sm:text-lg">
-            Empowering Dubai & UAE's finest service environments with dedicated staff and precision care.
-          </p>
-        </div>
-      </section>
-
-      {/* Who We Are */}
-      <section className="py-16 md:py-24">
-        <Reveal>
-          <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center sm:text-left">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#DAB672]">
-              Who We Are
-            </span>
-            <h2 className="mt-2 text-2xl font-black tracking-tight text-[#0B192C] sm:text-4xl">
-              Hospitality Begins with People
-            </h2>
-            <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
-              Durrat Al Noor Hospitality is a Dubai-based provider of hospitality staffing, housekeeping and deep cleaning services for clients across the UAE.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
-              We support hotels, restaurants, residential properties, businesses and other service environments through five core areas: Housekeeping Services, Food &amp; Beverage Staffing, Kitchen &amp; Stewarding, Pool &amp; Leisure Services, and Deep Cleaning Services.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
-              Our name, meaning <strong className="font-semibold text-[#0B192C]">"Pearl of Light,"</strong> reflects our aspiration to bring care and a positive contribution to the hospitality industry.
-            </p>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* Supporting People Section */}
-      <section className="bg-slate-100/70 py-16 md:py-24">
-        <Reveal>
-          <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-              <div>
-                <h2 className="text-2xl font-black tracking-tight text-[#0B192C] sm:text-4xl">
-                  Supporting the People Behind Every Experience
-                </h2>
-                <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
-                  A prepared room, attentive restaurant service and a carefully maintained space all depend on the people working behind the scenes.
-                </p>
-                <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
-                  We help clients identify the support their operation requires, from guest-facing service personnel to housekeeping and kitchen teams. Each engagement begins with a discussion of the setting, responsibilities, schedule and expected scope.
-                </p>
-                <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
-                  Our approach places importance on practical coordination, clear expectations and respect for clients, employees and guests.
-                </p>
-              </div>
-              <div className="relative h-[350px] sm:h-[450px] w-full overflow-hidden rounded-3xl shadow-xl transition-transform duration-300 hover:scale-[1.01]">
-                <Image
-                  src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1400&q=80"
-                  alt="Hotel hospitality service management in Dubai UAE"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* Mission, Vision & Values */}
-      <section className="bg-white py-16 md:py-24">
-        <Reveal>
-          <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#DAB672]">
-                Mission, Vision &amp; Values
-              </span>
-              <h2 className="mt-2 text-2xl font-black tracking-tight text-[#0B192C] sm:text-4xl">
-                Guided by Purpose & Excellence
-              </h2>
-            </div>
-
-            {/* Mission & Vision Row */}
-            <div className="mt-12 grid gap-8 md:grid-cols-2">
-              <div className="group rounded-2xl border border-slate-200/80 bg-white p-8 shadow-sm transition-all duration-300 hover:border-[#DAB672] hover:shadow-md">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#0B192C] text-[#DAB672]">
-                    <Target className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-[#0B192C]">Mission</h3>
-                </div>
-                <p className="mt-4 text-base leading-relaxed text-slate-700">
-                  To provide reliable hospitality and cleaning support through capable people, attentive coordination and a clear understanding of our clients' requirements.
-                </p>
-              </div>
-
-              <div className="group rounded-2xl border border-slate-200/80 bg-white p-8 shadow-sm transition-all duration-300 hover:border-[#DAB672] hover:shadow-md">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#0B192C] text-[#DAB672]">
-                    <Eye className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-[#0B192C]">Vision</h3>
-                </div>
-                <p className="mt-4 text-base leading-relaxed text-slate-700">
-                  To become a trusted hospitality partner across the UAE, building lasting relationships through service quality, professional conduct and care for people.
-                </p>
-              </div>
-            </div>
-
-            {/* Our Values - 5 Cards in Single Row on Desktop */}
-            <div className="mt-16">
-              <h3 className="text-center text-2xl font-black text-[#0B192C]">
-                Our Values
-              </h3>
-              <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-                {values.map(({ title, desc, icon: Icon }) => (
-                  <div
-                    key={title}
-                    className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-slate-50/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#DAB672] hover:bg-white hover:shadow-md"
-                  >
-                    <div>
-                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#0B192C]/10 text-[#0B192C]">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <h4 className="mt-4 text-lg font-bold text-[#0B192C]">
-                        {title}
-                      </h4>
-                      <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                        {desc}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* A Service Arrangement That Fits */}
-      <section className="py-16 md:py-24">
-        <Reveal>
-          <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col items-center text-center rounded-3xl bg-[#F2EEE5] p-8 sm:p-12 md:p-16 shadow-sm border border-[#e5dec9]">
-              <h2 className="text-2xl font-black tracking-tight text-[#0B192C] sm:text-4xl">
-                A Service Arrangement That Fits
-              </h2>
-              <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-800 sm:text-lg">
-                Casual staffing, full-time employment support and internship programmes are available for applicable roles. We discuss the roles, location, working hours and duration involved before agreeing on a service arrangement.
-              </p>
-
-              <div className="my-8 h-px w-24 bg-[#DAB672]/60" />
-
-              <h3 className="text-xl font-bold text-[#0B192C] sm:text-2xl">
-                Meet the Team Behind Durrat Al Noor
-              </h3>
-              <div className="mt-6 flex flex-wrap justify-center gap-4">
-                <Link
-                  href="/our-team/"
-                  className="rounded-full bg-[#DAB672] px-8 py-3.5 text-sm font-bold text-[#0B192C] transition-all hover:bg-[#c9a35e] hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2"
-                >
-                  Meet Our Team
-                </Link>
-                <Link
-                  href="/our-services/"
-                  className="rounded-full border-2 border-[#0B192C] bg-transparent px-8 py-3.5 text-sm font-bold text-[#0B192C] transition-all hover:border-[#DAB672] hover:bg-[#0B192C] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#0B192C] focus:ring-offset-2"
-                >
-                  Explore Our Services
-                </Link>
-              </div>
-            </div>
-          </div>
-        </Reveal>
-      </section>
-    </main>
-  );
-}
-</file>
-
-<file path="src/app/our-services/page.tsx">
-"use client";
-
-import Image from "next/image";
-import Link from "next/link";
-import Reveal from "@/components/Reveal";
-import { useState } from "react";
-
-type Service = {
-  title: string;
-  description: string;
-  bullets: string[];
-  button: string;
-  image: string;
-  imageAlt: string;
-};
-
-type FAQ = {
-  question: string;
-  answer: string;
-};
-
-const data: Service[] = [
-  {
-    title: "Housekeeping Services",
-    description:
-      "Our housekeeping support covers hospitality and property environments where reliable personnel and clear service arrangements are required.",
-    bullets: [
-      "Room attendants",
-      "Public-area attendants",
-      "Supervisory",
-      "Residential/office",
-      "Government",
-      "School cleaning",
-    ],
-    button: "Enquire About Housekeeping",
-    image:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=85",
-    imageAlt: "Professional hotel room housekeeping service",
-  },
-  {
-    title: "Food & Beverage Staffing",
-    description:
-      "We provide F&B personnel to support restaurants, hotels, banquets and events according to your operational requirements.",
-    bullets: [
-      "Waiters/Waitresses",
-      "Restaurant service",
-      "Banquet staff",
-      "Bar support",
-      "Event personnel",
-    ],
-    button: "Enquire About F&B Staffing",
-    image:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=85",
-    imageAlt: "Elegant restaurant service and hospitality staff",
-  },
-  {
-    title: "Kitchen & Stewarding",
-    description:
-      "Kitchen support personnel help maintain smooth daily operations across food preparation and stewarding environments.",
-    bullets: ["Kitchen stewards", "Commis chefs", "Culinary support"],
-    button: "Enquire About Kitchen Support",
-    image:
-      "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1400&q=85",
-    imageAlt: "Professional commercial kitchen staff",
-  },
-  {
-    title: "Pool & Leisure Services",
-    description:
-      "Pool and leisure personnel support hospitality and recreation environments with the required roles and agreed schedules.",
-    bullets: ["Pool lifeguards", "Beach lifeguards", "Recreation attendants"],
-    button: "Enquire About Pool & Leisure Staffing",
-    image:
-      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1400&q=85",
-    imageAlt: "Luxury resort pool and leisure environment",
-  },
-  {
-    title: "Deep Cleaning Services",
-    description:
-      "Deep cleaning is arranged around your property's requirements, scope, tasks, materials, equipment and schedule.",
-    bullets: ["Commercial", "Residential", "Villas", "Restaurants"],
-    button: "Request a Deep Cleaning Quote",
-    image:
-      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=85",
-    imageAlt: "Professional deep cleaning service in a commercial property",
-  },
-];
-
-const faqs: FAQ[] = [
-  {
-    question: "What hospitality staffing services do you provide?",
-    answer:
-      "We support housekeeping, food and beverage, kitchen and stewarding, pool and leisure, and other applicable hospitality staffing requirements.",
-  },
-  {
-    question: "Do you provide housekeeping services for residences and offices?",
-    answer:
-      "Yes. Housekeeping and cleaning support can be arranged for hotels, residences, offices, schools, government facilities and other agreed environments.",
-  },
-  {
-    question: "Can I request temporary or casual staff?",
-    answer:
-      "Yes. Casual staffing is available for applicable roles and temporary operational requirements.",
-  },
-  {
-    question: "Do you provide full-time employment support?",
-    answer:
-      "Yes. Full-time employment support can be discussed for applicable roles based on your requirements and agreed terms.",
-  },
-  {
-    question: "What areas do you cover?",
-    answer:
-      "We are based in Al Karama, Dubai and support clients in Dubai and across the UAE, subject to the service requirements.",
-  },
-  {
-    question: "How is deep cleaning quoted?",
-    answer:
-      "The scope, tasks, materials, equipment and schedule are discussed around your property's requirements before the quotation is agreed.",
-  },
-  {
-    question: "How do I request a quotation?",
-    answer:
-      "Use the enquiry form on our Contact Us page or contact us by phone or WhatsApp to discuss your requirements.",
-  },
-];
-
-export default function Services() {
-  const [open, setOpen] = useState<number | null>(null);
-
-  // JSON-LD Structured Data Schema for SEO, AEO & GEO Engine Parsing
-  const jsonLdData = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "LocalBusiness",
-        "@id": "https://durratalnoor.ae/#organization",
-        name: "Durrat Al Noor Hospitality",
-        url: "https://durratalnoor.ae",
-        telephone: "+971582774427",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "Al Karama",
-          addressLocality: "Dubai",
-          addressRegion: "Dubai",
-          addressCountry: "AE",
-        },
-        areaServed: [
-          {
-            "@type": "City",
-            name: "Dubai",
-          },
-          {
-            "@type": "Country",
-            name: "United Arab Emirates",
-          },
-        ],
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
-        })),
-      },
-      {
-        "@type": "ItemList",
-        itemListElement: data.map((service, index) => ({
-          "@type": "ListItem",
-          position: index + 1,
-          item: {
-            "@type": "Service",
-            name: service.title,
-            description: service.description,
-            provider: {
-              "@id": "https://durratalnoor.ae/#organization",
-            },
-            areaServed: "Dubai, UAE",
-          },
-        })),
-      },
-    ],
-  };
-
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
-      />
-
-      <div className="w-full bg-slate-50 text-slate-800 antialiased selection:bg-[#DEBC7A] selection:text-slate-950">
-        {/* HERO SECTION */}
-        <section className="relative flex w-full items-center justify-center overflow-hidden bg-[#0B192C] py-20 md:py-28 text-white">
-          <Image
-            src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2000&q=85"
-            alt="Durrat Al Noor Hospitality Services Dubai"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center brightness-[0.35]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B192C] via-transparent to-transparent opacity-80" />
-          
-          <div className="container relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <span className="inline-block rounded-full bg-[#DEBC7A]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#DEBC7A] backdrop-blur-md border border-[#DEBC7A]/30">
-                Our Services
-              </span>
-              <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl leading-[1.15]">
-                Hospitality &amp; Cleaning Services in Dubai and the UAE
-              </h1>
-              <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-2xl">
-                Reliable staffing and property support solutions engineered for hotels, restaurants, offices, and residential spaces across Dubai.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  href="/contact-us/"
-                  className="inline-flex items-center justify-center rounded-full bg-[#DEBC7A] px-8 py-4 text-base font-bold text-slate-950 transition-all hover:bg-[#C5A361] hover:shadow-lg hover:shadow-[#DEBC7A]/25 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[#DEBC7A] focus:ring-offset-2 focus:ring-offset-[#0B192C]"
-                >
-                  Request a Quote
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* SERVICES LIST */}
-        <section className="py-16 md:py-24">
-          <Reveal>
-            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="mb-14 max-w-3xl">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#B89452]">
-                  Service Overview
-                </span>
-                <h2 className="mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl tracking-tight">
-                  Practical support for people, properties and daily operations.
-                </h2>
-                <p className="mt-4 text-lg leading-relaxed text-slate-600">
-                  Durrat Al Noor Hospitality provides five core services to support
-                  people, properties and daily operations. Choose a service below
-                  to review the scope and request support.
-                </p>
-              </div>
-
-              <div className="space-y-16 lg:space-y-24">
-                {data.map((service, index) => (
-                  <article
-                    id={`service-${index + 1}`}
-                    key={service.title}
-                    className={`scroll-mt-28 flex flex-col gap-8 rounded-3xl border border-slate-200/80 bg-white p-6 sm:p-8 lg:p-12 shadow-sm transition-all hover:shadow-md lg:items-center lg:gap-12 ${
-                      index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
-                    }`}
-                  >
-                    <div className="min-w-0 flex-1">
-                      <span className="text-sm font-black text-[#B89452]">
-                        0{index + 1}
-                      </span>
-                      <h2 className="mt-1 text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                        {service.title}
-                      </h2>
-                      <p className="mt-4 text-base text-slate-600 leading-relaxed">
-                        {service.description}
-                      </p>
-
-                      <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-                        {service.bullets.map((bullet) => (
-                          <li
-                            key={bullet}
-                            className="flex items-center rounded-xl bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700 border border-slate-100"
-                          >
-                            <span
-                              className="mr-2.5 text-[#DEBC7A] font-bold"
-                              aria-hidden="true"
-                            >
-                              ➔
-                            </span>
-                            {bullet}
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="mt-8">
-                        <Link
-                          href="/contact-us/"
-                          className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-bold text-white transition-all hover:bg-[#DEBC7A] hover:text-slate-950 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-slate-900"
-                        >
-                          {service.button}
-                        </Link>
-                      </div>
-                    </div>
-
-                    <div className="relative h-[260px] sm:h-[340px] lg:h-[400px] w-full overflow-hidden rounded-2xl shadow-md lg:w-[46%] lg:shrink-0">
-                      <Image
-                        src={service.image}
-                        alt={service.imageAlt}
-                        fill
-                        sizes="(max-width: 1024px) 100vw, 46vw"
-                        className="object-cover transition-transform duration-500 hover:scale-105"
-                      />
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-        </section>
-
-        {/* STAFFING OPTIONS */}
-        <section className="py-16 md:py-24 bg-white border-y border-slate-200/60">
-          <Reveal>
-            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="max-w-2xl">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#B89452]">
-                  Solutions
-                </span>
-                <h2 className="mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl tracking-tight">
-                  Staffing Options
-                </h2>
-              </div>
-              
-              <div className="mt-10 grid gap-6 md:grid-cols-3">
-                {[
-                  [
-                    "Casual Staffing",
-                    "Personnel for temporary requirements, events and additional operational demand.",
-                  ],
-                  [
-                    "Full-Time Employment Support",
-                    "Staffing arrangements for ongoing roles and regular operations.",
-                  ],
-                  [
-                    "Internship Programmes",
-                    "Arrangements based on suitable roles, learning requirements and supervision.",
-                  ],
-                ].map(([title, description]) => (
-                  <div
-                    className="rounded-2xl border border-slate-100 bg-slate-50/80 p-8 transition-all hover:border-[#DEBC7A]/50 hover:bg-white hover:shadow-lg hover:shadow-[#DEBC7A]/10"
-                    key={title}
-                  >
-                    <h3 className="text-xl font-bold text-slate-900">{title}</h3>
-                    <p className="mt-3 text-slate-600 leading-relaxed text-sm sm:text-base">
-                      {description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
-        </section>
-
-        {/* FAQS SECTION */}
-        <section className="py-16 md:py-24">
-          <Reveal>
-            <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-              <div className="text-center">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#B89452]">
-                  Got Questions?
-                </span>
-                <h2 className="mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl tracking-tight">
-                  Frequently Asked Questions
-                </h2>
-                <p className="mt-3 text-slate-600">
-                  Common questions about our hospitality and cleaning services in Dubai.
-                </p>
-              </div>
-
-              <div className="mt-10 space-y-4">
-                {faqs.map((faq, index) => {
-                  const isOpen = open === index;
-                  return (
-                    <div
-                      key={faq.question}
-                      className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-colors"
-                    >
-                      <button
-                        type="button"
-                        onClick={() => setOpen(isOpen ? null : index)}
-                        aria-expanded={isOpen}
-                        className="flex w-full items-center justify-between p-5 text-left font-bold text-slate-900 hover:text-[#B89452] focus:outline-none"
-                      >
-                        <span className="pr-4 text-base sm:text-lg">{faq.question}</span>
-                        <span className="ml-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-100 text-[#B89452] transition-transform duration-200">
-                          {isOpen ? "−" : "+"}
-                        </span>
-                      </button>
-
-                      <div
-                        className={`grid transition-[grid-template-rows] duration-200 ease-out ${
-                          isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                        }`}
-                      >
-                        <div className="overflow-hidden">
-                          <p className="px-5 pb-5 text-slate-600 leading-relaxed text-sm sm:text-base">
-                            {faq.answer}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </Reveal>
-        </section>
-
-        {/* CTA FOOTER BANNER */}
-        <section className="bg-[#0B192C] py-16 text-white">
-          <Reveal>
-            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-                <div>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-                    Ready to discuss your requirements?
-                  </h2>
-                  <p className="mt-2 text-slate-300 text-sm sm:text-base">
-                    Get in touch with our Dubai team today for custom staffing and cleaning arrangements.
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-4">
-                  <Link
-                    href="/contact-us/"
-                    className="inline-flex items-center justify-center rounded-full bg-[#DEBC7A] px-7 py-3.5 text-sm font-bold text-slate-950 transition-all hover:bg-[#C5A361] active:scale-[0.98]"
-                  >
-                    Request a Quote
-                  </Link>
-                  <a
-                    href="https://wa.me/971582774427"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-800/80 px-7 py-3.5 text-sm font-bold text-white transition-all hover:border-[#DEBC7A] hover:text-[#DEBC7A] active:scale-[0.98]"
-                  >
-                    WhatsApp Us
-                  </a>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        </section>
-      </div>
-    </>
-  );
-}
-</file>
-
 <file path="src/app/globals.css">
 @import "tailwindcss";
 
@@ -1052,6 +302,34 @@ a:not(.gold-button):hover{color:var(--gold)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.service-track{scroll-behavior:auto}img{transition:none}a{transition:none}.scroll-reveal{opacity:1;transform:none;transition:none;will-change:auto}}
 @media(max-width:640px){.container{width:min(100% - 24px,1180px)}.section{padding:48px 0}.copy{font-size:1rem}.hero-title{font-size:clamp(1.9rem,9vw,2.8rem)}.service-carousel-controls{margin-bottom:12px}.service-arrow{width:40px;height:40px}}
 @media(min-width:641px) and (max-width:1023px){.section{padding:56px 0}.container{width:min(100% - 32px,1180px)}.hero-title{font-size:clamp(2.2rem,5vw,3.25rem)}}
+</file>
+
+<file path="package.json">
+{
+  "name": "durrat-al-noor-hospitality",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.13",
+    "framer-motion": "^13.4.1",
+    "lucide-react": "^0.468.0",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "tailwindcss": "^4.1.13"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.2"
+  }
+}
 </file>
 
 <file path="src/components/FloatingActions.tsx">
@@ -1106,17 +384,17 @@ export default function FloatingActions() {
           href={`tel:${phoneNumber}`}
           aria-label="Call direct phone line at +971 58 277 4427"
           title="Direct Phone Call"
-          className="group relative grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-full bg-gradient-to-r from-[#D4AF37] via-[#C5A059] to-[#E6C280] text-[#122136] shadow-2xl transition-transform duration-300 ease-out hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2"
+          className="group relative grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-full bg-gradient-to-tr from-[#8A6229] via-[#E5C158] to-[#9A7432] border border-[#7A5218]/30 text-[#0F172A] shadow-[0_8px_25px_rgba(138,98,41,0.35),0_4px_10px_rgba(0,0,0,0.12)] transition-transform duration-300 ease-out hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2"
         >
-          {/* Continuous Pulse Effect */}
-          <span className="absolute inset-0 rounded-full bg-[#D4AF37]/60 animate-ping pointer-events-none opacity-75" />
-          <span className="absolute -inset-1 rounded-full bg-[#C5A059]/30 animate-pulse pointer-events-none" />
+          {/* Continuous Pulse Effect - Deep Warm Gold Glow */}
+          <span className="absolute inset-0 rounded-full bg-[#B38728]/40 animate-ping pointer-events-none opacity-80" />
+          <span className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#8A6229]/35 to-[#E5C158]/45 animate-pulse pointer-events-none blur-[1px]" />
 
-          {/* Icon with Zoom Effect on Hover & Preserved Colors */}
+          {/* Icon with Zoom Effect on Hover */}
           <Phone
             size={22}
             strokeWidth={2.4}
-            className="relative z-10 transition-transform duration-300 group-hover:scale-110 text-[#122136]"
+            className="relative z-10 transition-transform duration-300 group-hover:scale-110 text-[#0F172A]"
           />
         </a>
 
@@ -1127,14 +405,14 @@ export default function FloatingActions() {
           rel="noopener noreferrer"
           aria-label="Contact us on WhatsApp at +971 58 277 4427"
           title="WhatsApp Chat"
-          className="group relative grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-full bg-gradient-to-r from-[#D4AF37] via-[#C5A059] to-[#E6C280] text-[#122136] shadow-2xl transition-transform duration-300 ease-out hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2"
+          className="group relative grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-full bg-gradient-to-tr from-[#8A6229] via-[#E5C158] to-[#9A7432] border border-[#7A5218]/30 text-[#0F172A] shadow-[0_8px_25px_rgba(138,98,41,0.35),0_4px_10px_rgba(0,0,0,0.12)] transition-transform duration-300 ease-out hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2"
         >
-          {/* Continuous Pulse Effect */}
-          <span className="absolute inset-0 rounded-full bg-[#D4AF37]/60 animate-ping pointer-events-none opacity-75 [animation-delay:500ms]" />
-          <span className="absolute -inset-1 rounded-full bg-[#C5A059]/30 animate-pulse pointer-events-none [animation-delay:500ms]" />
+          {/* Continuous Pulse Effect - Deep Warm Gold Glow */}
+          <span className="absolute inset-0 rounded-full bg-[#B38728]/40 animate-ping pointer-events-none opacity-80 [animation-delay:500ms]" />
+          <span className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#8A6229]/35 to-[#E5C158]/45 animate-pulse pointer-events-none blur-[1px] [animation-delay:500ms]" />
 
-          {/* Icon with Zoom Effect on Hover & Preserved Colors */}
-          <div className="relative z-10 text-[#122136]">
+          {/* Icon with Zoom Effect on Hover */}
+          <div className="relative z-10 text-[#0F172A]">
             <WhatsAppIcon size={22} />
           </div>
         </a>
@@ -1150,6 +428,7 @@ export default function FloatingActions() {
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { Menu, X, ChevronRight } from "lucide-react";
 
 const NAV_LINKS = [
@@ -1157,13 +436,16 @@ const NAV_LINKS = [
   { label: "About Us", href: "/about-us/" },
   { label: "Our Services", href: "/our-services/" },
   { label: "Our Team", href: "/our-team/" },
+  { label: "Contact Us", href: "/contact-us/" },
 ];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
@@ -1187,7 +469,7 @@ export default function Header() {
 
   return (
     <>
-      {/* Schema Markup for Structural SEO, Generative AI (AEO), & GEO Search Engine Engine Engines */}
+      {/* Schema Markup for Structural SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -1218,14 +500,14 @@ export default function Header() {
 
       <header
         className={[
-          "fixed inset-x-0 top-0 z-50 transition-colors duration-300 ease-out",
+          "fixed inset-x-0 top-0 z-40 transition-colors duration-300 ease-out",
           scrolled
             ? "border-b border-[#DAB672] bg-white/95 shadow-md backdrop-blur-md"
             : "border-b border-transparent bg-transparent"
         ].join(" ")}
       >
         <div className="container mx-auto flex h-[58px] items-center justify-between px-4 sm:h-[62px] sm:px-6 lg:h-[68px] lg:px-8">
-          {/* Logo with optimal height to avoid touching top/bottom header borders */}
+          {/* Logo */}
           <Link
             href="/"
             className="group flex items-center transition-transform duration-300 hover:scale-[1.02]"
@@ -1247,21 +529,23 @@ export default function Header() {
             className="hidden items-center gap-8 lg:flex"
             aria-label="Primary navigation"
           >
-            {NAV_LINKS.map(({ label, href }) => (
-              <Link
-                key={href}
-                href={href}
-                className={[
-                  "relative text-sm font-semibold tracking-wide transition-colors duration-200 py-1.5",
-                  "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#DAB672] after:transition-all after:duration-300 after:ease-in-out hover:after:w-full",
-                  scrolled
-                    ? "text-[#0F172A] hover:text-[#B8860B]"
-                    : "text-white hover:text-[#DAB672]"
-                ].join(" ")}
-              >
-                {label}
-              </Link>
-            ))}
+            {NAV_LINKS.filter((link) => link.href !== "/contact-us/").map(
+              ({ label, href }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className={[
+                    "relative text-sm font-semibold tracking-wide transition-colors duration-200 py-1.5",
+                    "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#DAB672] after:transition-all after:duration-300 after:ease-in-out hover:after:w-full",
+                    scrolled
+                      ? "text-[#0F172A] hover:text-[#B8860B]"
+                      : "text-white hover:text-[#DAB672]"
+                  ].join(" ")}
+                >
+                  {label}
+                </Link>
+              )
+            )}
             <Link
               href="/contact-us/"
               className="gold-button transform rounded-full bg-gradient-to-r from-[#DAB672] to-[#B8860B] px-6 py-2.5 text-sm font-bold text-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2"
@@ -1286,30 +570,32 @@ export default function Header() {
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
+      </header>
 
-        {/* Mobile & Tablet Drawer Slide-in from RIGHT */}
-        <div
-          className={[
-            "fixed inset-0 z-[60] lg:hidden transition-opacity duration-300",
-            open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
-          ].join(" ")}
-        >
-          {/* Backdrop overlay */}
+      {/* Mobile & Tablet Drawer rendered via Portal outside header context */}
+      {mounted &&
+        createPortal(
           <div
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-            onClick={() => setOpen(false)}
-            aria-hidden="true"
-          />
-
-          {/* Flyout Sidebar from Right */}
-          <aside
             className={[
-              "absolute right-0 top-0 h-full w-[min(86vw,360px)] transform bg-[#0A192F] shadow-2xl transition-transform duration-300 ease-in-out flex flex-col justify-between overflow-y-auto overscroll-contain",
-              open ? "translate-x-0" : "translate-x-full"
+              "fixed inset-0 z-[99999] lg:hidden transition-opacity duration-300",
+              open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
             ].join(" ")}
-            aria-label="Mobile navigation menu"
           >
-            <div>
+            {/* Backdrop overlay */}
+            <div
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              onClick={() => setOpen(false)}
+              aria-hidden="true"
+            />
+
+            {/* Flyout Sidebar from Right */}
+            <aside
+              className={[
+                "absolute right-0 top-0 h-full w-[min(86vw,360px)] transform bg-[#0A192F] shadow-2xl transition-transform duration-300 ease-in-out flex flex-col overflow-y-auto overscroll-contain",
+                open ? "translate-x-0" : "translate-x-full"
+              ].join(" ")}
+              aria-label="Mobile navigation menu"
+            >
               {/* Drawer Header */}
               <div className="flex h-[58px] items-center justify-between border-b border-[#DAB672]/30 px-5 sm:h-[62px]">
                 <Image
@@ -1347,51 +633,12 @@ export default function Header() {
                   </Link>
                 ))}
               </nav>
-            </div>
-
-            {/* Bottom Call to Action */}
-            <div className="p-5">
-              <Link
-                href="/contact-us/"
-                onClick={() => setOpen(false)}
-                className="gold-button block w-full rounded-full bg-gradient-to-r from-[#DAB672] to-[#B8860B] py-3.5 text-center text-base font-bold text-white shadow-lg transition-transform duration-200 active:scale-95"
-              >
-                Contact Us
-              </Link>
-            </div>
-          </aside>
-        </div>
-      </header>
+            </aside>
+          </div>,
+          document.body
+        )}
     </>
   );
-}
-</file>
-
-<file path="package.json">
-{
-  "name": "durrat-al-noor-hospitality",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "@tailwindcss/postcss": "^4.1.13",
-    "framer-motion": "^13.4.1",
-    "lucide-react": "^0.468.0",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "tailwindcss": "^4.1.13"
-  },
-  "devDependencies": {
-    "@types/node": "^22.10.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "typescript": "^5.7.2"
-  }
 }
 </file>
 
@@ -1403,7 +650,7 @@ import Reveal from "@/components/Reveal";
 import { Clock, Mail, MapPin, Phone, Send, CheckCircle2, AlertCircle } from "lucide-react";
 import { useState } from "react";
 
-export default function Contact() {
+export default function ContactPage() {
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
   function submit(e: React.FormEvent<HTMLFormElement>) {
@@ -1421,7 +668,7 @@ export default function Contact() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Durrat Al Noor Hospitality & Cleaning",
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=85",
+    image: "/hsopitality-uae.webp",
     telePhone: "+971582774427",
     email: "info@durratalnoorhospitality.com",
     address: {
@@ -1447,23 +694,29 @@ export default function Contact() {
 
   return (
     <div className="w-full bg-[#FAF9F6] text-[#0F172A] selection:bg-[#DAB672] selection:text-white">
+      {/* Inline Metadata Tags to allow full Client Component usage in a single file */}
+      <title>Contact Durrat Al Noor Hospitality | Al Karama, Dubai</title>
+      <meta
+        name="description"
+        content="Contact Durrat Al Noor Hospitality in Al Karama, Dubai. Call +971 58 277 4427 for hospitality staffing, housekeeping and deep cleaning enquiries."
+      />
+
       {/* Search Engine & AI Knowledge Graph Markup */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Hero Section - Sharp, High-Contrast & Clear Background */}
-      <section className="relative flex w-full min-h-[420px] items-center justify-center overflow-hidden bg-[#0B192C] py-16 sm:py-20 lg:py-28 text-white">
+      {/* Hero Section - Full Screen with Safe Top Spacing for Navbar */}
+      <section className="relative flex w-full min-h-screen items-center justify-center overflow-hidden bg-[#0B192C] pt-28 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-28 text-white">
         <div
           className="absolute inset-0 z-0 h-full w-full bg-cover bg-center transition-transform duration-1000 ease-out will-change-transform hover:scale-105"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=85')",
+            backgroundImage: "url('/hsopitality-uae.webp')",
           }}
           aria-hidden="true"
         />
-        {/* Crisp multi-stop dark overlay for crisp image visibility with high contrast readability */}
+        {/* Crisp multi-stop dark overlay for high contrast readability */}
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#0B192C]/90 via-[#0B192C]/75 to-[#0B192C]/60" />
 
         <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8">
@@ -1477,6 +730,19 @@ export default function Contact() {
             <p className="mt-4 max-w-2xl text-base text-slate-200 sm:text-lg lg:text-xl font-normal leading-relaxed">
               Partner with Dubai’s leading provider for professional housekeeping, hospitality staffing, and specialized cleaning solutions.
             </p>
+
+            {/* Gradient CTA Button linking to /contact-us */}
+            <div className="mt-8">
+              <Link
+                href="/contact-us"
+                className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-bold text-[#0B192C] shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#E5C68D] active:scale-95"
+                style={{
+                  background: "linear-gradient(90deg, #E5C68D 0%, #FDF2E2 100%)",
+                }}
+              >
+                Contact Us
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -1692,880 +958,517 @@ export default function Contact() {
 }
 </file>
 
-<file path="src/app/our-team/page.tsx">
-import Image from "next/image";
-import Link from "next/link";
-import { Metadata } from "next";
-import Reveal from "@/components/Reveal";
-
-export const metadata: Metadata = {
-  title: "Leadership & Team | Durrat Al Noor Hospitality Dubai",
-  description:
-    "Meet the experienced leadership, sales, and HR team behind Durrat Al Noor Hospitality in Dubai. Committed to excellence in hospitality staffing and service quality.",
-  keywords: [
-    "Durrat Al Noor Hospitality",
-    "Hospitality Team Dubai",
-    "Dubai Hospitality Leadership",
-    "Staffing Solutions Dubai",
-    "Dipak Shrestha",
-    "Dipak Pandaya",
-    "Alisha Gautam",
-    "UAE Hotel Staffing Services",
-  ],
-  alternates: {
-    canonical: "https://durratalnoor.com/our-team",
-  },
-  openGraph: {
-    title: "Leadership & Team | Durrat Al Noor Hospitality Dubai",
-    description:
-      "Meet the leadership, sales, and HR professionals behind Durrat Al Noor Hospitality in Dubai.",
-    url: "https://durratalnoor.com/our-team",
-    siteName: "Durrat Al Noor Hospitality",
-    locale: "en_AE",
-    type: "website",
-    images: [
-      {
-        url: "https://durratalnoor.com/dipak_shrestha.png",
-        width: 1200,
-        height: 630,
-        alt: "Durrat Al Noor Hospitality Leadership Team",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Leadership & Team | Durrat Al Noor Hospitality Dubai",
-    description:
-      "Meet the leadership, sales, and HR professionals behind Durrat Al Noor Hospitality in Dubai.",
-    images: ["https://durratalnoor.com/dipak_shrestha.png"],
-  },
-};
-
-const people = [
-  {
-    name: "Dipak Shrestha",
-    role: "Managing Director",
-    bio: "Dipak Shrestha leads Durrat Al Noor Hospitality, guiding the company's strategic vision with a steadfast commitment to high service quality, client satisfaction, and workforce excellence across the UAE hospitality sector.",
-    image: "/dipak_shrestha.png",
-  },
-  {
-    name: "Dipak Pandaya",
-    role: "Sales Director",
-    bio: "Dipak Pandaya focuses on strategic business development and long-term client relationships, connecting premier commercial hospitality needs with tailored, efficient staffing and service solutions.",
-    image: "/dipak_pandya.jpeg",
-  },
-  {
-    name: "Alisha Gautam",
-    role: "HR Manager",
-    bio: "Alisha Gautam supports the core workforce at Durrat Al Noor Hospitality through talent recruitment, employee well-being, and structured team development to maintain rigorous service standards.",
-    image: "/alisha_gautham.jpeg",
-  },
-];
-
-export default function Team() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": "https://durratalnoor.com/our-team/#webpage",
-        url: "https://durratalnoor.com/our-team",
-        name: "Leadership & Team | Durrat Al Noor Hospitality Dubai",
-        description:
-          "Meet the leadership, sales, and HR team driving excellence at Durrat Al Noor Hospitality Dubai.",
-        inLanguage: "en-AE",
-        isPartOf: {
-          "@type": "WebSite",
-          "@id": "https://durratalnoor.com/#website",
-          url: "https://durratalnoor.com",
-          name: "Durrat Al Noor Hospitality",
-        },
-        breadcrumb: {
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            {
-              "@type": "ListItem",
-              position: 1,
-              name: "Home",
-              item: "https://durratalnoor.com",
-            },
-            {
-              "@type": "ListItem",
-              position: 2,
-              name: "Our Team",
-              item: "https://durratalnoor.com/our-team",
-            },
-          ],
-        },
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://durratalnoor.com/#organization",
-        name: "Durrat Al Noor Hospitality",
-        url: "https://durratalnoor.com",
-        logo: "https://durratalnoor.com/logo.png",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Dubai",
-          addressRegion: "Dubai",
-          addressCountry: "AE",
-        },
-        areaServed: {
-          "@type": "GeoCircle",
-          geoMidpoint: {
-            "@type": "GeoCoordinates",
-            latitude: "25.2048",
-            longitude: "55.2708",
-          },
-          geoRadius: "50000",
-        },
-      },
-      ...people.map((person) => ({
-        "@type": "Person",
-        "@id": `https://durratalnoor.com/our-team/#${person.name.toLowerCase().replace(/\s+/g, "-")}`,
-        name: person.name,
-        jobTitle: person.role,
-        description: person.bio,
-        image: `https://durratalnoor.com${person.image}`,
-        worksFor: {
-          "@id": "https://durratalnoor.com/#organization",
-        },
-        knowsAbout: [
-          "Hospitality Management",
-          "Staffing Solutions",
-          "Dubai Workforce Management",
-        ],
-      })),
-    ],
-  };
-
-  return (
-    <main className="w-full overflow-x-hidden bg-[#FAFAFA] text-[#0B192C] selection:bg-[#DAB672] selection:text-[#0B192C]">
-      {/* Schema / JSON-LD for Search Engines, Voice Assistants & AI Engines */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
-      {/* Hero Section */}
-      <section className="relative flex min-h-[380px] sm:min-h-[440px] md:min-h-[480px] w-full items-center justify-center overflow-hidden bg-[#0B192C] py-20 md:py-28">
-        {/* Crisp Unblurred Next.js Optimized Image */}
-        <div className="absolute inset-0 z-0 h-full w-full pointer-events-none">
-          <Image
-            src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2000&q=85"
-            alt="Durrat Al Noor Hospitality Headquarters Dubai background"
-            fill
-            priority
-            quality={90}
-            sizes="100vw"
-            className="object-cover object-center transform-gpu scale-100 transition-transform duration-1000 ease-out hover:scale-105"
-          />
-        </div>
-
-        {/* High-Contrast Gradient Layer - No Backdrop Blur applied */}
-        <div
-          className="absolute inset-0 z-10 bg-gradient-to-r from-[#0B192C]/95 via-[#0B192C]/80 to-[#0B192C]/65"
-          aria-hidden="true"
-        />
-
-        {/* Hero Content Wrapper */}
-        <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <span className="inline-flex items-center rounded-full bg-[#DAB672]/20 px-4 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-widest text-[#EBD19B] border border-[#DAB672]/40 shadow-sm">
-              Our Leadership
-            </span>
-            <h1 className="mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-              The Dedicated People Behind Durrat Al Noor Hospitality
-            </h1>
-            <p className="mt-4 text-base sm:text-lg md:text-xl text-slate-100 leading-relaxed max-w-2xl font-normal drop-shadow-sm">
-              Delivering premier hospitality and cleaning management services
-              across Dubai through experienced leadership, strategic management, and dedicated support.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Team Directory Section */}
-      <section
-        className="py-16 sm:py-20 lg:py-28 bg-white"
-        id="team-members"
-        aria-label="Leadership Team Directory"
-      >
-        <Reveal>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Section Header */}
-            <header className="mx-auto max-w-3xl text-center md:text-left md:mx-0 mb-12 sm:mb-16">
-              <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#B38536]">
-                Our Leadership & Specialists
-              </span>
-              <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight leading-tight">
-                Leadership, Client Relationships & Workforce Support
-              </h2>
-              <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-800 font-medium">
-                Our team brings together strategic management, active client communication, and robust human resources to ensure top-tier hospitality and facility management solutions.
-              </p>
-            </header>
-
-            {/* Team Grid */}
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
-              {people.map((person) => (
-                <article
-                  key={person.name}
-                  className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#DAB672] hover:shadow-2xl"
-                >
-                  {/* Card Image Container */}
-                  <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-100">
-                    <Image
-                      src={person.image}
-                      alt={`${person.name} - ${person.role} at Durrat Al Noor Hospitality Dubai`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover object-[center_20%] transition-transform duration-700 ease-out group-hover:scale-105"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B192C]/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  </div>
-
-                  {/* Card Details */}
-                  <div className="flex flex-1 flex-col justify-between p-6 sm:p-7">
-                    <div>
-                      <span className="inline-block rounded-md bg-[#DAB672]/15 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[#8A631F]">
-                        {person.role}
-                      </span>
-                      <h3 className="mt-3 text-xl sm:text-2xl font-bold text-[#0B192C] group-hover:text-[#B38536] transition-colors duration-200">
-                        {person.name}
-                      </h3>
-                      <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-800 font-normal">
-                        {person.bio}
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* Call to Action Section */}
-      <section className="bg-[#F4EFE6] py-16 sm:py-20 border-t border-b border-[#E0D5C1]">
-        <Reveal>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-              <div className="max-w-2xl">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight">
-                  Speak with Our Team
-                </h2>
-                <p className="mt-3 text-base sm:text-lg text-slate-800 font-semibold">
-                  Tell us about your hospitality staffing or service requirements in Dubai.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
-                <Link
-                  href="/contact-us/"
-                  className="inline-flex items-center justify-center rounded-full bg-[#DAB672] px-8 py-3.5 text-base font-bold text-[#0B192C] shadow-md transition-all duration-200 hover:bg-[#c6a059] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2 active:scale-95"
-                >
-                  Contact Us
-                </Link>
-                <Link
-                  href="/our-services/"
-                  className="inline-flex items-center justify-center rounded-full border-2 border-[#0B192C] px-8 py-3.5 text-base font-bold text-[#0B192C] transition-all duration-200 hover:bg-[#0B192C] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#0B192C] focus:ring-offset-2 active:scale-95"
-                >
-                  Explore Our Services
-                </Link>
-              </div>
-            </div>
-          </div>
-        </Reveal>
-      </section>
-    </main>
-  );
-}
-</file>
-
-<file path="src/app/page.tsx">
+<file path="src/app/our-services/page.tsx">
 "use client";
 
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  CheckCircle2,
-  Sparkles,
-  Utensils,
-  ChefHat,
-  Waves,
-  ShieldCheck,
-  Clock,
-  MapPin,
-  Phone,
-  ArrowUpRight,
-  MessageSquare,
-  Building2,
-} from "lucide-react";
+import Reveal from "@/components/Reveal";
+import { useState } from "react";
 
-export type HomeService = {
+type Service = {
   title: string;
   description: string;
   bullets: string[];
-  button?: string;
+  button: string;
   image: string;
-  imageAlt?: string;
-  icon: React.ElementType;
+  imageAlt: string;
 };
 
-const services: HomeService[] = [
+type FAQ = {
+  question: string;
+  answer: string;
+};
+
+const data: Service[] = [
   {
     title: "Housekeeping Services",
     description:
-      "Room attendants, public-area teams and supervisory support, alongside cleaning services for hotels, residences, offices, schools and government facilities.",
+      "Our housekeeping support covers hospitality and property environments where reliable personnel and clear service arrangements are required.",
     bullets: [
-      "Room attendants & public-area teams",
-      "Supervisory & inspectorial support",
-      "Hotels, residences, offices & schools",
-      "Government facilities maintenance",
+      "Room attendants",
+      "Public-area attendants",
+      "Supervisory",
+      "Residential/office",
+      "Government",
+      "School cleaning",
     ],
-    button: "Explore Housekeeping",
-    image:
-      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=85",
-    imageAlt: "Housekeeping services in Dubai",
-    icon: Sparkles,
+    button: "Enquire About Housekeeping",
+    image: "/hose-keeping-service.webp",
+    imageAlt: "Professional hotel room housekeeping service",
   },
   {
     title: "Food & Beverage Staffing",
     description:
-      "Waiters, waitresses, banquet staff and bar and service support for restaurants, hotels and events.",
+      "We provide F&B personnel to support restaurants, hotels, banquets and events according to your operational requirements.",
     bullets: [
-      "Waiters & waitresses",
-      "Banquet & event staff",
-      "Bar & service support",
-      "Restaurant & hotel staffing",
+      "Waiters/Waitresses",
+      "Restaurant service",
+      "Banquet staff",
+      "Bar support",
+      "Event personnel",
     ],
-    button: "Explore F&B Staffing",
-    image:
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=85",
-    imageAlt: "Food and beverage staffing services in Dubai",
-    icon: Utensils,
+    button: "Enquire About F&B Staffing",
+    image: "/food-and-beverage-staffing-service.webp",
+    imageAlt: "Elegant restaurant service and hospitality staff",
   },
   {
     title: "Kitchen & Stewarding",
     description:
-      "Kitchen stewards, commis chefs and culinary support personnel to assist your kitchen operations.",
-    bullets: [
-      "Kitchen stewards",
-      "Commis chefs",
-      "Culinary support personnel",
-      "Kitchen operation assistance",
-    ],
-    button: "Explore Kitchen Support",
-    image:
-      "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1400&q=85",
-    imageAlt: "Kitchen and stewarding services in Dubai",
-    icon: ChefHat,
+      "Kitchen support personnel help maintain smooth daily operations across food preparation and stewarding environments.",
+    bullets: ["Kitchen stewards", "Commis chefs", "Culinary support"],
+    button: "Enquire About Kitchen Support",
+    image: "/kitchen-stevarding-service.webp",
+    imageAlt: "Professional commercial kitchen staff",
   },
   {
     title: "Pool & Leisure Services",
     description:
-      "Pool lifeguards, beach lifeguards and recreation attendants for hospitality and leisure environments.",
-    bullets: [
-      "Pool lifeguards",
-      "Beach lifeguards",
-      "Recreation attendants",
-      "Leisure environment support",
-    ],
-    button: "Explore Pool & Leisure",
-    image:
-      "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1400&q=85",
-    imageAlt: "Pool and leisure staffing services in Dubai",
-    icon: Waves,
+      "Pool and leisure personnel support hospitality and recreation environments with the required roles and agreed schedules.",
+    bullets: ["Pool lifeguards", "Beach lifeguards", "Recreation attendants"],
+    button: "Enquire About Pool & Leisure Staffing",
+    image: "/pool-leisure-service.webp",
+    imageAlt: "Luxury resort pool and leisure environment",
   },
   {
     title: "Deep Cleaning Services",
     description:
-      "Deep cleaning for commercial buildings, residential buildings, villas and restaurants, with the scope agreed around your property's requirements.",
-    bullets: [
-      "Commercial buildings",
-      "Residential buildings & villas",
-      "Restaurants & kitchens",
-      "Custom agreed scope",
-    ],
-    button: "Explore Deep Cleaning",
-    image:
-      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=85",
-    imageAlt: "Deep cleaning services in Dubai",
-    icon: ShieldCheck,
+      "Deep cleaning is arranged around your property's requirements, scope, tasks, materials, equipment and schedule.",
+    bullets: ["Commercial", "Residential", "Villas", "Restaurants"],
+    button: "Request a Deep Cleaning Quote",
+    image: "/deep-cleaning-service.webp",
+    imageAlt: "Professional deep cleaning service in a commercial property",
   },
 ];
 
-// Animation variants (Entrance only - no disappearances)
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+const faqs: FAQ[] = [
+  {
+    question: "What hospitality staffing services do you provide?",
+    answer:
+      "We support housekeeping, food and beverage, kitchen and stewarding, pool and leisure, and other applicable hospitality staffing requirements.",
   },
-};
+  {
+    question: "Do you provide housekeeping services for residences and offices?",
+    answer:
+      "Yes. Housekeeping and cleaning support can be arranged for hotels, residences, offices, schools, government facilities and other agreed environments.",
+  },
+  {
+    question: "Can I request temporary or casual staff?",
+    answer:
+      "Yes. Casual staffing is available for applicable roles and temporary operational requirements.",
+  },
+  {
+    question: "Do you provide full-time employment support?",
+    answer:
+      "Yes. Full-time employment support can be discussed for applicable roles based on your requirements and agreed terms.",
+  },
+  {
+    question: "What areas do you cover?",
+    answer:
+      "We are based in Al Karama, Dubai and support clients in Dubai and across the UAE, subject to the service requirements.",
+  },
+  {
+    question: "How is deep cleaning quoted?",
+    answer:
+      "The scope, tasks, materials, equipment and schedule are discussed around your property's requirements before the quotation is agreed.",
+  },
+  {
+    question: "How do I request a quotation?",
+    answer:
+      "Use the enquiry form on our Contact Us page or contact us by phone or WhatsApp to discuss your requirements.",
+  },
+];
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What hospitality staffing services do you provide?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We support housekeeping, food and beverage, kitchen and stewarding, pool and leisure, and other applicable hospitality staffing requirements.",
+      },
     },
-  },
+    {
+      "@type": "Question",
+      name: "Do you provide housekeeping services for residences and offices?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Housekeeping and cleaning support can be arranged for hotels, residences, offices, schools, government facilities and other agreed environments.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I request temporary or casual staff?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Casual staffing is available for applicable roles and temporary operational requirements.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you provide full-time employment support?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Full-time employment support can be discussed for applicable roles based on your requirements and agreed terms.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What areas do you cover?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We are based in Al Karama, Dubai and support clients in Dubai and across the UAE, subject to the service requirements.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How is deep cleaning quoted?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The scope, tasks, materials, equipment and schedule are discussed around your property's requirements before the quotation is agreed.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do I request a quotation?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Use the enquiry form on our Contact Us page or contact us by phone or WhatsApp to discuss your requirements.",
+      },
+    },
+  ],
 };
 
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.92 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.7, ease: "easeOut" },
-  },
-};
+export default function Services() {
+  const [open, setOpen] = useState<number | null>(null);
 
-export default function Home() {
+  // JSON-LD Structured Data Schema for Search Engines, Voice Assistants (AEO) & Generative Search Engines (GEO)
+  const jsonLdData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://durratalnoor.ae/#organization",
+        name: "Durrat Al Noor Hospitality",
+        url: "https://durratalnoor.ae",
+        telephone: "+971582774427",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Al Karama",
+          addressLocality: "Dubai",
+          addressRegion: "Dubai",
+          addressCountry: "AE",
+        },
+        areaServed: [
+          {
+            "@type": "City",
+            name: "Dubai",
+          },
+          {
+            "@type": "Country",
+            name: "United Arab Emirates",
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+      {
+        "@type": "ItemList",
+        itemListElement: data.map((service, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          item: {
+            "@type": "Service",
+            name: service.title,
+            description: service.description,
+            provider: {
+              "@id": "https://durratalnoor.ae/#organization",
+            },
+            areaServed: "Dubai, UAE",
+          },
+        })),
+      },
+    ],
+  };
+
   return (
-    <div className="w-full overflow-x-hidden antialiased bg-white text-slate-900 selection:bg-[#DAB672] selection:text-slate-950">
-      {/* HERO SECTION */}
-      <section
-        aria-label="Hero Section"
-        className="relative flex min-h-[100dvh] w-full items-center justify-center overflow-hidden bg-[#0B192C] pb-16 pt-32 text-white md:pt-40"
-      >
-        <div className="absolute inset-0 z-0 h-full w-full">
-          <div className="absolute inset-0 h-full w-full bg-[url('/images/hero-fallback.jpg')] bg-cover bg-center" />
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster="/images/hero-fallback.jpg"
-            aria-label="Durrat Al Noor Hospitality background video"
-            className="absolute inset-0 h-full w-full object-cover opacity-90"
-          >
-            <source src="/bg-video-2.mp4" type="video/mp4" />
-          </video>
-        </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
+      />
 
-        <div className="hero-overlay absolute inset-0 z-10 h-full w-full bg-gradient-to-b from-[#0B192C]/85 via-[#0B192C]/75 to-[#0B192C]/95" />
+      <div className="w-full bg-[#FAF9F6] text-slate-900 antialiased selection:bg-[#DEBC7A] selection:text-slate-950">
+        {/* HERO SECTION - FULL SCREEN RESPONSIVE */}
+        <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#0F2137] pt-28 pb-16 text-white sm:pt-32 sm:pb-20">
+          <Image
+            src="/hsopitality-uae.webp"
+            alt="Durrat Al Noor Hospitality Services Dubai"
+            fill
+            priority
+            quality={90}
+            sizes="100vw"
+            className="object-cover object-center brightness-[0.70] contrast-[1.05]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0F2137]/90 via-[#0F2137]/75 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0F2137] via-transparent to-transparent opacity-80" />
 
-        <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8 flex w-full flex-col justify-center">
-          <motion.header
-            className="max-w-4xl"
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-          >
-            <motion.div variants={fadeInUp}>
-              <span className="eyebrow inline-flex items-center gap-2 rounded-full bg-[#DAB672]/20 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-[#F2C94C] border border-[#DAB672]/40 backdrop-blur-md">
-                <Sparkles className="h-3.5 w-3.5 text-[#F2C94C]" />
-                People. Service. Excellence.
+          <div className="container relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#DEBC7A]/40 bg-[#DEBC7A]/20 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-[#EBD09C] shadow-sm backdrop-blur-md">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#DEBC7A]" />
+                Our Services
               </span>
-            </motion.div>
-
-            <motion.h1
-              variants={fadeInUp}
-              className="mt-6 hero-title text-3xl font-black tracking-tight sm:text-5xl md:text-6xl text-white leading-[1.15] drop-shadow-md"
-            >
-              Hospitality Staffing &amp; Cleaning Services in Dubai
-            </motion.h1>
-
-            <motion.div
-              variants={fadeInUp}
-              className="mt-8 flex flex-row flex-wrap items-center gap-3 sm:gap-4"
-            >
-              <Link
-                href="/our-services/"
-                className="gold-button inline-flex items-center justify-center gap-2 rounded-full bg-[#DAB672] px-5 py-3 text-xs sm:text-sm font-extrabold text-slate-950 shadow-lg shadow-[#DAB672]/20 transition-all hover:bg-[#e0c082] hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2 focus:ring-offset-[#0B192C]"
-                aria-label="Explore Our Services"
-              >
-                <span>Explore Our Services</span>
-                <ArrowRight size={15} />
-              </Link>
-              <Link
-                href="/contact-us/"
-                className="gold-button inline-flex items-center justify-center gap-2 rounded-full border border-[#DAB672] bg-slate-950/60 backdrop-blur-md px-5 py-3 text-xs sm:text-sm font-extrabold text-white transition-all hover:bg-[#DAB672] hover:text-slate-950 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2 focus:ring-offset-[#0B192C]"
-                aria-label="Request a Quote"
-              >
-                <span>Request a Quote</span>
-                <ArrowUpRight size={15} />
-              </Link>
-            </motion.div>
-          </motion.header>
-        </div>
-      </section>
-
-      {/* ABOUT SECTION */}
-      <section
-        aria-label="About Us"
-        className="section py-20 md:py-28 bg-slate-50 text-slate-900 relative z-20 border-b border-slate-200/60"
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-            <motion.article
-              className="lg:col-span-7 flex flex-col justify-center"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-              variants={staggerContainer}
-            >
-              <motion.p
-                variants={fadeInUp}
-                className="eyebrow flex items-center gap-2 text-xs uppercase tracking-widest text-[#8C5E00] font-black"
-              >
-                <Building2 size={15} />
-                Hospitality Support Built Around Your Operation
-              </motion.p>
-
-              <motion.p
-                variants={fadeInUp}
-                className="copy mt-6 text-lg sm:text-xl font-bold text-slate-950 leading-snug"
-              >
-                Thoughtful service starts with the right people.
-              </motion.p>
-
-              <motion.p
-                variants={fadeInUp}
-                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium"
-              >
-                Durrat Al Noor Hospitality provides housekeeping, food and beverage staffing, kitchen and stewarding support, pool and leisure personnel, and deep cleaning services in Dubai and across the UAE.
-              </motion.p>
-
-              <motion.p
-                variants={fadeInUp}
-                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium"
-              >
-                From daily operations to temporary staffing requirements, we help hotels, restaurants, businesses and residential clients find support suited to their needs.
-              </motion.p>
-
-              <motion.p
-                variants={fadeInUp}
-                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium"
-              >
-                Every property has its own service standards, schedules and priorities. We take time to understand yours.
-              </motion.p>
-
-              <motion.p
-                variants={fadeInUp}
-                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium"
-              >
-                Whether you need housekeeping personnel, restaurant service staff or deep cleaning for your building, our team works with you to define the required roles, scope and service arrangements.
-              </motion.p>
-
-              <motion.p
-                variants={fadeInUp}
-                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium flex items-center gap-2"
-              >
-                <MapPin size={16} className="text-[#8C5E00] shrink-0" />
-                <span>
-                  Based in <strong>Al Karama, Dubai</strong>, Durrat Al Noor Hospitality brings people and operational support together with a focus on clear communication, professional conduct and care.
-                </span>
-              </motion.p>
-
-              <motion.div variants={fadeInUp} className="mt-8">
+              <h1 className="mt-5 text-3xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+                Hospitality &amp; Cleaning Services in Dubai and the UAE
+              </h1>
+              <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-slate-100 sm:text-lg">
+                Reliable staffing and property support solutions engineered for hotels, restaurants, offices, and residential spaces across Dubai.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-4">
                 <Link
-                  href="/about-us/"
-                  className="group inline-flex min-h-[44px] items-center gap-2 font-black text-slate-950 underline decoration-[#DAB672] decoration-2 underline-offset-8 transition-colors hover:text-[#8C5E00] focus:outline-none focus:ring-2 focus:ring-[#DAB672] rounded-md px-1"
+                  href="/contact-us/"
+                  className="inline-flex items-center justify-center rounded-full bg-[#DEBC7A] px-8 py-4 text-base font-bold text-slate-950 transition-all duration-300 hover:bg-[#C5A361] hover:shadow-xl hover:shadow-[#DEBC7A]/20 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[#DEBC7A] focus:ring-offset-2 focus:ring-offset-[#0F2137]"
                 >
-                  <span>Learn More About Us &rarr;</span>
+                  Request a Quote
                 </Link>
-              </motion.div>
-            </motion.article>
-
-            <motion.div
-              className="lg:col-span-5 flex items-center"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-              variants={scaleIn}
-            >
-              <div className="relative min-h-[340px] sm:min-h-[420px] lg:min-h-[480px] w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-slate-900/10 bg-slate-200">
-                <Image
-                  src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1400&q=80"
-                  alt="Durrat Al Noor Hospitality Dubai"
-                  fill
-                  priority={true}
-                  sizes="(max-width: 1024px) 100vw, 45vw"
-                  className="object-cover transition-transform duration-700 hover:scale-105"
-                  quality={85}
-                />
               </div>
-            </motion.div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* SERVICES SECTION */}
-      <section
-        aria-label="Our Services"
-        className="section py-20 md:py-28 bg-white text-slate-900"
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.p
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="eyebrow text-xs uppercase tracking-widest text-[#8C5E00] font-black"
-          >
-            Our Hospitality &amp; Cleaning Services
-          </motion.p>
+        {/* SERVICES LIST SECTION */}
+        <section className="py-16 sm:py-20 md:py-28">
+          <Reveal>
+            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="mb-14 max-w-3xl sm:mb-20">
+                <span className="text-xs font-black uppercase tracking-widest text-[#9A7432]">
+                  Service Overview
+                </span>
+                <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+                  Practical support for people, properties and daily operations.
+                </h2>
+                <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
+                  Durrat Al Noor Hospitality provides five core services to support
+                  people, properties and daily operations. Choose a service below
+                  to review the scope and request support.
+                </p>
+              </div>
 
-          <motion.div
-            className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={staggerContainer}
-          >
-            {services.slice(0, 3).map((s) => {
-              const IconComponent = s.icon;
-              return (
-                <motion.article
-                  key={s.title}
-                  variants={fadeInUp}
-                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#DAB672] hover:shadow-2xl"
-                >
-                  <div>
-                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
-                      <Image
-                        src={s.image}
-                        alt={s.imageAlt || s.title}
-                        fill
-                        sizes="(max-width: 767px) 100vw, 33vw"
-                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B192C]/90 via-[#0B192C]/40 to-transparent" />
-                      <div className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/20 backdrop-blur-md text-white border border-white/30">
-                        <IconComponent className="h-4 w-4" />
-                      </div>
-                      <div className="absolute bottom-3.5 left-4 right-4">
-                        <h3 className="text-lg font-black text-white transition-colors duration-200 group-hover:text-[#DAB672] drop-shadow-md">
-                          {s.title}
-                        </h3>
-                      </div>
-                    </div>
-
-                    <div className="p-5 sm:p-6">
-                      <p className="text-xs font-medium leading-relaxed text-slate-700 sm:text-sm">
-                        {s.description}
+              <div className="space-y-16 sm:space-y-20 lg:space-y-28">
+                {data.map((service, index) => (
+                  <article
+                    id={`service-${index + 1}`}
+                    key={service.title}
+                    className={`flex flex-col gap-8 rounded-3xl border border-slate-200/90 bg-white p-6 scroll-mt-32 shadow-sm transition-all duration-300 hover:border-slate-300/80 hover:shadow-xl sm:p-8 lg:items-center lg:gap-12 lg:p-12 ${
+                      index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
+                    }`}
+                  >
+                    <div className="min-w-0 flex-1">
+                      <span className="text-sm font-black text-[#9A7432]">
+                        0{index + 1}
+                      </span>
+                      <h2 className="mt-1 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
+                        {service.title}
+                      </h2>
+                      <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
+                        {service.description}
                       </p>
 
-                      <ul className="mt-5 space-y-2.5 text-xs font-semibold text-slate-900">
-                        {s.bullets.map((bullet) => (
-                          <li key={bullet} className="flex items-center gap-2.5">
-                            <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#DAB672]/20 text-[#8C5E00]">
-                              <CheckCircle2 size={12} strokeWidth={2.5} />
+                      <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                        {service.bullets.map((bullet) => (
+                          <li
+                            key={bullet}
+                            className="flex items-center rounded-xl border border-slate-200/60 bg-slate-100/80 px-4 py-3 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100"
+                          >
+                            <span
+                              className="mr-3 text-base font-black text-[#9A7432]"
+                              aria-hidden="true"
+                            >
+                              ➔
                             </span>
-                            <span>{bullet}</span>
+                            {bullet}
                           </li>
                         ))}
                       </ul>
-                    </div>
-                  </div>
-                </motion.article>
-              );
-            })}
-          </motion.div>
 
-          <motion.div
-            className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={staggerContainer}
-          >
-            {services.slice(3, 5).map((s) => {
-              const IconComponent = s.icon;
-              return (
-                <motion.article
-                  key={s.title}
-                  variants={fadeInUp}
-                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#DAB672] hover:shadow-2xl"
-                >
-                  <div>
-                    <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-100 md:aspect-[21/9]">
+                      <div className="mt-8">
+                        <Link
+                          href="/contact-us/"
+                          className="inline-flex items-center justify-center rounded-full bg-slate-950 px-7 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:bg-[#DEBC7A] hover:text-slate-950 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-slate-950"
+                        >
+                          {service.button}
+                        </Link>
+                      </div>
+                    </div>
+
+                    {/* IMAGE CONTAINER */}
+                    <div className="relative h-[280px] w-full overflow-hidden rounded-2xl bg-slate-100 shadow-md sm:h-[360px] lg:h-[420px] lg:w-[48%] lg:shrink-0">
                       <Image
-                        src={s.image}
-                        alt={s.imageAlt || s.title}
+                        src={service.image}
+                        alt={service.imageAlt}
                         fill
-                        sizes="(max-width: 767px) 100vw, 50vw"
-                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                        quality={90}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 48vw"
+                        className="object-cover transition-transform duration-700 hover:scale-105 contrast-[1.05] saturate-[1.05] [image-rendering:-webkit-optimize-contrast]"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B192C]/90 via-[#0B192C]/40 to-transparent" />
-                      <div className="absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/20 backdrop-blur-md text-white border border-white/30">
-                        <IconComponent className="h-4 w-4" />
-                      </div>
-                      <div className="absolute bottom-4 left-5 right-5">
-                        <h3 className="text-lg font-black text-white transition-colors duration-200 group-hover:text-[#DAB672] md:text-xl drop-shadow-md">
-                          {s.title}
-                        </h3>
-                      </div>
                     </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </section>
 
-                    <div className="p-5 sm:p-6">
-                      <p className="text-xs font-medium leading-relaxed text-slate-700 sm:text-sm">
-                        {s.description}
-                      </p>
+        {/* STAFFING OPTIONS */}
+        <section className="border-y border-slate-200/80 bg-white py-16 sm:py-20 md:py-28">
+          <Reveal>
+            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="max-w-2xl">
+                <span className="text-xs font-black uppercase tracking-widest text-[#9A7432]">
+                  Solutions
+                </span>
+                <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+                  Staffing Options
+                </h2>
+              </div>
 
-                      <ul className="mt-5 grid grid-cols-1 gap-2.5 text-xs font-semibold text-slate-900 sm:grid-cols-2">
-                        {s.bullets.map((bullet) => (
-                          <li key={bullet} className="flex items-center gap-2.5">
-                            <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#DAB672]/20 text-[#8C5E00]">
-                              <CheckCircle2 size={12} strokeWidth={2.5} />
-                            </span>
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+              <div className="mt-10 grid gap-6 sm:mt-14 sm:gap-8 md:grid-cols-3">
+                {[
+                  [
+                    "Casual Staffing",
+                    "Personnel for temporary requirements, events and additional operational demand.",
+                  ],
+                  [
+                    "Full-Time Employment Support",
+                    "Staffing arrangements for ongoing roles and regular operations.",
+                  ],
+                  [
+                    "Internship Programmes",
+                    "Arrangements based on suitable roles, learning requirements and supervision.",
+                  ],
+                ].map(([title, description]) => (
+                  <div
+                    className="rounded-2xl border border-slate-200/80 bg-slate-50/70 p-8 transition-all duration-300 hover:border-[#DEBC7A]/80 hover:bg-white hover:shadow-xl hover:shadow-[#DEBC7A]/10"
+                    key={title}
+                  >
+                    <h3 className="text-xl font-bold text-slate-900">{title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-slate-700 sm:text-base">
+                      {description}
+                    </p>
                   </div>
-                </motion.article>
-              );
-            })}
-          </motion.div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </section>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="mt-10 text-center"
-          >
-            <Link
-              href="/our-services/"
-              className="inline-flex items-center gap-2 font-black text-slate-950 underline decoration-[#DAB672] decoration-2 underline-offset-8 transition-colors hover:text-[#8C5E00]"
-            >
-              <span>Explore All Five Services &rarr;</span>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* FLEXIBLE STAFFING & SERVICE APPROACH SECTION */}
-      <section
-        aria-label="Service Features and Approach"
-        className="section py-20 md:py-28 bg-slate-50 text-slate-900 overflow-hidden border-t border-slate-200/60"
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid gap-8 lg:grid-cols-2">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={fadeInUp}
-            className="rounded-3xl border border-slate-200/80 bg-white p-8 sm:p-12 shadow-sm flex flex-col justify-center"
-          >
-            <p className="eyebrow flex items-center gap-2 text-xs uppercase tracking-widest text-[#8C5E00] font-black">
-              <Clock size={15} className="text-[#8C5E00]" />
-              Flexible Staffing Arrangements
-            </p>
-            <p className="copy mt-5 text-sm sm:text-base leading-relaxed text-slate-700 font-medium">
-              We offer casual staffing, full-time employment support and internship programmes for applicable roles. Tell us the personnel you need, the intended duration and your preferred schedule so we can discuss a suitable arrangement.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={fadeInUp}
-            className="rounded-3xl bg-[#0B192C] p-8 sm:p-12 text-white shadow-xl flex flex-col justify-center ring-1 ring-white/10"
-          >
-            <p className="eyebrow flex items-center gap-2 text-xs uppercase tracking-widest text-[#F2C94C] font-extrabold">
-              <ShieldCheck size={15} />
-              A Clear Approach to Service
-            </p>
-            <motion.ol
-              className="mt-8 grid gap-6"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={staggerContainer}
-            >
-              {[
-                [
-                  "Understand your needs",
-                  "We discuss your property, service priorities, staffing requirements and schedule.",
-                ],
-                [
-                  "Agree the details",
-                  "The scope, personnel, availability and pricing are confirmed before service begins.",
-                ],
-                [
-                  "Coordinate the work",
-                  "Our team stays in contact to support the agreed arrangements and discuss changing requirements.",
-                ],
-              ].map(([t, d]) => (
-                <motion.li
-                  key={t}
-                  variants={fadeInUp}
-                  className="border-b border-slate-800/80 pb-5 last:border-0 last:pb-0"
-                >
-                  <h3 className="font-extrabold text-lg sm:text-xl text-white">
-                    {t}
-                  </h3>
-                  <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-slate-300">
-                    {d}
+        {/* CTA BANNER SECTION (MOVED ABOVE FAQ) */}
+        <section className="bg-[#0F2137] py-16 text-white sm:py-20">
+          <Reveal>
+            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
+                <div>
+                  <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl">
+                    Ready to discuss your requirements?
+                  </h2>
+                  <p className="mt-2 text-base text-slate-200">
+                    Get in touch with our Dubai team today for custom staffing and cleaning arrangements.
                   </p>
-                </motion.li>
-              ))}
-            </motion.ol>
-          </motion.div>
-        </div>
-      </section>
+                </div>
+                <div className="flex flex-wrap gap-4">
+                  <Link
+                    href="/contact-us/"
+                    className="inline-flex items-center justify-center rounded-full bg-[#DEBC7A] px-7 py-3.5 text-sm font-bold text-slate-950 transition-all duration-300 hover:bg-[#C5A361] hover:shadow-lg hover:shadow-[#DEBC7A]/20 active:scale-[0.98]"
+                  >
+                    Request a Quote
+                  </Link>
+                  <a
+                    href="https://wa.me/971582774427"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full border border-slate-600 bg-slate-800/80 px-7 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:border-[#DEBC7A] hover:text-[#DEBC7A] active:scale-[0.98]"
+                  >
+                    WhatsApp Us
+                  </a>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </section>
 
-      {/* CALL TO ACTION SECTION */}
-      <section
-        aria-label="Contact Call to Action"
-        className="section py-16 md:py-24 bg-white text-[#0B192C] border-t border-slate-200"
-      >
-        <motion.div
-          className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between gap-8 md:flex-row md:items-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={staggerContainer}
-        >
-          <motion.div variants={fadeInUp} className="max-w-2xl">
-            <p className="eyebrow flex items-center gap-2 text-xs uppercase tracking-widest text-[#8C5E00] font-black">
-              <Phone size={15} />
-              Looking for Hospitality or Cleaning Support?
-            </p>
-            <p className="mt-4 text-slate-700 font-bold text-sm sm:text-base">
-              Tell us what you need and where you need it. We will review your enquiry and discuss the next steps.
-            </p>
-          </motion.div>
-          <motion.div
-            variants={fadeInUp}
-            className="flex flex-row flex-wrap items-center gap-3 sm:gap-4 shrink-0"
-          >
-            <Link
-              href="/contact-us/"
-              className="gold-button inline-flex items-center justify-center gap-2 rounded-full bg-[#DAB672] px-6 py-3.5 text-xs sm:text-sm font-extrabold text-slate-950 shadow-md transition-all hover:bg-[#e0c082] hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#DAB672]"
-            >
-              <span>Discuss Your Requirements</span>
-              <ArrowUpRight size={15} />
-            </Link>
-            <a
-              href="https://wa.me/971582774427"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-[#0B192C] px-6 py-3.5 text-xs sm:text-sm font-extrabold text-[#0B192C] transition-all hover:bg-[#0B192C] hover:text-white active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#0B192C]"
-            >
-              <span>WhatsApp Us</span>
-              <MessageSquare size={15} />
-            </a>
-          </motion.div>
-        </motion.div>
-      </section>
-    </div>
+        {/* FAQS SECTION */}
+        <section className="py-16 sm:py-20 md:py-28">
+          <Reveal>
+            <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+              <div className="text-center">
+                <span className="text-xs font-black uppercase tracking-widest text-[#9A7432]">
+                  Got Questions?
+                </span>
+                <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+                  Frequently Asked Questions
+                </h2>
+                <p className="mt-3 text-base text-slate-700 sm:text-lg">
+                  Common questions about our hospitality and cleaning services in Dubai.
+                </p>
+              </div>
+
+              <div className="mt-10 space-y-4 sm:mt-12">
+                {faqs.map((faq, index) => {
+                  const isOpen = open === index;
+                  return (
+                    <div
+                      key={faq.question}
+                      className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-colors duration-200"
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setOpen(isOpen ? null : index)}
+                        aria-expanded={isOpen}
+                        className="flex w-full items-center justify-between p-5 text-left font-bold text-slate-900 transition-colors hover:text-[#9A7432] focus:outline-none sm:p-6"
+                      >
+                        <span className="pr-4 text-base leading-snug sm:text-lg">{faq.question}</span>
+                        <span className="ml-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-100 font-black text-[#9A7432] transition-transform duration-200">
+                          {isOpen ? "−" : "+"}
+                        </span>
+                      </button>
+
+                      <div
+                        className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                          isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                        }`}
+                      >
+                        <div className="overflow-hidden">
+                          <p className="border-t border-slate-100 px-5 pb-5 pt-4 text-sm leading-relaxed text-slate-700 sm:px-6 sm:pb-6 sm:text-base">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </Reveal>
+        </section>
+      </div>
+    </>
   );
 }
 </file>
@@ -2754,6 +1657,1325 @@ export default function Footer() {
 
       </div>
     </footer>
+  );
+}
+</file>
+
+<file path="src/app/about-us/page.tsx">
+import Image from "next/image";
+import Link from "next/link";
+import { Target, Eye, ShieldCheck, Award, HeartHandshake, Clock, Heart } from "lucide-react";
+import Reveal from "@/components/Reveal";
+
+export const metadata = {
+  title: "About Durrat Al Noor Hospitality | Leading Staffing & Cleaning in Dubai, UAE",
+  description:
+    "Learn about Durrat Al Noor Hospitality, Dubai's premier provider of professional hospitality staffing, housekeeping, and deep cleaning services across the UAE.",
+  keywords: [
+    "Hospitality Staffing Dubai",
+    "Housekeeping Services UAE",
+    "Deep Cleaning Dubai",
+    "Durrat Al Noor Hospitality",
+    "Hotel Staffing Agency UAE",
+  ],
+  alternates: {
+    canonical: "https://durratalnoor.com/about",
+  },
+  openGraph: {
+    title: "About Durrat Al Noor Hospitality | Dubai, UAE",
+    description:
+      "Dubai-based provider of hospitality staffing, housekeeping, and deep cleaning support across the UAE.",
+    url: "https://durratalnoor.com/about",
+    siteName: "Durrat Al Noor Hospitality",
+    locale: "en_AE",
+    type: "website",
+  },
+};
+
+const values = [
+  {
+    title: "Integrity",
+    desc: "We value honest communication and a responsible approach to commitments.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Excellence",
+    desc: "We pay attention to the everyday details that contribute to a positive service experience.",
+    icon: Award,
+  },
+  {
+    title: "Respect",
+    desc: "We value the people we work with and the environments in which we operate.",
+    icon: HeartHandshake,
+  },
+  {
+    title: "Reliability",
+    desc: "We focus on organised working arrangements and clear service expectations.",
+    icon: Clock,
+  },
+  {
+    title: "Care",
+    desc: "We recognise that hospitality is about how people are treated, supported and welcomed.",
+    icon: Heart,
+  },
+];
+
+export default function About() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Durrat Al Noor Hospitality",
+      "alternateName": "Pearl of Light Hospitality",
+      "url": "https://durratalnoor.com",
+      "logo": "https://durratalnoor.com/logo.png",
+      "description":
+        "Provider of professional hospitality staffing, housekeeping, and deep cleaning services across Dubai and the UAE.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dubai",
+        "addressCountry": "AE",
+      },
+      "areaServed": "United Arab Emirates",
+      "knowsAbout": [
+        "Housekeeping Services",
+        "Food & Beverage Staffing",
+        "Kitchen & Stewarding",
+        "Pool & Leisure Services",
+        "Deep Cleaning Services",
+      ],
+    },
+  };
+
+  return (
+    <main className="w-full overflow-x-hidden bg-slate-50 text-slate-900">
+      {/* Search Engine & AI Schema Injection */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* Hero Section - Left Aligned Layout */}
+      <section className="relative flex min-h-screen w-full items-center overflow-hidden bg-[#0B192C] px-4 py-20 text-white sm:px-6 lg:px-8">
+        <div
+          className="absolute inset-0 z-0 h-full w-full bg-[url('/hsopitality-uae.webp')] bg-cover bg-center"
+          aria-hidden="true"
+        />
+        {/* Soft overlay ensuring text visibility without over-darkening the hero */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#0B192C]/80 via-[#0B192C]/60 to-[#0B192C]/85" />
+        
+        <div className="container relative z-20 mx-auto max-w-7xl text-left">
+          <div className="max-w-3xl">
+            <p className="inline-block rounded-full bg-[#DAB672]/20 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-[#DAB672] backdrop-blur-md">
+              • About Us
+            </p>
+            <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              About Durrat Al Noor Hospitality
+            </h1>
+            <p className="mt-6 text-base text-slate-200 sm:text-lg leading-relaxed">
+              Empowering Dubai & UAE's finest service environments with dedicated staff, tailored operational solutions, and precision care. We specialize in premium hospitality staffing, housekeeping, and deep cleaning services designed for hotels, restaurants, and luxury commercial spaces across the Emirates.
+            </p>
+
+            {/* CTA Button with Custom Gradient */}
+            <div className="mt-8 flex justify-start">
+              <Link
+                href="/contact-us"
+                style={{
+                  background: "linear-gradient(90deg, #E5C68D 0%, #FDF2E2 100%)",
+                }}
+                className="inline-flex items-center rounded-full px-8 py-3.5 text-base font-bold text-[#0B192C] shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#E5C68D] focus:ring-offset-2"
+              >
+                Contact Us
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Who We Are Section */}
+      <section className="py-16 md:py-24">
+        <Reveal>
+          <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
+              {/* Text Column */}
+              <div className="text-left lg:col-span-7">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#DAB672]">
+                  Who We Are
+                </span>
+                <h2 className="mt-2 text-2xl font-black tracking-tight text-[#0B192C] sm:text-4xl">
+                  Hospitality Begins with People
+                </h2>
+                <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
+                  Durrat Al Noor Hospitality is a Dubai-based provider of hospitality staffing, housekeeping and deep cleaning services for clients across the UAE.
+                </p>
+                <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
+                  We support hotels, restaurants, residential properties, businesses and other service environments through five core areas: Housekeeping Services, Food &amp; Beverage Staffing, Kitchen &amp; Stewarding, Pool &amp; Leisure Services, and Deep Cleaning Services.
+                </p>
+                <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
+                  Our name, meaning <strong className="font-semibold text-[#0B192C]">"Pearl of Light,"</strong> reflects our aspiration to bring care and a positive contribution to the hospitality industry.
+                </p>
+              </div>
+
+              {/* Logo Column (Right Side) */}
+              <div className="flex justify-center items-center lg:col-span-5">
+                <div className="relative w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[380px] aspect-square transition-transform duration-300 hover:scale-105">
+                  <Image
+                    src="/durrat_al_noor_hospitality_Logo.png"
+                    alt="Durrat Al Noor Hospitality Logo"
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 280px, (max-width: 1024px) 340px, 380px"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* Supporting People Section */}
+      <section className="bg-slate-100/70 py-16 md:py-24">
+        <Reveal>
+          <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+              <div>
+                <h2 className="text-2xl font-black tracking-tight text-[#0B192C] sm:text-4xl">
+                  Supporting the People Behind Every Experience
+                </h2>
+                <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
+                  A prepared room, attentive restaurant service and a carefully maintained space all depend on the people working behind the scenes.
+                </p>
+                <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
+                  We help clients identify the support their operation requires, from guest-facing service personnel to housekeeping and kitchen teams. Each engagement begins with a discussion of the setting, responsibilities, schedule and expected scope.
+                </p>
+                <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
+                  Our approach places importance on practical coordination, clear expectations and respect for clients, employees and guests.
+                </p>
+              </div>
+              <div className="relative h-[350px] sm:h-[450px] w-full overflow-hidden rounded-3xl shadow-xl transition-transform duration-300 hover:scale-[1.01]">
+                <Image
+                  src="/hospitality-about.webp"
+                  alt="Hotel hospitality service management in Dubai UAE"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* Mission, Vision & Values */}
+      <section className="bg-white py-16 md:py-24">
+        <Reveal>
+          <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#DAB672]">
+                Mission, Vision &amp; Values
+              </span>
+              <h2 className="mt-2 text-2xl font-black tracking-tight text-[#0B192C] sm:text-4xl">
+                Guided by Purpose & Excellence
+              </h2>
+            </div>
+
+            {/* Mission & Vision Row */}
+            <div className="mt-12 grid gap-8 md:grid-cols-2">
+              <div className="group rounded-2xl border border-slate-200/80 bg-white p-8 shadow-sm transition-all duration-300 hover:border-[#DAB672] hover:shadow-md">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#0B192C] text-[#DAB672]">
+                    <Target className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#0B192C]">Mission</h3>
+                </div>
+                <p className="mt-4 text-base leading-relaxed text-slate-700">
+                  To provide reliable hospitality and cleaning support through capable people, attentive coordination and a clear understanding of our clients' requirements.
+                </p>
+              </div>
+
+              <div className="group rounded-2xl border border-slate-200/80 bg-[#0B192C] p-8 shadow-sm transition-all duration-300 hover:border-[#DAB672] hover:shadow-md text-white">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#DAB672]">
+                    <Eye className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Vision</h3>
+                </div>
+                <p className="mt-4 text-base leading-relaxed text-slate-200">
+                  To become a trusted hospitality partner across the UAE, building lasting relationships through service quality, professional conduct and care for people.
+                </p>
+              </div>
+            </div>
+
+            {/* Our Values - 5 Cards in Single Row on Desktop */}
+            <div className="mt-16">
+              <h3 className="text-center text-2xl font-black text-[#0B192C]">
+                Our Values
+              </h3>
+              <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+                {values.map(({ title, desc, icon: Icon }) => (
+                  <div
+                    key={title}
+                    className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-slate-50/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#DAB672] hover:bg-white hover:shadow-md"
+                  >
+                    <div>
+                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#0B192C]/10 text-[#0B192C]">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h4 className="mt-4 text-lg font-bold text-[#0B192C]">
+                        {title}
+                      </h4>
+                      <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                        {desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* A Service Arrangement That Fits */}
+      <section className="py-16 md:py-24">
+        <Reveal>
+          <div className="container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col items-center text-center rounded-3xl bg-[#F2EEE5] p-8 sm:p-12 md:p-16 shadow-sm border border-[#e5dec9]">
+              <h2 className="text-2xl font-black tracking-tight text-[#0B192C] sm:text-4xl">
+                A Service Arrangement That Fits
+              </h2>
+              <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-800 sm:text-lg">
+                Casual staffing, full-time employment support and internship programmes are available for applicable roles. We discuss the roles, location, working hours and duration involved before agreeing on a service arrangement.
+              </p>
+
+              <div className="my-8 h-px w-24 bg-[#DAB672]/60" />
+
+              <h3 className="text-xl font-bold text-[#0B192C] sm:text-2xl">
+                Meet the Team Behind Durrat Al Noor
+              </h3>
+              <div className="mt-6 flex flex-wrap justify-center gap-4">
+                <Link
+                  href="/our-team/"
+                  className="rounded-full bg-[#DAB672] px-8 py-3.5 text-sm font-bold text-[#0B192C] transition-all hover:bg-[#c9a35e] hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2"
+                >
+                  Meet Our Team
+                </Link>
+                <Link
+                  href="/our-services/"
+                  className="rounded-full border-2 border-[#0B192C] bg-transparent px-8 py-3.5 text-sm font-bold text-[#0B192C] transition-all hover:border-[#DAB672] hover:bg-[#0B192C] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#0B192C] focus:ring-offset-2"
+                >
+                  Explore Our Services
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+    </main>
+  );
+}
+</file>
+
+<file path="src/app/our-team/page.tsx">
+import Image from "next/image";
+import Link from "next/link";
+import { Metadata } from "next";
+import Reveal from "@/components/Reveal";
+
+export const metadata: Metadata = {
+  title: "Leadership & Team | Durrat Al Noor Hospitality Dubai",
+  description:
+    "Meet the experienced leadership, sales, and HR team behind Durrat Al Noor Hospitality in Dubai. Committed to excellence in hospitality staffing and service quality.",
+  keywords: [
+    "Durrat Al Noor Hospitality",
+    "Hospitality Team Dubai",
+    "Dubai Hospitality Leadership",
+    "Staffing Solutions Dubai",
+    "Dipak Shrestha",
+    "Dipak Pandaya",
+    "Alisha Gautam",
+    "UAE Hotel Staffing Services",
+  ],
+  alternates: {
+    canonical: "https://durratalnoor.com/our-team",
+  },
+  openGraph: {
+    title: "Leadership & Team | Durrat Al Noor Hospitality Dubai",
+    description:
+      "Meet the leadership, sales, and HR professionals behind Durrat Al Noor Hospitality in Dubai.",
+    url: "https://durratalnoor.com/our-team",
+    siteName: "Durrat Al Noor Hospitality",
+    locale: "en_AE",
+    type: "website",
+    images: [
+      {
+        url: "https://durratalnoor.com/dipak_shrestha.png",
+        width: 1200,
+        height: 630,
+        alt: "Durrat Al Noor Hospitality Leadership Team",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Leadership & Team | Durrat Al Noor Hospitality Dubai",
+    description:
+      "Meet the leadership, sales, and HR professionals behind Durrat Al Noor Hospitality in Dubai.",
+    images: ["https://durratalnoor.com/dipak_shrestha.png"],
+  },
+};
+
+const people = [
+  {
+    name: "Dipak Shrestha",
+    role: "Managing Director",
+    bio: "Dipak Shrestha leads Durrat Al Noor Hospitality, guiding the company's strategic vision with a steadfast commitment to high service quality, client satisfaction, and workforce excellence across the UAE hospitality sector.",
+    image: "/dipak_shrestha.png",
+    // Focus towards top for high-positioned faces
+    imagePosition: "object-top",
+  },
+  {
+    name: "Dipak Pandaya",
+    role: "Sales Director",
+    bio: "Dipak Pandaya focuses on strategic business development and long-term client relationships, connecting premier commercial hospitality needs with tailored, efficient staffing and service solutions.",
+    image: "/dipak_pandya.jpeg",
+    imagePosition: "object-center",
+  },
+  {
+    name: "Alisha Gautam",
+    role: "HR Manager",
+    bio: "Alisha Gautam supports the core workforce at Durrat Al Noor Hospitality through talent recruitment, employee well-being, and structured team development to maintain rigorous service standards.",
+    image: "/alisha_gautham.jpeg",
+    // Focus slightly lower than top if needed, or top
+    imagePosition: "object-top",
+  },
+];
+
+const highlights = [
+  {
+    title: "Tailored Workforce Solutions",
+    description:
+      "Flexible, scalable staffing solutions customized for 5-star hotels, luxury resorts, and commercial venues across Dubai and the UAE.",
+  },
+  {
+    title: "Rigorous Training & Compliance",
+    description:
+      "Every team member undergoes comprehensive hospitality and hygiene training aligned with UAE international standards.",
+  },
+  {
+    title: "Dedicated Account Management",
+    description:
+      "Our active sales and HR directors ensure smooth ongoing communication, fast placement turnarounds, and top workforce retention.",
+  },
+];
+
+export default function Team() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://durratalnoor.com/our-team/#webpage",
+        url: "https://durratalnoor.com/our-team",
+        name: "Leadership & Team | Durrat Al Noor Hospitality Dubai",
+        description:
+          "Meet the leadership, sales, and HR team driving excellence at Durrat Al Noor Hospitality Dubai.",
+        inLanguage: "en-AE",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": "https://durratalnoor.com/#website",
+          url: "https://durratalnoor.com",
+          name: "Durrat Al Noor Hospitality",
+        },
+        breadcrumb: {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "Home",
+              item: "https://durratalnoor.com",
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: "Our Team",
+              item: "https://durratalnoor.com/our-team",
+            },
+          ],
+        },
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://durratalnoor.com/#organization",
+        name: "Durrat Al Noor Hospitality",
+        url: "https://durratalnoor.com",
+        logo: "https://durratalnoor.com/logo.png",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Dubai",
+          addressRegion: "Dubai",
+          addressCountry: "AE",
+        },
+        areaServed: {
+          "@type": "GeoCircle",
+          geoMidpoint: {
+            "@type": "GeoCoordinates",
+            latitude: "25.2048",
+            longitude: "55.2708",
+          },
+          geoRadius: "50000",
+        },
+      },
+      ...people.map((person) => ({
+        "@type": "Person",
+        "@id": `https://durratalnoor.com/our-team/#${person.name
+          .toLowerCase()
+          .replace(/\s+/g, "-")}`,
+        name: person.name,
+        jobTitle: person.role,
+        description: person.bio,
+        image: `https://durratalnoor.com${person.image}`,
+        worksFor: {
+          "@id": "https://durratalnoor.com/#organization",
+        },
+        knowsAbout: [
+          "Hospitality Management",
+          "Staffing Solutions",
+          "Dubai Workforce Management",
+        ],
+      })),
+    ],
+  };
+
+  return (
+    <main className="w-full overflow-x-hidden bg-[#FAFAFA] text-[#0B192C] selection:bg-[#DAB672] selection:text-[#0B192C]">
+      {/* Schema / JSON-LD for Search Engines, Voice Assistants & AI Engines */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* Hero Section */}
+      <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#0B192C] pt-32 pb-20 md:pt-40 md:pb-28">
+        <div className="absolute inset-0 z-0 h-full w-full pointer-events-none">
+          <Image
+            src="/hsopitality-uae.webp"
+            alt="Durrat Al Noor Hospitality Headquarters Dubai background"
+            fill
+            priority
+            quality={90}
+            sizes="100vw"
+            className="object-cover object-center transform-gpu scale-100 transition-transform duration-1000 ease-out hover:scale-105"
+          />
+        </div>
+
+        <div
+          className="absolute inset-0 z-10 bg-gradient-to-r from-[#0B192C]/95 via-[#0B192C]/80 to-[#0B192C]/65"
+          aria-hidden="true"
+        />
+
+        <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <span className="inline-flex items-center rounded-full bg-[#DAB672]/20 px-4 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-widest text-[#EBD19B] border border-[#DAB672]/40 shadow-sm">
+              Our Leadership
+            </span>
+            <h1 className="mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+              The Dedicated People Behind Durrat Al Noor Hospitality
+            </h1>
+            <p className="mt-4 text-base sm:text-lg md:text-xl text-slate-100 leading-relaxed max-w-2xl font-normal drop-shadow-sm">
+              Delivering premier hospitality and cleaning management services
+              across Dubai through experienced leadership, strategic management, and dedicated support.
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Link
+                href="/contact-us"
+                className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-base font-bold text-[#0B192C] shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-[#E5C68D] focus:ring-offset-2 active:scale-95"
+                style={{
+                  background:
+                    "linear-gradient(90deg, #E5C68D 0%, #FDF2E2 100%)",
+                }}
+              >
+                Contact Us
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Team Directory Section */}
+      <section
+        className="py-16 sm:py-20 lg:py-28 bg-white"
+        id="team-members"
+        aria-label="Leadership Team Directory"
+      >
+        <Reveal>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Section Header */}
+            <header className="mx-auto max-w-3xl text-center md:text-left md:mx-0 mb-12 sm:mb-16">
+              <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#B38536]">
+                Our Leadership & Specialists
+              </span>
+              <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight leading-tight">
+                Leadership, Client Relationships & Workforce Support
+              </h2>
+              <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-800 font-medium">
+                Our team brings together strategic management, active client communication, and robust human resources to ensure top-tier hospitality and facility management solutions.
+              </p>
+            </header>
+
+            {/* Responsive Row Container */}
+            <div className="flex flex-col gap-8 sm:gap-10">
+              {people.map((person) => (
+                <article
+                  key={person.name}
+                  className="group flex flex-col md:flex-row items-center overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 shadow-sm transition-all duration-300 hover:border-[#DAB672] hover:shadow-xl"
+                >
+                  {/* Photo Wrapper */}
+                  <div className="relative w-full md:w-96 lg:w-[420px] shrink-0 h-[360px] sm:h-[400px] md:h-[420px] flex items-center justify-center rounded-2xl overflow-hidden">
+                    <Image
+                      src={person.image}
+                      alt={`${person.name} - ${person.role} at Durrat Al Noor Hospitality Dubai`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 384px, 420px"
+                      className={`object-cover rounded-2xl transition-transform duration-500 ease-out group-hover:scale-105 ${
+                        person.imagePosition || "object-top"
+                      }`}
+                      loading="lazy"
+                    />
+                  </div>
+
+                  {/* Details Container */}
+                  <div className="flex flex-1 flex-col justify-center p-6 sm:p-8 lg:p-10">
+                    <div>
+                      <span className="inline-block rounded-md bg-[#DAB672]/15 px-3.5 py-1 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#8A631F]">
+                        {person.role}
+                      </span>
+                      <h3 className="mt-3 text-2xl sm:text-3xl font-bold text-[#0B192C] group-hover:text-[#B38536] transition-colors duration-200">
+                        {person.name}
+                      </h3>
+                      <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-700 font-normal max-w-3xl">
+                        {person.bio}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* SEO Content Section - Why Choose Our Team */}
+      <section className="bg-[#FAFAFA] py-16 sm:py-20 border-t border-slate-200/80">
+        <Reveal>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <header className="max-w-3xl mb-12">
+              <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#B38536]">
+                Hospitality Excellence in Dubai
+              </span>
+              <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight">
+                Why Partner with Durrat Al Noor Hospitality?
+              </h2>
+              <p className="mt-4 text-base sm:text-lg text-slate-700 leading-relaxed">
+                As one of the trusted hospitality and commercial staffing providers in Dubai, our experienced management team ensures that every deployment meets the highest luxury standards of the UAE hotel sector.
+              </p>
+            </header>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {highlights.map((item, index) => (
+                <div
+                  key={index}
+                  className="rounded-xl border border-slate-200/80 bg-white p-6 sm:p-8 shadow-sm transition-all duration-300 hover:border-[#DAB672]"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#DAB672]/15 text-[#8A631F] font-bold text-lg mb-5">
+                    0{index + 1}
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0B192C] mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="bg-[#F4EFE6] py-16 sm:py-20 border-t border-b border-[#E0D5C1]">
+        <Reveal>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+              <div className="max-w-2xl">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight">
+                  Speak with Our Team
+                </h2>
+                <p className="mt-3 text-base sm:text-lg text-slate-800 font-semibold">
+                  Tell us about your hospitality staffing or service requirements in Dubai.
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
+                <Link
+                  href="/contact-us/"
+                  className="inline-flex items-center justify-center rounded-full bg-[#DAB672] px-8 py-3.5 text-base font-bold text-[#0B192C] shadow-md transition-all duration-200 hover:bg-[#c6a059] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2 active:scale-95"
+                >
+                  Contact Us
+                </Link>
+                <Link
+                  href="/our-services/"
+                  className="inline-flex items-center justify-center rounded-full border-2 border-[#0B192C] px-8 py-3.5 text-base font-bold text-[#0B192C] transition-all duration-200 hover:bg-[#0B192C] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#0B192C] focus:ring-offset-2 active:scale-95"
+                >
+                  Explore Our Services
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+    </main>
+  );
+}
+</file>
+
+<file path="src/app/page.tsx">
+"use client";
+
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { motion, Variants } from "framer-motion";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Sparkles,
+  Utensils,
+  ChefHat,
+  Waves,
+  ShieldCheck,
+  Clock,
+  MapPin,
+  Phone,
+  ArrowUpRight,
+  MessageSquare,
+  Building2,
+} from "lucide-react";
+
+export type HomeService = {
+  title: string;
+  description: string;
+  bullets: string[];
+  button?: string;
+  image: string;
+  imageAlt?: string;
+  icon: React.ElementType;
+};
+
+const services: HomeService[] = [
+  {
+    title: "Housekeeping Services",
+    description:
+      "Room attendants, public-area teams and supervisory support, alongside cleaning services for hotels, residences, offices, schools and government facilities.",
+    bullets: [
+      "Room attendants & public-area teams",
+      "Supervisory & inspectorial support",
+      "Hotels, residences, offices & schools",
+      "Government facilities maintenance",
+    ],
+    button: "Explore Housekeeping",
+    image:
+      "/hose-keeping-service.webp",
+    imageAlt: "Housekeeping services in Dubai",
+    icon: Sparkles,
+  },
+  {
+    title: "Food & Beverage Staffing",
+    description:
+      "Waiters, waitresses, banquet staff and bar and service support for restaurants, hotels and events.",
+    bullets: [
+      "Waiters & waitresses",
+      "Banquet & event staff",
+      "Bar & service support",
+      "Restaurant & hotel staffing",
+    ],
+    button: "Explore F&B Staffing",
+    image:
+      "/food-and-beverage-staffing-service.webp",
+    imageAlt: "Food and beverage staffing services in Dubai",
+    icon: Utensils,
+  },
+  {
+    title: "Kitchen & Stewarding",
+    description:
+      "Kitchen stewards, commis chefs and culinary support personnel to assist your kitchen operations.",
+    bullets: [
+      "Kitchen stewards",
+      "Commis chefs",
+      "Culinary support personnel",
+      "Kitchen operation assistance",
+    ],
+    button: "Explore Kitchen Support",
+    image:
+      "/kitchen-stevarding-service.webp",
+    imageAlt: "Kitchen and stewarding services in Dubai",
+    icon: ChefHat,
+  },
+  {
+    title: "Pool & Leisure Services",
+    description:
+      "Pool lifeguards, beach lifeguards and recreation attendants for hospitality and leisure environments.",
+    bullets: [
+      "Pool lifeguards",
+      "Beach lifeguards",
+      "Recreation attendants",
+      "Leisure environment support",
+    ],
+    button: "Explore Pool & Leisure",
+    image:
+      "/pool-leisure-service.webp",
+    imageAlt: "Pool and leisure staffing services in Dubai",
+    icon: Waves,
+  },
+  {
+    title: "Deep Cleaning Services",
+    description:
+      "Deep cleaning for commercial buildings, residential buildings, villas and restaurants, with the scope agreed around your property's requirements.",
+    bullets: [
+      "Commercial buildings",
+      "Residential buildings & villas",
+      "Restaurants & kitchens",
+      "Custom agreed scope",
+    ],
+    button: "Explore Deep Cleaning",
+    image:
+      "/deep-cleaning-service.webp",
+    imageAlt: "Deep cleaning services in Dubai",
+    icon: ShieldCheck,
+  },
+];
+
+// Animation variants (Entrance only - no disappearances)
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const scaleIn: Variants = {
+  hidden: { opacity: 0, scale: 0.92 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+};
+
+export default function Home() {
+  return (
+    <div className="w-full overflow-x-hidden antialiased bg-white text-slate-900 selection:bg-[#DAB672] selection:text-slate-950">
+      {/* HERO SECTION */}
+      <section
+        aria-label="Hero Section"
+        className="relative flex min-h-[100dvh] w-full items-center justify-center overflow-hidden bg-[#0B192C] pb-16 pt-32 text-white md:pt-40"
+      >
+        <div className="absolute inset-0 z-0 h-full w-full">
+          <div className="absolute inset-0 h-full w-full bg-[url('/images/hero-fallback.jpg')] bg-cover bg-center" />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="/images/hero-fallback.jpg"
+            aria-label="Durrat Al Noor Hospitality background video"
+            className="absolute inset-0 h-full w-full object-cover opacity-90"
+          >
+            <source src="/bg-video-2.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+        <div className="hero-overlay absolute inset-0 z-10 h-full w-full bg-gradient-to-b from-[#0B192C]/85 via-[#0B192C]/75 to-[#0B192C]/95" />
+
+        <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8 flex w-full flex-col justify-center">
+          <motion.header
+            className="max-w-4xl"
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+          >
+            <motion.div variants={fadeInUp}>
+              <span className="eyebrow inline-flex items-center gap-2 rounded-full bg-[#DAB672]/20 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-[#F2C94C] border border-[#DAB672]/40 backdrop-blur-md">
+                <Sparkles className="h-3.5 w-3.5 text-[#F2C94C]" />
+                People. Service. Excellence.
+              </span>
+            </motion.div>
+
+            <motion.h1
+              variants={fadeInUp}
+              className="mt-6 hero-title text-3xl font-black tracking-tight sm:text-5xl md:text-6xl text-white leading-[1.15] drop-shadow-md"
+            >
+              Hospitality Staffing &amp; Cleaning Services in Dubai
+            </motion.h1>
+
+            <motion.div
+              variants={fadeInUp}
+              className="mt-8 flex flex-row flex-wrap items-center gap-3 sm:gap-4"
+            >
+              <Link
+                href="/our-services/"
+                className="gold-button inline-flex items-center justify-center gap-2 rounded-full bg-[#DAB672] px-5 py-3 text-xs sm:text-sm font-extrabold text-slate-950 shadow-lg shadow-[#DAB672]/20 transition-all hover:bg-[#e0c082] hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2 focus:ring-offset-[#0B192C]"
+                aria-label="Explore Our Services"
+              >
+                <span>Explore Our Services</span>
+                <ArrowRight size={15} />
+              </Link>
+              <Link
+                href="/contact-us/"
+                className="gold-button inline-flex items-center justify-center gap-2 rounded-full border border-[#DAB672] bg-slate-950/60 backdrop-blur-md px-5 py-3 text-xs sm:text-sm font-extrabold text-white transition-all hover:bg-[#DAB672] hover:text-slate-950 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2 focus:ring-offset-[#0B192C]"
+                aria-label="Request a Quote"
+              >
+                <span>Request a Quote</span>
+                <ArrowUpRight size={15} />
+              </Link>
+            </motion.div>
+          </motion.header>
+        </div>
+      </section>
+
+      {/* ABOUT SECTION */}
+      <section
+        aria-label="About Us"
+        className="section py-20 md:py-28 bg-slate-50 text-slate-900 relative z-20 border-b border-slate-200/60"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+            <motion.article
+              className="lg:col-span-7 flex flex-col justify-center"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={staggerContainer}
+            >
+              <motion.p
+                variants={fadeInUp}
+                className="eyebrow flex items-center gap-2 text-xs uppercase tracking-widest text-[#8C5E00] font-black"
+              >
+                <Building2 size={15} />
+                Hospitality Support Built Around Your Operation
+              </motion.p>
+
+              <motion.p
+                variants={fadeInUp}
+                className="copy mt-6 text-lg sm:text-xl font-bold text-slate-950 leading-snug"
+              >
+                Thoughtful service starts with the right people.
+              </motion.p>
+
+              <motion.p
+                variants={fadeInUp}
+                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium"
+              >
+                Durrat Al Noor Hospitality provides housekeeping, food and beverage staffing, kitchen and stewarding support, pool and leisure personnel, and deep cleaning services in Dubai and across the UAE.
+              </motion.p>
+
+              <motion.p
+                variants={fadeInUp}
+                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium"
+              >
+                From daily operations to temporary staffing requirements, we help hotels, restaurants, businesses and residential clients find support suited to their needs.
+              </motion.p>
+
+              <motion.p
+                variants={fadeInUp}
+                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium"
+              >
+                Every property has its own service standards, schedules and priorities. We take time to understand yours.
+              </motion.p>
+
+              <motion.p
+                variants={fadeInUp}
+                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium"
+              >
+                Whether you need housekeeping personnel, restaurant service staff or deep cleaning for your building, our team works with you to define the required roles, scope and service arrangements.
+              </motion.p>
+
+              <motion.p
+                variants={fadeInUp}
+                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium flex items-center gap-2"
+              >
+                <MapPin size={16} className="text-[#8C5E00] shrink-0" />
+                <span>
+                  Based in <strong>Al Karama, Dubai</strong>, Durrat Al Noor Hospitality brings people and operational support together with a focus on clear communication, professional conduct and care.
+                </span>
+              </motion.p>
+
+              <motion.div variants={fadeInUp} className="mt-8">
+                <Link
+                  href="/about-us/"
+                  className="group inline-flex min-h-[44px] items-center gap-2 font-black text-slate-950 underline decoration-[#DAB672] decoration-2 underline-offset-8 transition-colors hover:text-[#8C5E00] focus:outline-none focus:ring-2 focus:ring-[#DAB672] rounded-md px-1"
+                >
+                  <span>Learn More About Us &rarr;</span>
+                </Link>
+              </motion.div>
+            </motion.article>
+
+            <motion.div
+              className="lg:col-span-5 flex items-center"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={scaleIn}
+            >
+              <div className="relative min-h-[340px] sm:min-h-[420px] lg:min-h-[480px] w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-slate-900/10 bg-slate-200">
+                <Image
+                  src="/hospitality-1.png"
+                  alt="Durrat Al Noor Hospitality Dubai"
+                  fill
+                  priority={true}
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  quality={85}
+                />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES SECTION */}
+      <section
+        aria-label="Our Services"
+        className="section py-20 md:py-28 bg-white text-slate-900"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.p
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="eyebrow text-xs uppercase tracking-widest text-[#8C5E00] font-black"
+          >
+            Our Hospitality &amp; Cleaning Services
+          </motion.p>
+
+          <motion.div
+            className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            {services.slice(0, 3).map((s) => {
+              const IconComponent = s.icon;
+              return (
+                <motion.article
+                  key={s.title}
+                  variants={fadeInUp}
+                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#DAB672] hover:shadow-2xl"
+                >
+                  <div>
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                      <Image
+                        src={s.image}
+                        alt={s.imageAlt || s.title}
+                        fill
+                        sizes="(max-width: 767px) 100vw, 33vw"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B192C]/90 via-[#0B192C]/40 to-transparent" />
+                      <div className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/20 backdrop-blur-md text-white border border-white/30">
+                        <IconComponent className="h-4 w-4" />
+                      </div>
+                      <div className="absolute bottom-3.5 left-4 right-4">
+                        <h3 className="text-lg font-black text-white transition-colors duration-200 group-hover:text-[#DAB672] drop-shadow-md">
+                          {s.title}
+                        </h3>
+                      </div>
+                    </div>
+
+                    <div className="p-5 sm:p-6">
+                      <p className="text-xs font-medium leading-relaxed text-slate-700 sm:text-sm">
+                        {s.description}
+                      </p>
+
+                      <ul className="mt-5 space-y-2.5 text-xs font-semibold text-slate-900">
+                        {s.bullets.map((bullet) => (
+                          <li key={bullet} className="flex items-center gap-2.5">
+                            <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#DAB672]/20 text-[#8C5E00]">
+                              <CheckCircle2 size={12} strokeWidth={2.5} />
+                            </span>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </motion.article>
+              );
+            })}
+          </motion.div>
+
+          <motion.div
+            className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            {services.slice(3, 5).map((s) => {
+              const IconComponent = s.icon;
+              return (
+                <motion.article
+                  key={s.title}
+                  variants={fadeInUp}
+                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#DAB672] hover:shadow-2xl"
+                >
+                  <div>
+                    <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-100 md:aspect-[21/9]">
+                      <Image
+                        src={s.image}
+                        alt={s.imageAlt || s.title}
+                        fill
+                        sizes="(max-width: 767px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B192C]/90 via-[#0B192C]/40 to-transparent" />
+                      <div className="absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/20 backdrop-blur-md text-white border border-white/30">
+                        <IconComponent className="h-4 w-4" />
+                      </div>
+                      <div className="absolute bottom-4 left-5 right-5">
+                        <h3 className="text-lg font-black text-white transition-colors duration-200 group-hover:text-[#DAB672] md:text-xl drop-shadow-md">
+                          {s.title}
+                        </h3>
+                      </div>
+                    </div>
+
+                    <div className="p-5 sm:p-6">
+                      <p className="text-xs font-medium leading-relaxed text-slate-700 sm:text-sm">
+                        {s.description}
+                      </p>
+
+                      <ul className="mt-5 grid grid-cols-1 gap-2.5 text-xs font-semibold text-slate-900 sm:grid-cols-2">
+                        {s.bullets.map((bullet) => (
+                          <li key={bullet} className="flex items-center gap-2.5">
+                            <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#DAB672]/20 text-[#8C5E00]">
+                              <CheckCircle2 size={12} strokeWidth={2.5} />
+                            </span>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </motion.article>
+              );
+            })}
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="mt-10 text-center"
+          >
+            <Link
+              href="/our-services/"
+              className="inline-flex items-center gap-2 font-black text-slate-950 underline decoration-[#DAB672] decoration-2 underline-offset-8 transition-colors hover:text-[#8C5E00]"
+            >
+              <span>Explore All Five Services &rarr;</span>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+{/* FLEXIBLE STAFFING & SERVICE APPROACH SECTION */}
+      <section
+        aria-label="Service Features and Approach"
+        className="section py-12 sm:py-16 md:py-24 bg-slate-50 text-slate-900 overflow-hidden border-t border-slate-200/60"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+          {/* Flexible Staffing Card */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeInUp}
+            className="rounded-2xl sm:rounded-3xl border border-slate-200/80 bg-white p-6 sm:p-8 md:p-10 lg:p-12 shadow-sm flex flex-col justify-between transition-all duration-300 hover:border-[#DAB672]/60 hover:shadow-md"
+          >
+            <div>
+              <p className="eyebrow inline-flex items-center gap-2 text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-[#8C5E00] font-black">
+                <Clock size={15} className="text-[#8C5E00] shrink-0" />
+                <span>Flexible Staffing Arrangements</span>
+              </p>
+              
+              <h3 className="mt-4 text-xl sm:text-2xl md:text-3xl font-black text-slate-950 tracking-tight leading-snug">
+                Tailored workforce solutions for every schedule
+              </h3>
+
+              <p className="copy mt-4 text-xs sm:text-sm md:text-base leading-relaxed text-slate-700 font-medium">
+                We offer casual staffing, full-time employment support, and internship programmes for applicable roles. Tell us the personnel you need, the intended duration, and your preferred schedule so we can discuss a suitable arrangement tailored specifically to your operation.
+              </p>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-slate-100 flex items-center gap-3 text-xs sm:text-sm font-bold text-slate-800">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#DAB672]/20 text-[#8C5E00]">
+                ✓
+              </span>
+              <span>Casual, Full-Time & Seasonal Coverage</span>
+            </div>
+          </motion.div>
+
+          {/* Clear Approach Card */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeInUp}
+            className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#0B192C] via-[#0F233D] to-[#081220] p-6 sm:p-8 md:p-10 lg:p-12 text-white shadow-xl flex flex-col justify-between ring-1 ring-white/10 relative overflow-hidden"
+          >
+            {/* Ambient Background Accent Light */}
+            <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-[#DAB672]/10 blur-2xl pointer-events-none" />
+
+            <div className="relative z-10">
+              <p className="eyebrow inline-flex items-center gap-2 text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-[#F2C94C] font-extrabold">
+                <ShieldCheck size={15} className="shrink-0 text-[#F2C94C]" />
+                <span>A Clear Approach to Service</span>
+              </p>
+
+              <motion.ol
+                className="mt-6 sm:mt-8 grid gap-5 sm:gap-6"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={staggerContainer}
+              >
+                {[
+                  [
+                    "01. Understand your needs",
+                    "We discuss your property, service priorities, staffing requirements, and schedule.",
+                  ],
+                  [
+                    "02. Agree the details",
+                    "The scope, personnel, availability, and pricing are confirmed before service begins.",
+                  ],
+                  [
+                    "03. Coordinate the work",
+                    "Our team stays in contact to support the agreed arrangements and discuss changing requirements.",
+                  ],
+                ].map(([t, d]) => (
+                  <motion.li
+                    key={t}
+                    variants={fadeInUp}
+                    className="border-b border-slate-800/80 pb-4 sm:pb-5 last:border-0 last:pb-0"
+                  >
+                    <h4 className="font-black text-base sm:text-lg md:text-xl text-white tracking-tight">
+                      {t}
+                    </h4>
+                    <p className="mt-1 sm:mt-1.5 text-xs sm:text-sm leading-relaxed text-slate-300 font-normal">
+                      {d}
+                    </p>
+                  </motion.li>
+                ))}
+              </motion.ol>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+{/* CALL TO ACTION SECTION */}
+      <section
+        aria-label="Contact Call to Action"
+        className="section relative py-12 sm:py-16 lg:py-20 bg-slate-50 overflow-hidden border-t border-slate-200/80"
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#0B192C] via-[#0F233D] to-[#081220] p-6 sm:p-10 md:p-12 lg:p-14 shadow-2xl ring-1 ring-white/15"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            {/* Ambient Background Lights & Visual Accents */}
+            <div className="absolute -top-20 -right-20 h-56 w-56 sm:h-72 sm:w-72 rounded-full bg-[#DAB672]/20 blur-2xl sm:blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-20 -left-20 h-56 w-56 sm:h-72 sm:w-72 rounded-full bg-[#DAB672]/10 blur-2xl sm:blur-3xl pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(#DAB672_1px,transparent_1px)] [background-size:20px_20px] sm:[background-size:24px_24px] opacity-10 pointer-events-none" />
+
+            <div className="relative z-10 flex flex-col items-center text-center lg:text-left lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-12">
+              {/* Text Content */}
+              <motion.div variants={fadeInUp} className="max-w-2xl w-full">
+                <div className="inline-flex items-center gap-2 rounded-full bg-[#DAB672]/15 px-3.5 py-1.5 text-[11px] sm:text-xs font-black uppercase tracking-wider sm:tracking-widest text-[#F2C94C] border border-[#DAB672]/30 backdrop-blur-md">
+                  <Phone className="h-3.5 w-3.5 text-[#F2C94C] shrink-0" />
+                  <span>Looking for Hospitality or Cleaning Support?</span>
+                </div>
+
+                <h2 className="mt-4 sm:mt-5 text-xl sm:text-3xl md:text-4xl font-black tracking-tight text-white leading-tight">
+                  Ready to Elevate Your Service Operations?
+                </h2>
+
+                <p className="mt-3 sm:mt-4 text-xs sm:text-base leading-relaxed text-slate-300 font-medium max-w-xl mx-auto lg:mx-0">
+                  Tell us what you need and where you need it. We will review your enquiry and discuss the next steps.
+                </p>
+              </motion.div>
+
+              {/* Action Buttons */}
+              <motion.div
+                variants={fadeInUp}
+                className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 sm:gap-4 w-full lg:w-auto shrink-0"
+              >
+                {/* Discuss Requirements Button */}
+                <Link
+                  href="/contact-us/"
+                  className="group inline-flex items-center justify-center gap-2.5 sm:gap-3 rounded-full bg-[#DAB672] px-6 sm:px-7 py-3.5 sm:py-4 text-xs sm:text-sm font-extrabold text-slate-950 shadow-lg shadow-[#DAB672]/20 transition-all duration-300 hover:bg-[#e0c082] hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#DAB672] w-full sm:w-auto"
+                >
+                  <Building2 className="h-4 w-4 text-slate-950 shrink-0" />
+                  <span className="whitespace-nowrap">Discuss Your Requirements</span>
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
+                </Link>
+
+                {/* WhatsApp Button (Updated to Gold styling) */}
+                <a
+                  href="https://wa.me/971582774427"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center justify-center gap-2.5 sm:gap-3 rounded-full bg-[#DAB672] px-6 sm:px-7 py-3.5 sm:py-4 text-xs sm:text-sm font-extrabold text-slate-950 shadow-lg shadow-[#DAB672]/20 transition-all duration-300 hover:bg-[#e0c082] hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#DAB672] w-full sm:w-auto"
+                >
+                  <svg
+                    className="h-4.5 w-4.5 sm:h-5 sm:w-5 fill-slate-950 transition-transform duration-300 group-hover:rotate-12 shrink-0"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662a11.87 11.87 0 005.71 1.454h.005c6.554 0 11.89-5.335 11.893-11.893 0-3.174-1.236-6.158-3.48-8.402" />
+                  </svg>
+                  <span className="whitespace-nowrap">WhatsApp Us</span>
+                </a>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+    </div>
   );
 }
 </file>
