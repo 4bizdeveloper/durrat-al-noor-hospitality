@@ -254,8 +254,8 @@ export default function Services() {
       />
 
       <div className="w-full bg-[#FAF9F6] text-slate-900 antialiased selection:bg-[#DEBC7A] selection:text-slate-950">
-        {/* HERO SECTION - Controlled Height, Clear Background, Proper Space Below Navbar */}
-        <section className="relative w-full overflow-hidden bg-[#0F2137] pt-32 sm:pt-36 md:pt-40 pb-20 sm:pb-24 lg:pb-28 text-white">
+        {/* HERO SECTION - FULL SCREEN RESPONSIVE */}
+        <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#0F2137] pt-28 pb-16 text-white sm:pt-32 sm:pb-20">
           <Image
             src="/hsopitality-uae.webp"
             alt="Durrat Al Noor Hospitality Services Dubai"
@@ -270,14 +270,14 @@ export default function Services() {
 
           <div className="container relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#DEBC7A]/20 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-[#EBD09C] backdrop-blur-md border border-[#DEBC7A]/40 shadow-sm">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#DEBC7A] animate-pulse" />
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#DEBC7A]/40 bg-[#DEBC7A]/20 px-4 py-1.5 text-xs font-extrabold uppercase tracking-widest text-[#EBD09C] shadow-sm backdrop-blur-md">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#DEBC7A]" />
                 Our Services
               </span>
-              <h1 className="mt-5 text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl leading-[1.15]">
+              <h1 className="mt-5 text-3xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
                 Hospitality &amp; Cleaning Services in Dubai and the UAE
               </h1>
-              <p className="mt-5 text-base sm:text-lg text-slate-100 max-w-2xl leading-relaxed font-normal">
+              <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-slate-100 sm:text-lg">
                 Reliable staffing and property support solutions engineered for hotels, restaurants, offices, and residential spaces across Dubai.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
@@ -296,14 +296,14 @@ export default function Services() {
         <section className="py-16 sm:py-20 md:py-28">
           <Reveal>
             <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="mb-14 sm:mb-20 max-w-3xl">
+              <div className="mb-14 max-w-3xl sm:mb-20">
                 <span className="text-xs font-black uppercase tracking-widest text-[#9A7432]">
                   Service Overview
                 </span>
-                <h2 className="mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl lg:text-5xl tracking-tight">
+                <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
                   Practical support for people, properties and daily operations.
                 </h2>
-                <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-700">
+                <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
                   Durrat Al Noor Hospitality provides five core services to support
                   people, properties and daily operations. Choose a service below
                   to review the scope and request support.
@@ -315,7 +315,7 @@ export default function Services() {
                   <article
                     id={`service-${index + 1}`}
                     key={service.title}
-                    className={`scroll-mt-32 flex flex-col gap-8 rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 lg:p-12 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-slate-300/80 lg:items-center lg:gap-12 ${
+                    className={`flex flex-col gap-8 rounded-3xl border border-slate-200/90 bg-white p-6 scroll-mt-32 shadow-sm transition-all duration-300 hover:border-slate-300/80 hover:shadow-xl sm:p-8 lg:items-center lg:gap-12 lg:p-12 ${
                       index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
                     }`}
                   >
@@ -323,10 +323,10 @@ export default function Services() {
                       <span className="text-sm font-black text-[#9A7432]">
                         0{index + 1}
                       </span>
-                      <h2 className="mt-1 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+                      <h2 className="mt-1 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
                         {service.title}
                       </h2>
-                      <p className="mt-4 text-base sm:text-lg text-slate-700 leading-relaxed">
+                      <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
                         {service.description}
                       </p>
 
@@ -334,10 +334,10 @@ export default function Services() {
                         {service.bullets.map((bullet) => (
                           <li
                             key={bullet}
-                            className="flex items-center rounded-xl bg-slate-100/80 px-4 py-3 text-sm font-semibold text-slate-900 border border-slate-200/60 transition-colors hover:bg-slate-100"
+                            className="flex items-center rounded-xl border border-slate-200/60 bg-slate-100/80 px-4 py-3 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100"
                           >
                             <span
-                              className="mr-3 text-[#9A7432] font-black text-base"
+                              className="mr-3 text-base font-black text-[#9A7432]"
                               aria-hidden="true"
                             >
                               ➔
@@ -357,8 +357,8 @@ export default function Services() {
                       </div>
                     </div>
 
-                    {/* IMAGE CONTAINER WITH CRISP Clarity Filters */}
-                    <div className="relative h-[280px] sm:h-[360px] lg:h-[420px] w-full overflow-hidden rounded-2xl shadow-md lg:w-[48%] lg:shrink-0 bg-slate-100">
+                    {/* IMAGE CONTAINER */}
+                    <div className="relative h-[280px] w-full overflow-hidden rounded-2xl bg-slate-100 shadow-md sm:h-[360px] lg:h-[420px] lg:w-[48%] lg:shrink-0">
                       <Image
                         src={service.image}
                         alt={service.imageAlt}
@@ -376,19 +376,19 @@ export default function Services() {
         </section>
 
         {/* STAFFING OPTIONS */}
-        <section className="py-16 sm:py-20 md:py-28 bg-white border-y border-slate-200/80">
+        <section className="border-y border-slate-200/80 bg-white py-16 sm:py-20 md:py-28">
           <Reveal>
             <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="max-w-2xl">
                 <span className="text-xs font-black uppercase tracking-widest text-[#9A7432]">
                   Solutions
                 </span>
-                <h2 className="mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl lg:text-5xl tracking-tight">
+                <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
                   Staffing Options
                 </h2>
               </div>
 
-              <div className="mt-10 sm:mt-14 grid gap-6 sm:gap-8 md:grid-cols-3">
+              <div className="mt-10 grid gap-6 sm:mt-14 sm:gap-8 md:grid-cols-3">
                 {[
                   [
                     "Casual Staffing",
@@ -408,7 +408,7 @@ export default function Services() {
                     key={title}
                   >
                     <h3 className="text-xl font-bold text-slate-900">{title}</h3>
-                    <p className="mt-3 text-slate-700 leading-relaxed text-sm sm:text-base">
+                    <p className="mt-3 text-sm leading-relaxed text-slate-700 sm:text-base">
                       {description}
                     </p>
                   </div>
@@ -418,71 +418,16 @@ export default function Services() {
           </Reveal>
         </section>
 
-        {/* FAQS SECTION */}
-        <section className="py-16 sm:py-20 md:py-28">
-          <Reveal>
-            <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-              <div className="text-center">
-                <span className="text-xs font-black uppercase tracking-widest text-[#9A7432]">
-                  Got Questions?
-                </span>
-                <h2 className="mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl lg:text-5xl tracking-tight">
-                  Frequently Asked Questions
-                </h2>
-                <p className="mt-3 text-slate-700 text-base sm:text-lg">
-                  Common questions about our hospitality and cleaning services in Dubai.
-                </p>
-              </div>
-
-              <div className="mt-10 sm:mt-12 space-y-4">
-                {faqs.map((faq, index) => {
-                  const isOpen = open === index;
-                  return (
-                    <div
-                      key={faq.question}
-                      className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-colors duration-200"
-                    >
-                      <button
-                        type="button"
-                        onClick={() => setOpen(isOpen ? null : index)}
-                        aria-expanded={isOpen}
-                        className="flex w-full items-center justify-between p-5 sm:p-6 text-left font-bold text-slate-900 hover:text-[#9A7432] focus:outline-none transition-colors"
-                      >
-                        <span className="pr-4 text-base sm:text-lg leading-snug">{faq.question}</span>
-                        <span className="ml-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-100 text-[#9A7432] font-black transition-transform duration-200">
-                          {isOpen ? "−" : "+"}
-                        </span>
-                      </button>
-
-                      <div
-                        className={`grid transition-[grid-template-rows] duration-300 ease-out ${
-                          isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                        }`}
-                      >
-                        <div className="overflow-hidden">
-                          <p className="px-5 pb-5 sm:px-6 sm:pb-6 text-slate-700 leading-relaxed text-sm sm:text-base border-t border-slate-100 pt-4">
-                            {faq.answer}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </Reveal>
-        </section>
-
-        {/* CTA FOOTER BANNER */}
-        <section className="bg-[#0F2137] py-16 sm:py-20 text-white">
+        {/* CTA BANNER SECTION (MOVED ABOVE FAQ) */}
+        <section className="bg-[#0F2137] py-16 text-white sm:py-20">
           <Reveal>
             <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
                 <div>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">
+                  <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl">
                     Ready to discuss your requirements?
                   </h2>
-                  <p className="mt-2 text-slate-200 text-base">
+                  <p className="mt-2 text-base text-slate-200">
                     Get in touch with our Dubai team today for custom staffing and cleaning arrangements.
                   </p>
                 </div>
@@ -502,6 +447,61 @@ export default function Services() {
                     WhatsApp Us
                   </a>
                 </div>
+              </div>
+            </div>
+          </Reveal>
+        </section>
+
+        {/* FAQS SECTION */}
+        <section className="py-16 sm:py-20 md:py-28">
+          <Reveal>
+            <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+              <div className="text-center">
+                <span className="text-xs font-black uppercase tracking-widest text-[#9A7432]">
+                  Got Questions?
+                </span>
+                <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+                  Frequently Asked Questions
+                </h2>
+                <p className="mt-3 text-base text-slate-700 sm:text-lg">
+                  Common questions about our hospitality and cleaning services in Dubai.
+                </p>
+              </div>
+
+              <div className="mt-10 space-y-4 sm:mt-12">
+                {faqs.map((faq, index) => {
+                  const isOpen = open === index;
+                  return (
+                    <div
+                      key={faq.question}
+                      className="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm transition-colors duration-200"
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setOpen(isOpen ? null : index)}
+                        aria-expanded={isOpen}
+                        className="flex w-full items-center justify-between p-5 text-left font-bold text-slate-900 transition-colors hover:text-[#9A7432] focus:outline-none sm:p-6"
+                      >
+                        <span className="pr-4 text-base leading-snug sm:text-lg">{faq.question}</span>
+                        <span className="ml-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-100 font-black text-[#9A7432] transition-transform duration-200">
+                          {isOpen ? "−" : "+"}
+                        </span>
+                      </button>
+
+                      <div
+                        className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                          isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                        }`}
+                      >
+                        <div className="overflow-hidden">
+                          <p className="border-t border-slate-100 px-5 pb-5 pt-4 text-sm leading-relaxed text-slate-700 sm:px-6 sm:pb-6 sm:text-base">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </Reveal>
