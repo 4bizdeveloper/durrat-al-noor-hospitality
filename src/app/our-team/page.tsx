@@ -1,221 +1,150 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
-import { Metadata } from "next";
 import Reveal from "@/components/Reveal";
+import { Clock, Mail, MapPin, Phone, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { useState, useEffect } from "react";
 
-export const metadata: Metadata = {
-  title: "Leadership & Team | Durrat Al Noor Hospitality Dubai",
-  description:
-    "Meet the experienced leadership, sales, and HR team behind Durrat Al Noor Hospitality in Dubai. Committed to excellence in hospitality staffing and service quality.",
-  keywords: [
-    "Durrat Al Noor Hospitality",
-    "Hospitality Team Dubai",
-    "Dubai Hospitality Leadership",
-    "Staffing Solutions Dubai",
-    "Dipak Shrestha",
-    "Dipak Pandaya",
-    "Alisha Gautam",
-    "UAE Hotel Staffing Services",
-  ],
-  alternates: {
-    canonical: "https://durratalnoor.com/our-team",
-  },
-  openGraph: {
-    title: "Leadership & Team | Durrat Al Noor Hospitality Dubai",
-    description:
-      "Meet the leadership, sales, and HR professionals behind Durrat Al Noor Hospitality in Dubai.",
-    url: "https://durratalnoor.com/our-team",
-    siteName: "Durrat Al Noor Hospitality",
-    locale: "en_AE",
-    type: "website",
-    images: [
-      {
-        url: "https://durratalnoor.com/dipak_shrestha.png",
-        width: 1200,
-        height: 630,
-        alt: "Durrat Al Noor Hospitality Leadership Team",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Leadership & Team | Durrat Al Noor Hospitality Dubai",
-    description:
-      "Meet the leadership, sales, and HR professionals behind Durrat Al Noor Hospitality in Dubai.",
-    images: ["https://durratalnoor.com/dipak_shrestha.png"],
-  },
-};
+export default function ContactPage() {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
 
-const people = [
-  {
-    name: "Dipak Shrestha",
-    role: "Managing Director",
-    bio: "Dipak Shrestha leads Durrat Al Noor Hospitality, guiding the company's strategic vision with a steadfast commitment to high service quality, client satisfaction, and workforce excellence across the UAE hospitality sector.",
-    image: "/dipak_shrestha.png",
-    // Focus towards top for high-positioned faces
-    imagePosition: "object-top",
-  },
-  {
-    name: "Dipak Pandaya",
-    role: "Sales Director",
-    bio: "Dipak Pandaya focuses on strategic business development and long-term client relationships, connecting premier commercial hospitality needs with tailored, efficient staffing and service solutions.",
-    image: "/dipak_pandya.jpeg",
-    imagePosition: "object-center",
-  },
-  {
-    name: "Alisha Gautam",
-    role: "HR Manager",
-    bio: "Alisha Gautam supports the core workforce at Durrat Al Noor Hospitality through talent recruitment, employee well-being, and structured team development to maintain rigorous service standards.",
-    image: "/alisha_gautham.jpeg",
-    // Focus slightly lower than top if needed, or top
-    imagePosition: "object-top",
-  },
-];
+  // Auto-hide success or error status messages after 5 seconds
+  useEffect(() => {
+    if (status === "success" || status === "error") {
+      const timer = setTimeout(() => {
+        setStatus("idle");
+        setErrorMessage("");
+      }, 5000);
 
-const highlights = [
-  {
-    title: "Tailored Workforce Solutions",
-    description:
-      "Flexible, scalable staffing solutions customized for 5-star hotels, luxury resorts, and commercial venues across Dubai and the UAE.",
-  },
-  {
-    title: "Rigorous Training & Compliance",
-    description:
-      "Every team member undergoes comprehensive hospitality and hygiene training aligned with UAE international standards.",
-  },
-  {
-    title: "Dedicated Account Management",
-    description:
-      "Our active sales and HR directors ensure smooth ongoing communication, fast placement turnarounds, and top workforce retention.",
-  },
-];
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
 
-export default function Team() {
+  // Restrict phone input to numbers, leading '+', spaces, and dashes
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    // Allows digits, optional leading +, spaces, and hyphens
+    const filteredVal = val.replace(/[^\d+ -]/g, "");
+    setPhone(filteredVal);
+  };
+
+  async function submit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("loading");
+    setErrorMessage("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      fullName: formData.get("fullName"),
+      companyName: formData.get("companyName"),
+      email: formData.get("email"),
+      phone: phone, // using validated numeric state
+      location: formData.get("location"),
+      startDate: formData.get("startDate"),
+      service: formData.get("service"),
+      requirements: formData.get("requirements"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json().catch(() => null);
+
+      if (res.ok) {
+        form.reset();
+        setPhone("");
+        setStatus("success");
+      } else {
+        const detail = data?.error || data?.details || "Failed to send email message.";
+        setErrorMessage(detail);
+        setStatus("error");
+      }
+    } catch (err: unknown) {
+      const errDetail = err instanceof Error ? err.message : String(err);
+      setErrorMessage(`Network error: ${errDetail}`);
+      setStatus("error");
+    }
+  }
+
+  // Schema Markup for Search Engines, AI Engines (AEO) & Geo-location (GEO)
   const jsonLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        "@id": "https://durratalnoor.com/our-team/#webpage",
-        url: "https://durratalnoor.com/our-team",
-        name: "Leadership & Team | Durrat Al Noor Hospitality Dubai",
-        description:
-          "Meet the leadership, sales, and HR team driving excellence at Durrat Al Noor Hospitality Dubai.",
-        inLanguage: "en-AE",
-        isPartOf: {
-          "@type": "WebSite",
-          "@id": "https://durratalnoor.com/#website",
-          url: "https://durratalnoor.com",
-          name: "Durrat Al Noor Hospitality",
-        },
-        breadcrumb: {
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            {
-              "@type": "ListItem",
-              position: 1,
-              name: "Home",
-              item: "https://durratalnoor.com",
-            },
-            {
-              "@type": "ListItem",
-              position: 2,
-              name: "Our Team",
-              item: "https://durratalnoor.com/our-team",
-            },
-          ],
-        },
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://durratalnoor.com/#organization",
-        name: "Durrat Al Noor Hospitality",
-        url: "https://durratalnoor.com",
-        logo: "https://durratalnoor.com/logo.png",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Dubai",
-          addressRegion: "Dubai",
-          addressCountry: "AE",
-        },
-        areaServed: {
-          "@type": "GeoCircle",
-          geoMidpoint: {
-            "@type": "GeoCoordinates",
-            latitude: "25.2048",
-            longitude: "55.2708",
-          },
-          geoRadius: "50000",
-        },
-      },
-      ...people.map((person) => ({
-        "@type": "Person",
-        "@id": `https://durratalnoor.com/our-team/#${person.name
-          .toLowerCase()
-          .replace(/\s+/g, "-")}`,
-        name: person.name,
-        jobTitle: person.role,
-        description: person.bio,
-        image: `https://durratalnoor.com${person.image}`,
-        worksFor: {
-          "@id": "https://durratalnoor.com/#organization",
-        },
-        knowsAbout: [
-          "Hospitality Management",
-          "Staffing Solutions",
-          "Dubai Workforce Management",
-        ],
-      })),
-    ],
+    "@type": "LocalBusiness",
+    name: "Durrat Al Noor Hospitality & Cleaning",
+    image: "/hsopitality-uae.webp",
+    telePhone: "+971582774427",
+    email: "info@durratalnoorhospitality.com",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "104, Crystal Building, Al Karama",
+      addressLocality: "Dubai",
+      addressCountry: "AE",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "25.2487",
+      longitude: "55.3023",
+    },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "18:00",
+    },
+    url: "https://durratalnoorhospitality.com/contact",
+    priceRange: "$$",
   };
 
   return (
-    <main className="w-full overflow-x-hidden bg-[#FAFAFA] text-[#0B192C] selection:bg-[#DAB672] selection:text-[#0B192C]">
-      {/* Schema / JSON-LD for Search Engines, Voice Assistants & AI Engines */}
+    <div className="w-full bg-[#FAF9F6] text-[#0F172A] selection:bg-[#DAB672] selection:text-white transform-gpu antialiased">
+      <title>Contact Durrat Al Noor Hospitality | Al Karama, Dubai</title>
+      <meta
+        name="description"
+        content="Contact Durrat Al Noor Hospitality in Al Karama, Dubai. Call +971 58 277 4427 for hospitality staffing, housekeeping and deep cleaning enquiries."
+      />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
       {/* Hero Section */}
-      <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#0B192C] pt-32 pb-20 md:pt-40 md:pb-28">
-        <div className="absolute inset-0 z-0 h-full w-full pointer-events-none">
-          <Image
-            src="/hsopitality-uae.webp"
-            alt="Durrat Al Noor Hospitality Headquarters Dubai background"
-            fill
-            priority
-            quality={90}
-            sizes="100vw"
-            className="object-cover object-center transform-gpu scale-100 transition-transform duration-1000 ease-out hover:scale-105"
-          />
-        </div>
-
+      <section className="relative flex w-full min-h-[85vh] lg:min-h-screen items-center justify-center overflow-hidden bg-[#0B192C] pt-28 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-28 text-white">
         <div
-          className="absolute inset-0 z-10 bg-gradient-to-r from-[#0B192C]/95 via-[#0B192C]/80 to-[#0B192C]/65"
+          className="absolute inset-0 z-0 h-full w-full bg-cover bg-center transition-transform duration-700 ease-out will-change-transform hover:scale-105"
+          style={{
+            backgroundImage: "url('/hsopitality-uae.webp')",
+          }}
           aria-hidden="true"
         />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#0B192C]/95 via-[#0B192C]/85 to-[#0B192C]/70 backdrop-blur-[1px]" />
 
         <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <span className="inline-flex items-center rounded-full bg-[#DAB672]/20 px-4 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-widest text-[#EBD19B] border border-[#DAB672]/40 shadow-sm">
-              Our Leadership
+            <span className="inline-block rounded-full bg-[#DAB672]/20 border border-[#DAB672]/50 px-4 py-1.5 text-xs sm:text-sm font-semibold tracking-wider uppercase text-[#F3E5AB] backdrop-blur-md">
+              Contact Us
             </span>
-            <h1 className="mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-              The Dedicated People Behind Durrat Al Noor Hospitality
+            <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl leading-[1.15]">
+              Let Us Discuss Your Hospitality &amp; Cleaning Requirements
             </h1>
-            <p className="mt-4 text-base sm:text-lg md:text-xl text-slate-100 leading-relaxed max-w-2xl font-normal drop-shadow-sm">
-              Delivering premier hospitality and cleaning management services
-              across Dubai through experienced leadership, strategic management, and dedicated support.
+            <p className="mt-4 max-w-2xl text-base text-slate-100 sm:text-lg lg:text-xl font-medium leading-relaxed drop-shadow-sm">
+              Partner with Dubai’s leading provider for professional housekeeping, hospitality staffing, and specialized cleaning solutions.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-8">
               <Link
                 href="/contact-us"
-                className="inline-flex items-center justify-center rounded-full px-8 py-3.5 text-base font-bold text-[#0B192C] shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-[#E5C68D] focus:ring-offset-2 active:scale-95"
+                className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-bold text-[#0B192C] shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#E5C68D] focus:ring-offset-2 active:scale-95 touch-manipulation"
                 style={{
-                  background:
-                    "linear-gradient(90deg, #E5C68D 0%, #FDF2E2 100%)",
+                  background: "linear-gradient(90deg, #E5C68D 0%, #FDF2E2 100%)",
                 }}
               >
                 Contact Us
@@ -225,139 +154,250 @@ export default function Team() {
         </div>
       </section>
 
-      {/* Main Team Directory Section */}
-      <section
-        className="py-16 sm:py-20 lg:py-28 bg-white"
-        id="team-members"
-        aria-label="Leadership Team Directory"
-      >
+      {/* Main Content Section */}
+      <section className="py-12 sm:py-16 lg:py-24" id="contact-details">
         <Reveal>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Section Header */}
-            <header className="mx-auto max-w-3xl text-center md:text-left md:mx-0 mb-12 sm:mb-16">
-              <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#B38536]">
-                Our Leadership & Specialists
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
+            
+            {/* Header Description */}
+            <div className="max-w-3xl">
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#B38738]">
+                How We Can Help
               </span>
-              <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight leading-tight">
-                Leadership, Client Relationships & Workforce Support
+              <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-[#0B192C] sm:text-3xl lg:text-4xl">
+                Tell us about your property and requirements.
               </h2>
-              <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-800 font-medium">
-                Our team brings together strategic management, active client communication, and robust human resources to ensure top-tier hospitality and facility management solutions.
+              <p className="mt-4 text-base leading-relaxed text-[#1E293B] sm:text-lg font-medium">
+                Looking for housekeeping, hospitality staffing, or deep cleaning services in Dubai or anywhere across the UAE? Share your project details, staff count required, or cleaning schedule, and our team will prepare a custom proposal tailored to your needs.
               </p>
-            </header>
+            </div>
 
-            {/* Responsive Row Container */}
-            <div className="flex flex-col gap-8 sm:gap-10">
-              {people.map((person) => (
-                <article
-                  key={person.name}
-                  className="group flex flex-col md:flex-row items-center overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 sm:p-6 shadow-sm transition-all duration-300 hover:border-[#DAB672] hover:shadow-xl"
-                >
-                  {/* Photo Wrapper */}
-                  <div className="relative w-full md:w-96 lg:w-[420px] shrink-0 h-[360px] sm:h-[400px] md:h-[420px] flex items-center justify-center rounded-2xl overflow-hidden">
-                    <Image
-                      src={person.image}
-                      alt={`${person.name} - ${person.role} at Durrat Al Noor Hospitality Dubai`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 384px, 420px"
-                      className={`object-cover rounded-2xl transition-transform duration-500 ease-out group-hover:scale-105 ${
-                        person.imagePosition || "object-top"
-                      }`}
-                      loading="lazy"
+            {/* Top Full-Width Section: 2 Columns */}
+            <div className="grid gap-6 md:grid-cols-2 items-stretch">
+              
+              {/* Column 1: Call/WhatsApp & Email combined vertically */}
+              <div className="group flex flex-col justify-center gap-6 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:border-[#DAB672] hover:shadow-lg sm:p-7">
+                
+                {/* Call or WhatsApp */}
+                <div>
+                  <h3 className="text-base sm:text-lg font-bold text-[#0B192C]">Call or WhatsApp</h3>
+                  <a
+                    href="tel:+971582774427"
+                    className="mt-2 inline-flex items-center gap-3 text-sm sm:text-base font-bold text-[#0F172A] transition-colors hover:text-[#B38738] focus:outline-none focus:ring-2 focus:ring-[#DAB672] rounded-lg p-1 -ml-1"
+                    aria-label="Call or WhatsApp us at +971 58 277 4427"
+                  >
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#DAB672]/20 text-[#B38738] transition-colors group-hover:bg-[#DAB672] group-hover:text-white">
+                      <Phone className="h-5 w-5" />
+                    </div>
+                    <span>+971 58 277 4427</span>
+                  </a>
+                </div>
+
+                <hr className="border-slate-100" />
+
+                {/* Email Us */}
+                <div>
+                  <h3 className="text-base sm:text-lg font-bold text-[#0B192C]">Email Us</h3>
+                  <a
+                    href="mailto:info@durratalnoorhospitality.com"
+                    className="mt-2 inline-flex items-center gap-3 text-sm sm:text-base font-bold text-[#0F172A] break-all transition-colors hover:text-[#B38738] focus:outline-none focus:ring-2 focus:ring-[#DAB672] rounded-lg p-1 -ml-1"
+                    aria-label="Email info@durratalnoorhospitality.com"
+                  >
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#DAB672]/20 text-[#B38738] transition-colors group-hover:bg-[#DAB672] group-hover:text-white">
+                      <Mail className="h-5 w-5" />
+                    </div>
+                    <span>info@durratalnoorhospitality.com</span>
+                  </a>
+                </div>
+
+              </div>
+
+              {/* Column 2: Our Office */}
+              <div className="group flex flex-col justify-center rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:border-[#DAB672] hover:shadow-lg sm:p-7">
+                <h3 className="text-base sm:text-lg font-bold text-[#0B192C]">Our Office</h3>
+                <div className="mt-3 flex items-start gap-3 text-sm sm:text-base text-[#1E293B]">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#DAB672]/20 text-[#B38738] transition-colors group-hover:bg-[#DAB672] group-hover:text-white">
+                    <MapPin className="h-5 w-5" />
+                  </div>
+                  <address className="not-italic pt-1 font-semibold leading-normal text-[#1E293B]">
+                    104, Crystal Building, Al Karama, Dubai, United Arab Emirates
+                  </address>
+                </div>
+                <div className="mt-4 flex items-center gap-3 text-sm sm:text-base text-[#1E293B]">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#DAB672]/20 text-[#B38738]">
+                    <Clock className="h-5 w-5" />
+                  </div>
+                  <span className="font-semibold text-[#1E293B]">Monday to Friday, 9:00 AM–6:00 PM (UAE Time)</span>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Bottom Full-Width Section: Inquiry Form */}
+            <div className="w-full rounded-2xl border border-slate-200/80 bg-white p-6 shadow-xl shadow-slate-200/50 sm:p-8 md:p-10">
+              <h3 className="text-2xl font-bold tracking-tight text-[#0B192C] sm:text-3xl">
+                Request a Quote
+              </h3>
+              <p className="mt-2 text-sm sm:text-base text-[#334155] font-medium">
+                Please complete the form below. Fields marked with an asterisk (<span className="text-rose-600 font-bold">*</span>) are required.
+              </p>
+
+              <form onSubmit={submit} className="mt-8 space-y-5">
+                <div className="grid gap-5 sm:grid-cols-2 items-start">
+                  <label className="flex flex-col gap-2 text-sm font-bold text-[#0B192C]">
+                    <span>Full Name <span className="text-rose-600">*</span></span>
+                    <input
+                      type="text"
+                      name="fullName"
+                      required
+                      placeholder="John Doe"
+                      className="h-12 w-full rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#0F172A] placeholder-slate-400 transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/50 text-base sm:text-sm"
                     />
+                  </label>
+
+                  <label className="flex flex-col gap-2 text-sm font-bold text-[#0B192C]">
+                    <span>Company Name</span>
+                    <input
+                      type="text"
+                      name="companyName"
+                      placeholder="Company / Property Name"
+                      className="h-12 w-full rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#0F172A] placeholder-slate-400 transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/50 text-base sm:text-sm"
+                    />
+                  </label>
+
+                  <label className="flex flex-col gap-2 text-sm font-bold text-[#0B192C]">
+                    <span>Email Address <span className="text-rose-600">*</span></span>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      placeholder="name@company.com"
+                      className="h-12 w-full rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#0F172A] placeholder-slate-400 transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/50 text-base sm:text-sm"
+                    />
+                  </label>
+
+                  <label className="flex flex-col gap-2 text-sm font-bold text-[#0B192C]">
+                    <span>Phone Number <span className="text-rose-600">*</span></span>
+                    <input
+                      type="tel"
+                      name="phone"
+                      required
+                      value={phone}
+                      onChange={handlePhoneChange}
+                      placeholder="+971 50 000 0000"
+                      className="h-12 w-full rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#0F172A] placeholder-slate-400 transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/50 text-base sm:text-sm"
+                    />
+                  </label>
+
+                  <label className="flex flex-col gap-2 text-sm font-bold text-[#0B192C]">
+                    <span>Service Location <span className="text-rose-600">*</span></span>
+                    <input
+                      type="text"
+                      name="location"
+                      required
+                      placeholder="e.g. Downtown Dubai / Abu Dhabi"
+                      className="h-12 w-full rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#0F172A] placeholder-slate-400 transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/50 text-base sm:text-sm"
+                    />
+                  </label>
+
+                  <label className="flex flex-col gap-2 text-sm font-bold text-[#0B192C]">
+                    <span>Preferred Start Date</span>
+                    <input
+                      type="date"
+                      name="startDate"
+                      className="h-12 w-full rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#0F172A] transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/50 text-base sm:text-sm"
+                    />
+                  </label>
+
+                  <div className="flex flex-col justify-start sm:col-span-1">
+                    <label className="flex flex-col gap-2 text-sm font-bold text-[#0B192C]">
+                      <span>Service Required <span className="text-rose-600">*</span></span>
+                      <select
+                        name="service"
+                        required
+                        className="h-12 w-full rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#0F172A] transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/50 text-base sm:text-sm"
+                      >
+                        <option value="">Select a service category</option>
+                        <option value="Housekeeping">Housekeeping Services</option>
+                        <option value="F&B">F&amp;B Staffing</option>
+                        <option value="Kitchen">Kitchen Support</option>
+                        <option value="Pool">Pool Maintenance</option>
+                        <option value="Deep Cleaning">Deep Cleaning</option>
+                        <option value="Multiple">Multiple Services</option>
+                        <option value="Other">Other Customized Solutions</option>
+                      </select>
+                    </label>
                   </div>
 
-                  {/* Details Container */}
-                  <div className="flex flex-1 flex-col justify-center p-6 sm:p-8 lg:p-10">
+                  <label className="flex flex-col gap-2 text-sm font-bold text-[#0B192C] sm:col-span-1">
+                    <span>Your Requirements <span className="text-rose-600">*</span></span>
+                    <textarea
+                      name="requirements"
+                      required
+                      rows={5}
+                      placeholder="Describe your property size, frequency, and specific requirements..."
+                      className="w-full rounded-xl border border-slate-300 bg-[#FAF9F6] p-4 font-normal text-[#0F172A] placeholder-slate-400 transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/50 text-base sm:text-sm resize-y"
+                    />
+                  </label>
+                </div>
+
+                <p className="text-xs leading-relaxed text-[#334155] font-medium">
+                  We respect your privacy and use your contact information exclusively to evaluate and fulfill your enquiry. Read our{" "}
+                  <Link
+                    href="/privacy-policy/"
+                    className="font-bold text-[#0B192C] underline decoration-[#DAB672] underline-offset-2 transition-colors hover:text-[#B38738]"
+                  >
+                    Privacy Policy
+                  </Link>{" "}
+                  for full details.
+                </p>
+
+                {status === "success" && (
+                  <div
+                    role="status"
+                    className="flex items-center gap-3 rounded-xl bg-emerald-50 p-4 text-sm font-semibold text-emerald-950 border border-emerald-300 animate-in fade-in duration-300"
+                  >
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-emerald-600" />
+                    <span>Thank you! Your enquiry has been received. Our team will get in touch with you shortly.</span>
+                  </div>
+                )}
+
+                {status === "error" && (
+                  <div
+                    role="alert"
+                    className="flex items-start gap-3 rounded-xl bg-rose-50 p-4 text-sm font-semibold text-rose-950 border border-rose-300 break-words animate-in fade-in duration-300"
+                  >
+                    <AlertCircle className="h-5 w-5 shrink-0 text-rose-600 mt-0.5" />
                     <div>
-                      <span className="inline-block rounded-md bg-[#DAB672]/15 px-3.5 py-1 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#8A631F]">
-                        {person.role}
-                      </span>
-                      <h3 className="mt-3 text-2xl sm:text-3xl font-bold text-[#0B192C] group-hover:text-[#B38536] transition-colors duration-200">
-                        {person.name}
-                      </h3>
-                      <p className="mt-4 text-base sm:text-lg leading-relaxed text-slate-700 font-normal max-w-3xl">
-                        {person.bio}
-                      </p>
+                      <p className="font-bold">Error Sending Enquiry</p>
+                      <p className="mt-1 text-xs font-mono font-normal opacity-90">{errorMessage}</p>
                     </div>
                   </div>
-                </article>
-              ))}
+                )}
+
+                <button
+                  type="submit"
+                  disabled={status === "loading"}
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-[#DAB672] px-8 py-4 text-base font-bold text-[#0B192C] shadow-md transition-all duration-300 hover:bg-[#c9a35e] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2 active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed touch-manipulation cursor-pointer"
+                >
+                  {status === "loading" ? (
+                    <>
+                      <span>Sending...</span>
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Enquiry</span>
+                      <Send className="h-4 w-4" />
+                    </>
+                  )}
+                </button>
+              </form>
             </div>
+
           </div>
         </Reveal>
       </section>
-
-      {/* SEO Content Section - Why Choose Our Team */}
-      <section className="bg-[#FAFAFA] py-16 sm:py-20 border-t border-slate-200/80">
-        <Reveal>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <header className="max-w-3xl mb-12">
-              <span className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-[#B38536]">
-                Hospitality Excellence in Dubai
-              </span>
-              <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight">
-                Why Partner with Durrat Al Noor Hospitality?
-              </h2>
-              <p className="mt-4 text-base sm:text-lg text-slate-700 leading-relaxed">
-                As one of the trusted hospitality and commercial staffing providers in Dubai, our experienced management team ensures that every deployment meets the highest luxury standards of the UAE hotel sector.
-              </p>
-            </header>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {highlights.map((item, index) => (
-                <div
-                  key={index}
-                  className="rounded-xl border border-slate-200/80 bg-white p-6 sm:p-8 shadow-sm transition-all duration-300 hover:border-[#DAB672]"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#DAB672]/15 text-[#8A631F] font-bold text-lg mb-5">
-                    0{index + 1}
-                  </div>
-                  <h3 className="text-xl font-bold text-[#0B192C] mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* Call to Action Section */}
-      <section className="bg-[#F4EFE6] py-16 sm:py-20 border-t border-b border-[#E0D5C1]">
-        <Reveal>
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-              <div className="max-w-2xl">
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B192C] tracking-tight">
-                  Speak with Our Team
-                </h2>
-                <p className="mt-3 text-base sm:text-lg text-slate-800 font-semibold">
-                  Tell us about your hospitality staffing or service requirements in Dubai.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
-                <Link
-                  href="/contact-us/"
-                  className="inline-flex items-center justify-center rounded-full bg-[#DAB672] px-8 py-3.5 text-base font-bold text-[#0B192C] shadow-md transition-all duration-200 hover:bg-[#c6a059] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2 active:scale-95"
-                >
-                  Contact Us
-                </Link>
-                <Link
-                  href="/our-services/"
-                  className="inline-flex items-center justify-center rounded-full border-2 border-[#0B192C] px-8 py-3.5 text-base font-bold text-[#0B192C] transition-all duration-200 hover:bg-[#0B192C] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#0B192C] focus:ring-offset-2 active:scale-95"
-                >
-                  Explore Our Services
-                </Link>
-              </div>
-            </div>
-          </div>
-        </Reveal>
-      </section>
-    </main>
+    </div>
   );
 }

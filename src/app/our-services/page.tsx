@@ -255,7 +255,7 @@ export default function Services() {
 
       <div className="w-full bg-[#FAF9F6] text-slate-900 antialiased selection:bg-[#DEBC7A] selection:text-slate-950">
         {/* HERO SECTION - FULL SCREEN RESPONSIVE */}
-        <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#0F2137] pt-28 pb-16 text-white sm:pt-32 sm:pb-20">
+        <section className="relative flex min-h-[90vh] sm:min-h-screen w-full items-center justify-center overflow-hidden bg-[#0F2137] pt-28 pb-16 text-white sm:pt-32 sm:pb-20">
           <Image
             src="/hsopitality-uae.webp"
             alt="Durrat Al Noor Hospitality Services Dubai"
@@ -277,7 +277,7 @@ export default function Services() {
               <h1 className="mt-5 text-3xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
                 Hospitality &amp; Cleaning Services in Dubai and the UAE
               </h1>
-              <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-slate-100 sm:text-lg">
+              <p className="mt-5 max-w-2xl text-base font-medium leading-relaxed text-slate-100 sm:text-lg">
                 Reliable staffing and property support solutions engineered for hotels, restaurants, offices, and residential spaces across Dubai.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
@@ -303,7 +303,7 @@ export default function Services() {
                 <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
                   Practical support for people, properties and daily operations.
                 </h2>
-                <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
+                <p className="mt-4 text-base font-normal leading-relaxed text-slate-800 sm:text-lg">
                   Durrat Al Noor Hospitality provides five core services to support
                   people, properties and daily operations. Choose a service below
                   to review the scope and request support.
@@ -326,7 +326,7 @@ export default function Services() {
                       <h2 className="mt-1 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
                         {service.title}
                       </h2>
-                      <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
+                      <p className="mt-4 text-base font-normal leading-relaxed text-slate-800 sm:text-lg">
                         {service.description}
                       </p>
 
@@ -334,7 +334,7 @@ export default function Services() {
                         {service.bullets.map((bullet) => (
                           <li
                             key={bullet}
-                            className="flex items-center rounded-xl border border-slate-200/60 bg-slate-100/80 px-4 py-3 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-100"
+                            className="flex items-center rounded-xl border border-slate-200/80 bg-slate-100/90 px-4 py-3 text-sm font-semibold text-slate-900 transition-colors hover:bg-slate-200/60"
                           >
                             <span
                               className="mr-3 text-base font-black text-[#9A7432]"
@@ -365,7 +365,7 @@ export default function Services() {
                         fill
                         quality={90}
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 48vw"
-                        className="object-cover transition-transform duration-700 hover:scale-105 contrast-[1.05] saturate-[1.05] [image-rendering:-webkit-optimize-contrast]"
+                        className="object-cover transition-transform duration-700 hover:scale-105 contrast-[1.05] saturate-[1.05]"
                       />
                     </div>
                   </article>
@@ -408,7 +408,7 @@ export default function Services() {
                     key={title}
                   >
                     <h3 className="text-xl font-bold text-slate-900">{title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-slate-700 sm:text-base">
+                    <p className="mt-3 text-sm font-normal leading-relaxed text-slate-800 sm:text-base">
                       {description}
                     </p>
                   </div>
@@ -418,7 +418,7 @@ export default function Services() {
           </Reveal>
         </section>
 
-        {/* CTA BANNER SECTION (MOVED ABOVE FAQ) */}
+        {/* CTA BANNER SECTION */}
         <section className="bg-[#0F2137] py-16 text-white sm:py-20">
           <Reveal>
             <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -427,7 +427,7 @@ export default function Services() {
                   <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl">
                     Ready to discuss your requirements?
                   </h2>
-                  <p className="mt-2 text-base text-slate-200">
+                  <p className="mt-2 text-base text-slate-100">
                     Get in touch with our Dubai team today for custom staffing and cleaning arrangements.
                   </p>
                 </div>
@@ -442,7 +442,7 @@ export default function Services() {
                     href="https://wa.me/971582774427"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-full border border-slate-600 bg-slate-800/80 px-7 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:border-[#DEBC7A] hover:text-[#DEBC7A] active:scale-[0.98]"
+                    className="inline-flex items-center justify-center rounded-full border border-slate-500 bg-slate-800/80 px-7 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:border-[#DEBC7A] hover:text-[#DEBC7A] active:scale-[0.98]"
                   >
                     WhatsApp Us
                   </a>
@@ -463,7 +463,7 @@ export default function Services() {
                 <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
                   Frequently Asked Questions
                 </h2>
-                <p className="mt-3 text-base text-slate-700 sm:text-lg">
+                <p className="mt-3 text-base font-normal text-slate-800 sm:text-lg">
                   Common questions about our hospitality and cleaning services in Dubai.
                 </p>
               </div>
@@ -494,7 +494,7 @@ export default function Services() {
                         }`}
                       >
                         <div className="overflow-hidden">
-                          <p className="border-t border-slate-100 px-5 pb-5 pt-4 text-sm leading-relaxed text-slate-700 sm:px-6 sm:pb-6 sm:text-base">
+                          <p className="border-t border-slate-100 px-5 pb-5 pt-4 text-sm font-normal leading-relaxed text-slate-800 sm:px-6 sm:pb-6 sm:text-base">
                             {faq.answer}
                           </p>
                         </div>

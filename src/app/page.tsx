@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
@@ -16,7 +15,6 @@ import {
   MapPin,
   Phone,
   ArrowUpRight,
-  MessageSquare,
   Building2,
 } from "lucide-react";
 
@@ -108,13 +106,13 @@ const services: HomeService[] = [
   },
 ];
 
-// GPU-optimized smooth animation variants
+// GPU-optimized, high-performance animation variants
 const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 15 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1.0] },
+    transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1.0] },
   },
 };
 
@@ -123,18 +121,18 @@ const staggerContainer: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.12,
+      staggerChildren: 0.1,
       delayChildren: 0.05,
     },
   },
 };
 
 const scaleIn: Variants = {
-  hidden: { opacity: 0, scale: 0.96 },
+  hidden: { opacity: 0, scale: 0.98 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1.0] },
+    transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1.0] },
   },
 };
 
@@ -146,7 +144,7 @@ export default function Home() {
         aria-label="Hero Section"
         className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#0B192C] pb-16 pt-32 text-white md:pt-40"
       >
-        <div className="absolute inset-0 z-0 h-full w-full pointer-events-none">
+        <div className="absolute inset-0 z-0 h-full w-full pointer-events-none overflow-hidden">
           <div className="absolute inset-0 h-full w-full bg-[url('/images/hero-fallback.jpg')] bg-cover bg-center" />
           <video
             autoPlay
@@ -156,7 +154,7 @@ export default function Home() {
             preload="metadata"
             poster="/hsopitality-uae.webp"
             aria-label="Durrat Al Noor Hospitality background video"
-            className="absolute inset-0 h-full w-full object-cover opacity-90"
+            className="absolute inset-0 h-full w-full object-cover opacity-90 transform-gpu"
           >
             <source src="/bg-video-2.mp4" type="video/mp4" />
           </video>
@@ -241,35 +239,35 @@ export default function Home() {
 
               <motion.p
                 variants={fadeInUp}
-                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium will-change-transform"
+                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-800 font-medium will-change-transform"
               >
                 Durrat Al Noor Hospitality provides housekeeping, food and beverage staffing, kitchen and stewarding support, pool and leisure personnel, and deep cleaning services in Dubai and across the UAE.
               </motion.p>
 
               <motion.p
                 variants={fadeInUp}
-                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium will-change-transform"
+                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-800 font-medium will-change-transform"
               >
                 From daily operations to temporary staffing requirements, we help hotels, restaurants, businesses and residential clients find support suited to their needs.
               </motion.p>
 
               <motion.p
                 variants={fadeInUp}
-                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium will-change-transform"
+                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-800 font-medium will-change-transform"
               >
                 Every property has its own service standards, schedules and priorities. We take time to understand yours.
               </motion.p>
 
               <motion.p
                 variants={fadeInUp}
-                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium will-change-transform"
+                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-800 font-medium will-change-transform"
               >
                 Whether you need housekeeping personnel, restaurant service staff or deep cleaning for your building, our team works with you to define the required roles, scope and service arrangements.
               </motion.p>
 
               <motion.p
                 variants={fadeInUp}
-                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium flex items-center gap-2 will-change-transform"
+                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-800 font-medium flex items-center gap-2 will-change-transform"
               >
                 <MapPin size={16} className="text-[#8C5E00] shrink-0" />
                 <span>
@@ -362,7 +360,7 @@ export default function Home() {
                     </div>
 
                     <div className="p-5 sm:p-6">
-                      <p className="text-xs font-medium leading-relaxed text-slate-700 sm:text-sm">
+                      <p className="text-xs font-medium leading-relaxed text-slate-800 sm:text-sm">
                         {s.description}
                       </p>
 
@@ -419,7 +417,7 @@ export default function Home() {
                     </div>
 
                     <div className="p-5 sm:p-6">
-                      <p className="text-xs font-medium leading-relaxed text-slate-700 sm:text-sm">
+                      <p className="text-xs font-medium leading-relaxed text-slate-800 sm:text-sm">
                         {s.description}
                       </p>
 
@@ -481,7 +479,7 @@ export default function Home() {
                 Tailored workforce solutions for every schedule
               </h3>
 
-              <p className="copy mt-4 text-xs sm:text-sm md:text-base leading-relaxed text-slate-700 font-medium">
+              <p className="copy mt-4 text-xs sm:text-sm md:text-base leading-relaxed text-slate-800 font-medium">
                 We offer casual staffing, full-time employment support, and internship programmes for applicable roles. Tell us the personnel you need, the intended duration, and your preferred schedule so we can discuss a suitable arrangement tailored specifically to your operation.
               </p>
             </div>
@@ -490,7 +488,7 @@ export default function Home() {
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#DAB672]/20 text-[#8C5E00]">
                 ✓
               </span>
-              <span>Casual, Full-Time & Seasonal Coverage</span>
+              <span>Casual, Full-Time &amp; Seasonal Coverage</span>
             </div>
           </motion.div>
 

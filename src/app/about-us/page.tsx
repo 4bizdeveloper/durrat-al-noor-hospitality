@@ -93,23 +93,23 @@ export default function About() {
       />
 
       {/* Hero Section - Left Aligned Layout */}
-      <section className="relative flex min-h-screen w-full items-center overflow-hidden bg-[#0B192C] px-4 py-20 text-white sm:px-6 lg:px-8">
+      <section className="relative flex min-h-[90vh] sm:min-h-screen w-full items-center overflow-hidden bg-[#0B192C] px-4 py-16 sm:py-20 lg:py-24 text-white sm:px-6 lg:px-8">
         <div
           className="absolute inset-0 z-0 h-full w-full bg-[url('/hsopitality-uae.webp')] bg-cover bg-center"
           aria-hidden="true"
         />
         {/* Soft overlay ensuring text visibility without over-darkening the hero */}
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#0B192C]/80 via-[#0B192C]/60 to-[#0B192C]/85" />
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#0B192C]/90 via-[#0B192C]/75 to-[#0B192C]/95" />
         
         <div className="container relative z-20 mx-auto max-w-7xl text-left">
           <div className="max-w-3xl">
-            <p className="inline-block rounded-full bg-[#DAB672]/20 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-[#DAB672] backdrop-blur-md">
+            <p className="inline-block rounded-full bg-[#DAB672]/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#DAB672] backdrop-blur-md">
               • About Us
             </p>
-            <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.15]">
               About Durrat Al Noor Hospitality
             </h1>
-            <p className="mt-6 text-base text-slate-200 sm:text-lg leading-relaxed">
+            <p className="mt-6 text-base text-slate-100 sm:text-lg leading-relaxed">
               Empowering Dubai & UAE's finest service environments with dedicated staff, tailored operational solutions, and precision care. We specialize in premium hospitality staffing, housekeeping, and deep cleaning services designed for hotels, restaurants, and luxury commercial spaces across the Emirates.
             </p>
 
@@ -120,7 +120,7 @@ export default function About() {
                 style={{
                   background: "linear-gradient(90deg, #E5C68D 0%, #FDF2E2 100%)",
                 }}
-                className="inline-flex items-center rounded-full px-8 py-3.5 text-base font-bold text-[#0B192C] shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#E5C68D] focus:ring-offset-2"
+                className="inline-flex items-center rounded-full px-8 py-3.5 text-base font-bold text-[#0B192C] shadow-lg transition-transform duration-300 transform-gpu hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#E5C68D] focus:ring-offset-2"
               >
                 Contact Us
               </Link>
@@ -142,20 +142,20 @@ export default function About() {
                 <h2 className="mt-2 text-2xl font-black tracking-tight text-[#0B192C] sm:text-4xl">
                   Hospitality Begins with People
                 </h2>
-                <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
+                <p className="mt-6 text-base leading-relaxed text-slate-800 sm:text-lg">
                   Durrat Al Noor Hospitality is a Dubai-based provider of hospitality staffing, housekeeping and deep cleaning services for clients across the UAE.
                 </p>
-                <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
+                <p className="mt-4 text-base leading-relaxed text-slate-800 sm:text-lg">
                   We support hotels, restaurants, residential properties, businesses and other service environments through five core areas: Housekeeping Services, Food &amp; Beverage Staffing, Kitchen &amp; Stewarding, Pool &amp; Leisure Services, and Deep Cleaning Services.
                 </p>
-                <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
+                <p className="mt-4 text-base leading-relaxed text-slate-800 sm:text-lg">
                   Our name, meaning <strong className="font-semibold text-[#0B192C]">"Pearl of Light,"</strong> reflects our aspiration to bring care and a positive contribution to the hospitality industry.
                 </p>
               </div>
 
               {/* Logo Column (Right Side) */}
               <div className="flex justify-center items-center lg:col-span-5">
-                <div className="relative w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[380px] aspect-square transition-transform duration-300 hover:scale-105">
+                <div className="relative w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[380px] aspect-square transition-transform duration-300 transform-gpu hover:scale-105">
                   <Image
                     src="/durrat_al_noor_hospitality_Logo.png"
                     alt="Durrat Al Noor Hospitality Logo"
@@ -180,17 +180,17 @@ export default function About() {
                 <h2 className="text-2xl font-black tracking-tight text-[#0B192C] sm:text-4xl">
                   Supporting the People Behind Every Experience
                 </h2>
-                <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
+                <p className="mt-6 text-base leading-relaxed text-slate-800 sm:text-lg">
                   A prepared room, attentive restaurant service and a carefully maintained space all depend on the people working behind the scenes.
                 </p>
-                <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
+                <p className="mt-4 text-base leading-relaxed text-slate-800 sm:text-lg">
                   We help clients identify the support their operation requires, from guest-facing service personnel to housekeeping and kitchen teams. Each engagement begins with a discussion of the setting, responsibilities, schedule and expected scope.
                 </p>
-                <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
+                <p className="mt-4 text-base leading-relaxed text-slate-800 sm:text-lg">
                   Our approach places importance on practical coordination, clear expectations and respect for clients, employees and guests.
                 </p>
               </div>
-              <div className="relative h-[350px] sm:h-[450px] w-full overflow-hidden rounded-3xl shadow-xl transition-transform duration-300 hover:scale-[1.01]">
+              <div className="relative h-[300px] sm:h-[400px] lg:h-[450px] w-full overflow-hidden rounded-3xl shadow-xl transition-transform duration-300 transform-gpu hover:scale-[1.01]">
                 <Image
                   src="/hospitality-about.webp"
                   alt="Hotel hospitality service management in Dubai UAE"
@@ -226,7 +226,7 @@ export default function About() {
                   </div>
                   <h3 className="text-2xl font-bold text-[#0B192C]">Mission</h3>
                 </div>
-                <p className="mt-4 text-base leading-relaxed text-slate-700">
+                <p className="mt-4 text-base leading-relaxed text-slate-800">
                   To provide reliable hospitality and cleaning support through capable people, attentive coordination and a clear understanding of our clients' requirements.
                 </p>
               </div>
@@ -238,7 +238,7 @@ export default function About() {
                   </div>
                   <h3 className="text-2xl font-bold text-white">Vision</h3>
                 </div>
-                <p className="mt-4 text-base leading-relaxed text-slate-200">
+                <p className="mt-4 text-base leading-relaxed text-slate-100">
                   To become a trusted hospitality partner across the UAE, building lasting relationships through service quality, professional conduct and care for people.
                 </p>
               </div>
@@ -253,7 +253,7 @@ export default function About() {
                 {values.map(({ title, desc, icon: Icon }) => (
                   <div
                     key={title}
-                    className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-slate-50/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#DAB672] hover:bg-white hover:shadow-md"
+                    className="flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-slate-50/50 p-6 transition-all duration-300 transform-gpu hover:-translate-y-1 hover:border-[#DAB672] hover:bg-white hover:shadow-md"
                   >
                     <div>
                       <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#0B192C]/10 text-[#0B192C]">
@@ -262,7 +262,7 @@ export default function About() {
                       <h4 className="mt-4 text-lg font-bold text-[#0B192C]">
                         {title}
                       </h4>
-                      <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                      <p className="mt-2 text-sm leading-relaxed text-slate-700">
                         {desc}
                       </p>
                     </div>
@@ -294,13 +294,13 @@ export default function About() {
               <div className="mt-6 flex flex-wrap justify-center gap-4">
                 <Link
                   href="/our-team/"
-                  className="rounded-full bg-[#DAB672] px-8 py-3.5 text-sm font-bold text-[#0B192C] transition-all hover:bg-[#c9a35e] hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2"
+                  className="rounded-full bg-[#DAB672] px-8 py-3.5 text-sm font-bold text-[#0B192C] transition-all duration-300 transform-gpu hover:bg-[#c9a35e] hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2"
                 >
                   Meet Our Team
                 </Link>
                 <Link
                   href="/our-services/"
-                  className="rounded-full border-2 border-[#0B192C] bg-transparent px-8 py-3.5 text-sm font-bold text-[#0B192C] transition-all hover:border-[#DAB672] hover:bg-[#0B192C] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#0B192C] focus:ring-offset-2"
+                  className="rounded-full border-2 border-[#0B192C] bg-transparent px-8 py-3.5 text-sm font-bold text-[#0B192C] transition-all duration-300 transform-gpu hover:border-[#DAB672] hover:bg-[#0B192C] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#0B192C] focus:ring-offset-2"
                 >
                   Explore Our Services
                 </Link>
