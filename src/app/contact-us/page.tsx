@@ -3,12 +3,24 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import { Clock, Mail, MapPin, Phone, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ContactPage() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
+
+  // Auto-hide success or error status messages after 5 seconds
+  useEffect(() => {
+    if (status === "success" || status === "error") {
+      const timer = setTimeout(() => {
+        setStatus("idle");
+        setErrorMessage("");
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
 
   // Restrict phone input to numbers, leading '+', spaces, and dashes
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -344,7 +356,7 @@ export default function ContactPage() {
                 {status === "success" && (
                   <div
                     role="status"
-                    className="flex items-center gap-3 rounded-xl bg-emerald-50 p-4 text-sm font-semibold text-emerald-900 border border-emerald-300"
+                    className="flex items-center gap-3 rounded-xl bg-emerald-50 p-4 text-sm font-semibold text-emerald-900 border border-emerald-300 animate-in fade-in duration-300"
                   >
                     <CheckCircle2 className="h-5 w-5 shrink-0 text-emerald-600" />
                     <span>Thank you! Your enquiry has been received. Our team will get in touch with you shortly.</span>
@@ -354,7 +366,7 @@ export default function ContactPage() {
                 {status === "error" && (
                   <div
                     role="alert"
-                    className="flex items-start gap-3 rounded-xl bg-rose-50 p-4 text-sm font-semibold text-rose-900 border border-rose-300 break-words"
+                    className="flex items-start gap-3 rounded-xl bg-rose-50 p-4 text-sm font-semibold text-rose-900 border border-rose-300 break-words animate-in fade-in duration-300"
                   >
                     <AlertCircle className="h-5 w-5 shrink-0 text-rose-600 mt-0.5" />
                     <div>
