@@ -42,8 +42,7 @@ const services: HomeService[] = [
       "Government facilities maintenance",
     ],
     button: "Explore Housekeeping",
-    image:
-      "/hose-keeping-service.webp",
+    image: "/hose-keeping-service.webp",
     imageAlt: "Housekeeping services in Dubai",
     icon: Sparkles,
   },
@@ -58,8 +57,7 @@ const services: HomeService[] = [
       "Restaurant & hotel staffing",
     ],
     button: "Explore F&B Staffing",
-    image:
-      "/food-and-beverage-staffing-service.webp",
+    image: "/food-and-beverage-staffing-service.webp",
     imageAlt: "Food and beverage staffing services in Dubai",
     icon: Utensils,
   },
@@ -74,8 +72,7 @@ const services: HomeService[] = [
       "Kitchen operation assistance",
     ],
     button: "Explore Kitchen Support",
-    image:
-      "/kitchen-stevarding-service.webp",
+    image: "/kitchen-stevarding-service.webp",
     imageAlt: "Kitchen and stewarding services in Dubai",
     icon: ChefHat,
   },
@@ -90,8 +87,7 @@ const services: HomeService[] = [
       "Leisure environment support",
     ],
     button: "Explore Pool & Leisure",
-    image:
-      "/pool-leisure-service.webp",
+    image: "/pool-leisure-service.webp",
     imageAlt: "Pool and leisure staffing services in Dubai",
     icon: Waves,
   },
@@ -106,20 +102,19 @@ const services: HomeService[] = [
       "Custom agreed scope",
     ],
     button: "Explore Deep Cleaning",
-    image:
-      "/deep-cleaning-service.webp",
+    image: "/deep-cleaning-service.webp",
     imageAlt: "Deep cleaning services in Dubai",
     icon: ShieldCheck,
   },
 ];
 
-// Animation variants (Entrance only - no disappearances)
+// GPU-optimized smooth animation variants
 const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1.0] },
   },
 };
 
@@ -128,18 +123,18 @@ const staggerContainer: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
+      staggerChildren: 0.12,
+      delayChildren: 0.05,
     },
   },
 };
 
 const scaleIn: Variants = {
-  hidden: { opacity: 0, scale: 0.92 },
+  hidden: { opacity: 0, scale: 0.96 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.7, ease: "easeOut" },
+    transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1.0] },
   },
 };
 
@@ -149,9 +144,9 @@ export default function Home() {
       {/* HERO SECTION */}
       <section
         aria-label="Hero Section"
-        className="relative flex min-h-[100dvh] w-full items-center justify-center overflow-hidden bg-[#0B192C] pb-16 pt-32 text-white md:pt-40"
+        className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#0B192C] pb-16 pt-32 text-white md:pt-40"
       >
-        <div className="absolute inset-0 z-0 h-full w-full">
+        <div className="absolute inset-0 z-0 h-full w-full pointer-events-none">
           <div className="absolute inset-0 h-full w-full bg-[url('/images/hero-fallback.jpg')] bg-cover bg-center" />
           <video
             autoPlay
@@ -167,7 +162,7 @@ export default function Home() {
           </video>
         </div>
 
-        <div className="hero-overlay absolute inset-0 z-10 h-full w-full bg-gradient-to-b from-[#0B192C]/85 via-[#0B192C]/75 to-[#0B192C]/95" />
+        <div className="hero-overlay absolute inset-0 z-10 h-full w-full bg-gradient-to-b from-[#0B192C]/85 via-[#0B192C]/75 to-[#0B192C]/95 pointer-events-none" />
 
         <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8 flex w-full flex-col justify-center">
           <motion.header
@@ -176,7 +171,7 @@ export default function Home() {
             animate="visible"
             variants={staggerContainer}
           >
-            <motion.div variants={fadeInUp}>
+            <motion.div variants={fadeInUp} className="will-change-transform">
               <span className="eyebrow inline-flex items-center gap-2 rounded-full bg-[#DAB672]/20 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-[#F2C94C] border border-[#DAB672]/40 backdrop-blur-md">
                 <Sparkles className="h-3.5 w-3.5 text-[#F2C94C]" />
                 People. Service. Excellence.
@@ -185,18 +180,18 @@ export default function Home() {
 
             <motion.h1
               variants={fadeInUp}
-              className="mt-6 hero-title text-3xl font-black tracking-tight sm:text-5xl md:text-6xl text-white leading-[1.15] drop-shadow-md"
+              className="mt-6 hero-title text-3xl font-black tracking-tight sm:text-5xl md:text-6xl text-white leading-[1.15] drop-shadow-md will-change-transform"
             >
               Hospitality Staffing &amp; Cleaning Services in Dubai
             </motion.h1>
 
             <motion.div
               variants={fadeInUp}
-              className="mt-8 flex flex-row flex-wrap items-center gap-3 sm:gap-4"
+              className="mt-8 flex flex-row flex-wrap items-center gap-3 sm:gap-4 will-change-transform"
             >
               <Link
                 href="/our-services/"
-                className="gold-button inline-flex items-center justify-center gap-2 rounded-full bg-[#DAB672] px-5 py-3 text-xs sm:text-sm font-extrabold text-slate-950 shadow-lg shadow-[#DAB672]/20 transition-all hover:bg-[#e0c082] hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2 focus:ring-offset-[#0B192C]"
+                className="gold-button inline-flex items-center justify-center gap-2 rounded-full bg-[#DAB672] px-5 py-3 text-xs sm:text-sm font-extrabold text-slate-950 shadow-lg shadow-[#DAB672]/20 transition-transform duration-200 hover:bg-[#e0c082] hover:scale-[1.01] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2 focus:ring-offset-[#0B192C]"
                 aria-label="Explore Our Services"
               >
                 <span>Explore Our Services</span>
@@ -204,7 +199,7 @@ export default function Home() {
               </Link>
               <Link
                 href="/contact-us/"
-                className="gold-button inline-flex items-center justify-center gap-2 rounded-full border border-[#DAB672] bg-slate-950/60 backdrop-blur-md px-5 py-3 text-xs sm:text-sm font-extrabold text-white transition-all hover:bg-[#DAB672] hover:text-slate-950 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2 focus:ring-offset-[#0B192C]"
+                className="gold-button inline-flex items-center justify-center gap-2 rounded-full border border-[#DAB672] bg-slate-950/60 backdrop-blur-md px-5 py-3 text-xs sm:text-sm font-extrabold text-white transition-all duration-200 hover:bg-[#DAB672] hover:text-slate-950 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2 focus:ring-offset-[#0B192C]"
                 aria-label="Request a Quote"
               >
                 <span>Request a Quote</span>
@@ -226,12 +221,12 @@ export default function Home() {
               className="lg:col-span-7 flex flex-col justify-center"
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, amount: 0.2 }}
               variants={staggerContainer}
             >
               <motion.p
                 variants={fadeInUp}
-                className="eyebrow flex items-center gap-2 text-xs uppercase tracking-widest text-[#8C5E00] font-black"
+                className="eyebrow flex items-center gap-2 text-xs uppercase tracking-widest text-[#8C5E00] font-black will-change-transform"
               >
                 <Building2 size={15} />
                 Hospitality Support Built Around Your Operation
@@ -239,42 +234,42 @@ export default function Home() {
 
               <motion.p
                 variants={fadeInUp}
-                className="copy mt-6 text-lg sm:text-xl font-bold text-slate-950 leading-snug"
+                className="copy mt-6 text-lg sm:text-xl font-bold text-slate-950 leading-snug will-change-transform"
               >
                 Thoughtful service starts with the right people.
               </motion.p>
 
               <motion.p
                 variants={fadeInUp}
-                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium"
+                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium will-change-transform"
               >
                 Durrat Al Noor Hospitality provides housekeeping, food and beverage staffing, kitchen and stewarding support, pool and leisure personnel, and deep cleaning services in Dubai and across the UAE.
               </motion.p>
 
               <motion.p
                 variants={fadeInUp}
-                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium"
+                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium will-change-transform"
               >
                 From daily operations to temporary staffing requirements, we help hotels, restaurants, businesses and residential clients find support suited to their needs.
               </motion.p>
 
               <motion.p
                 variants={fadeInUp}
-                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium"
+                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium will-change-transform"
               >
                 Every property has its own service standards, schedules and priorities. We take time to understand yours.
               </motion.p>
 
               <motion.p
                 variants={fadeInUp}
-                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium"
+                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium will-change-transform"
               >
                 Whether you need housekeeping personnel, restaurant service staff or deep cleaning for your building, our team works with you to define the required roles, scope and service arrangements.
               </motion.p>
 
               <motion.p
                 variants={fadeInUp}
-                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium flex items-center gap-2"
+                className="copy mt-4 text-sm sm:text-base leading-relaxed text-slate-700 font-medium flex items-center gap-2 will-change-transform"
               >
                 <MapPin size={16} className="text-[#8C5E00] shrink-0" />
                 <span>
@@ -282,7 +277,7 @@ export default function Home() {
                 </span>
               </motion.p>
 
-              <motion.div variants={fadeInUp} className="mt-8">
+              <motion.div variants={fadeInUp} className="mt-8 will-change-transform">
                 <Link
                   href="/about-us/"
                   className="group inline-flex min-h-[44px] items-center gap-2 font-black text-slate-950 underline decoration-[#DAB672] decoration-2 underline-offset-8 transition-colors hover:text-[#8C5E00] focus:outline-none focus:ring-2 focus:ring-[#DAB672] rounded-md px-1"
@@ -293,10 +288,10 @@ export default function Home() {
             </motion.article>
 
             <motion.div
-              className="lg:col-span-5 flex items-center"
+              className="lg:col-span-5 flex items-center will-change-transform"
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, amount: 0.2 }}
               variants={scaleIn}
             >
               <div className="relative min-h-[340px] sm:min-h-[420px] lg:min-h-[480px] w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-slate-900/10 bg-slate-200">
@@ -306,7 +301,7 @@ export default function Home() {
                   fill
                   priority={true}
                   sizes="(max-width: 1024px) 100vw, 45vw"
-                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  className="object-cover transition-transform duration-500 hover:scale-105"
                   quality={85}
                 />
               </div>
@@ -324,9 +319,9 @@ export default function Home() {
           <motion.p
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={fadeInUp}
-            className="eyebrow text-xs uppercase tracking-widest text-[#8C5E00] font-black"
+            className="eyebrow text-xs uppercase tracking-widest text-[#8C5E00] font-black will-change-transform"
           >
             Our Hospitality &amp; Cleaning Services
           </motion.p>
@@ -335,7 +330,7 @@ export default function Home() {
             className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={staggerContainer}
           >
             {services.slice(0, 3).map((s) => {
@@ -344,7 +339,7 @@ export default function Home() {
                 <motion.article
                   key={s.title}
                   variants={fadeInUp}
-                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#DAB672] hover:shadow-2xl"
+                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#DAB672] hover:shadow-xl will-change-transform"
                 >
                   <div>
                     <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
@@ -353,9 +348,9 @@ export default function Home() {
                         alt={s.imageAlt || s.title}
                         fill
                         sizes="(max-width: 767px) 100vw, 33vw"
-                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                        className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B192C]/90 via-[#0B192C]/40 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B192C]/90 via-[#0B192C]/40 to-transparent pointer-events-none" />
                       <div className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/20 backdrop-blur-md text-white border border-white/30">
                         <IconComponent className="h-4 w-4" />
                       </div>
@@ -392,7 +387,7 @@ export default function Home() {
             className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={staggerContainer}
           >
             {services.slice(3, 5).map((s) => {
@@ -401,7 +396,7 @@ export default function Home() {
                 <motion.article
                   key={s.title}
                   variants={fadeInUp}
-                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#DAB672] hover:shadow-2xl"
+                  className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#DAB672] hover:shadow-xl will-change-transform"
                 >
                   <div>
                     <div className="relative aspect-[16/9] w-full overflow-hidden bg-slate-100 md:aspect-[21/9]">
@@ -410,9 +405,9 @@ export default function Home() {
                         alt={s.imageAlt || s.title}
                         fill
                         sizes="(max-width: 767px) 100vw, 50vw"
-                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                        className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B192C]/90 via-[#0B192C]/40 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B192C]/90 via-[#0B192C]/40 to-transparent pointer-events-none" />
                       <div className="absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/20 backdrop-blur-md text-white border border-white/30">
                         <IconComponent className="h-4 w-4" />
                       </div>
@@ -448,9 +443,9 @@ export default function Home() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={fadeInUp}
-            className="mt-10 text-center"
+            className="mt-10 text-center will-change-transform"
           >
             <Link
               href="/our-services/"
@@ -462,7 +457,7 @@ export default function Home() {
         </div>
       </section>
 
-{/* FLEXIBLE STAFFING & SERVICE APPROACH SECTION */}
+      {/* FLEXIBLE STAFFING & SERVICE APPROACH SECTION */}
       <section
         aria-label="Service Features and Approach"
         className="section py-12 sm:py-16 md:py-24 bg-slate-50 text-slate-900 overflow-hidden border-t border-slate-200/60"
@@ -472,9 +467,9 @@ export default function Home() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={fadeInUp}
-            className="rounded-2xl sm:rounded-3xl border border-slate-200/80 bg-white p-6 sm:p-8 md:p-10 lg:p-12 shadow-sm flex flex-col justify-between transition-all duration-300 hover:border-[#DAB672]/60 hover:shadow-md"
+            className="rounded-2xl sm:rounded-3xl border border-slate-200/80 bg-white p-6 sm:p-8 md:p-10 lg:p-12 shadow-sm flex flex-col justify-between transition-all duration-300 hover:border-[#DAB672]/60 hover:shadow-md will-change-transform"
           >
             <div>
               <p className="eyebrow inline-flex items-center gap-2 text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-[#8C5E00] font-black">
@@ -503,9 +498,9 @@ export default function Home() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={fadeInUp}
-            className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#0B192C] via-[#0F233D] to-[#081220] p-6 sm:p-8 md:p-10 lg:p-12 text-white shadow-xl flex flex-col justify-between ring-1 ring-white/10 relative overflow-hidden"
+            className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#0B192C] via-[#0F233D] to-[#081220] p-6 sm:p-8 md:p-10 lg:p-12 text-white shadow-xl flex flex-col justify-between ring-1 ring-white/10 relative overflow-hidden will-change-transform"
           >
             {/* Ambient Background Accent Light */}
             <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-[#DAB672]/10 blur-2xl pointer-events-none" />
@@ -520,7 +515,7 @@ export default function Home() {
                 className="mt-6 sm:mt-8 grid gap-5 sm:gap-6"
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.2 }}
                 variants={staggerContainer}
               >
                 {[
@@ -540,7 +535,7 @@ export default function Home() {
                   <motion.li
                     key={t}
                     variants={fadeInUp}
-                    className="border-b border-slate-800/80 pb-4 sm:pb-5 last:border-0 last:pb-0"
+                    className="border-b border-slate-800/80 pb-4 sm:pb-5 last:border-0 last:pb-0 will-change-transform"
                   >
                     <h4 className="font-black text-base sm:text-lg md:text-xl text-white tracking-tight">
                       {t}
@@ -556,17 +551,17 @@ export default function Home() {
         </div>
       </section>
 
-{/* CALL TO ACTION SECTION */}
+      {/* CALL TO ACTION SECTION */}
       <section
         aria-label="Contact Call to Action"
         className="section relative py-12 sm:py-16 lg:py-20 bg-slate-50 overflow-hidden border-t border-slate-200/80"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
-            className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#0B192C] via-[#0F233D] to-[#081220] p-6 sm:p-10 md:p-12 lg:p-14 shadow-2xl ring-1 ring-white/15"
+            className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#0B192C] via-[#0F233D] to-[#081220] p-6 sm:p-10 md:p-12 lg:p-14 shadow-2xl ring-1 ring-white/15 will-change-transform"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={staggerContainer}
           >
             {/* Ambient Background Lights & Visual Accents */}
@@ -576,7 +571,7 @@ export default function Home() {
 
             <div className="relative z-10 flex flex-col items-center text-center lg:text-left lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-12">
               {/* Text Content */}
-              <motion.div variants={fadeInUp} className="max-w-2xl w-full">
+              <motion.div variants={fadeInUp} className="max-w-2xl w-full will-change-transform">
                 <div className="inline-flex items-center gap-2 rounded-full bg-[#DAB672]/15 px-3.5 py-1.5 text-[11px] sm:text-xs font-black uppercase tracking-wider sm:tracking-widest text-[#F2C94C] border border-[#DAB672]/30 backdrop-blur-md">
                   <Phone className="h-3.5 w-3.5 text-[#F2C94C] shrink-0" />
                   <span>Looking for Hospitality or Cleaning Support?</span>
@@ -594,27 +589,27 @@ export default function Home() {
               {/* Action Buttons */}
               <motion.div
                 variants={fadeInUp}
-                className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 sm:gap-4 w-full lg:w-auto shrink-0"
+                className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 sm:gap-4 w-full lg:w-auto shrink-0 will-change-transform"
               >
                 {/* Discuss Requirements Button */}
                 <Link
                   href="/contact-us/"
-                  className="group inline-flex items-center justify-center gap-2.5 sm:gap-3 rounded-full bg-[#DAB672] px-6 sm:px-7 py-3.5 sm:py-4 text-xs sm:text-sm font-extrabold text-slate-950 shadow-lg shadow-[#DAB672]/20 transition-all duration-300 hover:bg-[#e0c082] hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#DAB672] w-full sm:w-auto"
+                  className="group inline-flex items-center justify-center gap-2.5 sm:gap-3 rounded-full bg-[#DAB672] px-6 sm:px-7 py-3.5 sm:py-4 text-xs sm:text-sm font-extrabold text-slate-950 shadow-lg shadow-[#DAB672]/20 transition-all duration-200 hover:bg-[#e0c082] hover:scale-[1.01] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#DAB672] w-full sm:w-auto"
                 >
                   <Building2 className="h-4 w-4 text-slate-950 shrink-0" />
                   <span className="whitespace-nowrap">Discuss Your Requirements</span>
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1 shrink-0" />
                 </Link>
 
-                {/* WhatsApp Button (Updated to Gold styling) */}
+                {/* WhatsApp Button */}
                 <a
                   href="https://wa.me/971582774427"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-2.5 sm:gap-3 rounded-full bg-[#DAB672] px-6 sm:px-7 py-3.5 sm:py-4 text-xs sm:text-sm font-extrabold text-slate-950 shadow-lg shadow-[#DAB672]/20 transition-all duration-300 hover:bg-[#e0c082] hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#DAB672] w-full sm:w-auto"
+                  className="group inline-flex items-center justify-center gap-2.5 sm:gap-3 rounded-full bg-[#DAB672] px-6 sm:px-7 py-3.5 sm:py-4 text-xs sm:text-sm font-extrabold text-slate-950 shadow-lg shadow-[#DAB672]/20 transition-all duration-200 hover:bg-[#e0c082] hover:scale-[1.01] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#DAB672] w-full sm:w-auto"
                 >
                   <svg
-                    className="h-4.5 w-4.5 sm:h-5 sm:w-5 fill-slate-950 transition-transform duration-300 group-hover:rotate-12 shrink-0"
+                    className="h-4.5 w-4.5 sm:h-5 sm:w-5 fill-slate-950 transition-transform duration-200 group-hover:rotate-12 shrink-0"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
                   >
@@ -627,7 +622,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-
     </div>
   );
 }
