@@ -12,12 +12,14 @@
     "framer-motion": "^13.4.1",
     "lucide-react": "^0.468.0",
     "next": "latest",
+    "nodemailer": "^10.0.10",
     "react": "latest",
     "react-dom": "latest",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
+    "@types/nodemailer": "^8.0.2",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "typescript": "^5.7.2"

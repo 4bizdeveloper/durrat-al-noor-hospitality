@@ -2,18 +2,49 @@
 
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import { Clock, Mail, MapPin, Phone, Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { Clock, Mail, MapPin, Phone, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { useState } from "react";
 
 export default function ContactPage() {
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
-  function submit(e: React.FormEvent<HTMLFormElement>) {
+  async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setStatus("loading");
+    setErrorMessage("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      fullName: formData.get("fullName"),
+      companyName: formData.get("companyName"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      location: formData.get("location"),
+      startDate: formData.get("startDate"),
+      service: formData.get("service"),
+      requirements: formData.get("requirements"),
+    };
+
     try {
-      e.currentTarget.reset();
-      setStatus("success");
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        form.reset();
+        setStatus("success");
+      } else {
+        const data = await res.json();
+        setErrorMessage(data.error || "Failed to submit enquiry.");
+        setStatus("error");
+      }
     } catch {
+      setErrorMessage("Something went wrong. Please check your network connection.");
       setStatus("error");
     }
   }
@@ -183,6 +214,7 @@ export default function ContactPage() {
                       <span>Full Name <span className="text-rose-600">*</span></span>
                       <input
                         type="text"
+                        name="fullName"
                         required
                         placeholder="John Doe"
                         className="h-12 rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#0F172A] placeholder-slate-400 transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/40"
@@ -193,6 +225,7 @@ export default function ContactPage() {
                       <span>Company Name</span>
                       <input
                         type="text"
+                        name="companyName"
                         placeholder="Company / Property Name"
                         className="h-12 rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#0F172A] placeholder-slate-400 transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/40"
                       />
@@ -202,6 +235,7 @@ export default function ContactPage() {
                       <span>Email Address <span className="text-rose-600">*</span></span>
                       <input
                         type="email"
+                        name="email"
                         required
                         placeholder="name@company.com"
                         className="h-12 rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#0F172A] placeholder-slate-400 transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/40"
@@ -212,6 +246,7 @@ export default function ContactPage() {
                       <span>Phone Number <span className="text-rose-600">*</span></span>
                       <input
                         type="tel"
+                        name="phone"
                         required
                         placeholder="+971 50 000 0000"
                         className="h-12 rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#0F172A] placeholder-slate-400 transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/40"
@@ -222,6 +257,7 @@ export default function ContactPage() {
                       <span>Service Location <span className="text-rose-600">*</span></span>
                       <input
                         type="text"
+                        name="location"
                         required
                         placeholder="e.g. Downtown Dubai / Abu Dhabi"
                         className="h-12 rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#0F172A] placeholder-slate-400 transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/40"
@@ -232,6 +268,7 @@ export default function ContactPage() {
                       <span>Preferred Start Date</span>
                       <input
                         type="date"
+                        name="startDate"
                         className="h-12 rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#0F172A] transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/40"
                       />
                     </label>
@@ -239,6 +276,7 @@ export default function ContactPage() {
                     <label className="flex flex-col gap-2 text-sm font-bold text-[#0B192C] sm:col-span-2">
                       <span>Service Required <span className="text-rose-600">*</span></span>
                       <select
+                        name="service"
                         required
                         className="h-12 rounded-xl border border-slate-300 bg-[#FAF9F6] px-4 font-normal text-[#0F172A] transition-all focus:border-[#DAB672] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#DAB672]/40"
                       >
@@ -256,6 +294,7 @@ export default function ContactPage() {
                     <label className="flex flex-col gap-2 text-sm font-bold text-[#0B192C] sm:col-span-2">
                       <span>Your Requirements <span className="text-rose-600">*</span></span>
                       <textarea
+                        name="requirements"
                         required
                         rows={5}
                         placeholder="Describe your property size, frequency, and specific requirements..."
@@ -291,16 +330,26 @@ export default function ContactPage() {
                       className="flex items-center gap-3 rounded-xl bg-rose-50 p-4 text-sm font-semibold text-rose-900 border border-rose-300"
                     >
                       <AlertCircle className="h-5 w-5 shrink-0 text-rose-600" />
-                      <span>Something went wrong. Please try submitting again or contact us directly via Phone/WhatsApp.</span>
+                      <span>{errorMessage || "Something went wrong. Please try submitting again or contact us directly via Phone/WhatsApp."}</span>
                     </div>
                   )}
 
                   <button
                     type="submit"
-                    className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-[#DAB672] px-8 py-4 text-base font-bold text-[#0B192C] shadow-md transition-all duration-300 hover:bg-[#c9a35e] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2 active:scale-[0.98]"
+                    disabled={status === "loading"}
+                    className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-[#DAB672] px-8 py-4 text-base font-bold text-[#0B192C] shadow-md transition-all duration-300 hover:bg-[#c9a35e] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-[#DAB672] focus:ring-offset-2 active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    <span>Send Enquiry</span>
-                    <Send className="h-4 w-4" />
+                    {status === "loading" ? (
+                      <>
+                        <span>Sending...</span>
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                      </>
+                    ) : (
+                      <>
+                        <span>Send Enquiry</span>
+                        <Send className="h-4 w-4" />
+                      </>
+                    )}
                   </button>
                 </form>
               </div>
