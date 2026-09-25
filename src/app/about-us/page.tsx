@@ -129,25 +129,44 @@ export default function About() {
         </div>
       </section>
 
-      {/* Who We Are */}
+      {/* Who We Are Section */}
       <section className="py-16 md:py-24">
         <Reveal>
-          <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center sm:text-left">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#DAB672]">
-              Who We Are
-            </span>
-            <h2 className="mt-2 text-2xl font-black tracking-tight text-[#0B192C] sm:text-4xl">
-              Hospitality Begins with People
-            </h2>
-            <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
-              Durrat Al Noor Hospitality is a Dubai-based provider of hospitality staffing, housekeeping and deep cleaning services for clients across the UAE.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
-              We support hotels, restaurants, residential properties, businesses and other service environments through five core areas: Housekeeping Services, Food &amp; Beverage Staffing, Kitchen &amp; Stewarding, Pool &amp; Leisure Services, and Deep Cleaning Services.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
-              Our name, meaning <strong className="font-semibold text-[#0B192C]">"Pearl of Light,"</strong> reflects our aspiration to bring care and a positive contribution to the hospitality industry.
-            </p>
+          <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
+              {/* Text Column */}
+              <div className="text-left lg:col-span-7">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#DAB672]">
+                  Who We Are
+                </span>
+                <h2 className="mt-2 text-2xl font-black tracking-tight text-[#0B192C] sm:text-4xl">
+                  Hospitality Begins with People
+                </h2>
+                <p className="mt-6 text-base leading-relaxed text-slate-700 sm:text-lg">
+                  Durrat Al Noor Hospitality is a Dubai-based provider of hospitality staffing, housekeeping and deep cleaning services for clients across the UAE.
+                </p>
+                <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
+                  We support hotels, restaurants, residential properties, businesses and other service environments through five core areas: Housekeeping Services, Food &amp; Beverage Staffing, Kitchen &amp; Stewarding, Pool &amp; Leisure Services, and Deep Cleaning Services.
+                </p>
+                <p className="mt-4 text-base leading-relaxed text-slate-700 sm:text-lg">
+                  Our name, meaning <strong className="font-semibold text-[#0B192C]">"Pearl of Light,"</strong> reflects our aspiration to bring care and a positive contribution to the hospitality industry.
+                </p>
+              </div>
+
+              {/* Logo Column (Right Side) */}
+              <div className="flex justify-center items-center lg:col-span-5">
+                <div className="relative w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[380px] aspect-square transition-transform duration-300 hover:scale-105">
+                  <Image
+                    src="/durrat_al_noor_hospitality_Logo.png"
+                    alt="Durrat Al Noor Hospitality Logo"
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 280px, (max-width: 1024px) 340px, 380px"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </Reveal>
       </section>
