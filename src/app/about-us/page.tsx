@@ -173,7 +173,7 @@ export default function About() {
               </div>
               <div className="relative h-[350px] sm:h-[450px] w-full overflow-hidden rounded-3xl shadow-xl transition-transform duration-300 hover:scale-[1.01]">
                 <Image
-                  src="/hsopitality-uae.webp"
+                  src="/hospitality-about.webp"
                   alt="Hotel hospitality service management in Dubai UAE"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
