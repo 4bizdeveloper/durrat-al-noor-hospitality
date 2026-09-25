@@ -1,1 +1,214 @@
-export const metadata={title:"Terms & Conditions | Durrat Al Noor Hospitality",description:"Terms and conditions for the Durrat Al Noor Hospitality website and service enquiries."};export default function Terms(){return <section className="section pt-32"><div className="container max-w-4xl"><p className="eyebrow">Legal</p><h1 className="heading mt-3">Terms &amp; Conditions</h1><p className="copy mt-6">Website content is provided for general information about Durrat Al Noor Hospitality's staffing and cleaning services. Service scope, personnel, availability, pricing and other arrangements are subject to discussion and written agreement between the parties.</p><p className="copy mt-4">For service enquiries, contact info@durratalnoorhospitality.com or +971 58 277 4427.</p></div></section>}
+import { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Terms & Conditions | Durrat Al Noor Hospitality Services Dubai UAE",
+  description:
+    "Review the terms and conditions for utilizing Durrat Al Noor Hospitality website and service enquiries, covering hotel staffing, housekeeping, and facility management services across Dubai and the UAE.",
+  alternates: {
+    canonical: "https://durrat-al-noor-hospitality.vercel.app/terms",
+  },
+  openGraph: {
+    title: "Terms & Conditions | Durrat Al Noor Hospitality",
+    description:
+      "Official terms of service and website usage conditions for Durrat Al Noor Hospitality in Dubai, UAE.",
+    url: "https://durrat-al-noor-hospitality.vercel.app/terms",
+    siteName: "Durrat Al Noor Hospitality",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms & Conditions | Durrat Al Noor Hospitality",
+    description:
+      "Website usage conditions and service enquiry terms for Durrat Al Noor Hospitality services across the UAE.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export default function Terms() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Terms & Conditions",
+    url: "https://durrat-al-noor-hospitality.vercel.app/terms",
+    description:
+      "Official Terms & Conditions page for Durrat Al Noor Hospitality website and service enquiries in Dubai, UAE.",
+    publisher: {
+      "@type": "Organization",
+      name: "Durrat Al Noor Hospitality",
+      url: "https://durrat-al-noor-hospitality.vercel.app",
+      logo: "https://durrat-al-noor-hospitality.vercel.app/logo.png",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "104, Crystal Building, Al Karama",
+        addressLocality: "Dubai",
+        addressCountry: "UAE",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+971 58 277 4427",
+        contactType: "customer service",
+        email: "info@durratalnoorhospitality.com",
+      },
+    },
+  };
+
+  return (
+    <main className="w-full min-h-screen bg-[#f2f3f4] text-[#0b192c] antialiased selection:bg-[#e3c487] selection:text-[#0b192c]">
+      {/* Schema.org Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* Hero Header Section */}
+      <header className="w-full bg-[#0b192c] pt-32 pb-16 md:pt-40 md:pb-24 border-b border-slate-800 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#e3c487]/15 via-transparent to-transparent pointer-events-none" />
+        <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-24 relative z-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e3c487]/15 border border-[#e3c487]/30 text-[#e3c487] text-xs font-semibold tracking-wide uppercase mb-4">
+            <span className="w-2 h-2 rounded-full bg-[#e3c487] animate-pulse" />
+            Legal & Governance
+          </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+            Terms &amp; Conditions
+          </h1>
+          <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-4xl font-normal leading-relaxed">
+            Essential guidelines and contractual terms governing the use of Durrat Al Noor Hospitality&apos;s website, service enquiries, and operational arrangements across Dubai and the UAE.
+          </p>
+        </div>
+      </header>
+
+      {/* Main Content Sections - Full Width Cards */}
+      <article className="w-full px-4 sm:px-8 lg:px-16 xl:px-24 py-10 md:py-16 space-y-8">
+        
+        {/* Core Overview */}
+        <section className="w-full bg-white rounded-2xl p-6 sm:p-8 md:p-10 border border-slate-200 shadow-sm space-y-4">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0b192c] tracking-snug">
+            1. Website Use &amp; General Information
+          </h2>
+          <p className="copy text-slate-700 text-base md:text-lg leading-relaxed">
+            Website content is provided for general information about Durrat Al Noor Hospitality&apos;s staffing and cleaning services. By browsing or submitting enquiries through this platform, you acknowledge and agree to comply with the terms set forth on this page.
+          </p>
+        </section>
+
+        {/* Scope of Services & Written Agreements */}
+        <section className="w-full bg-white rounded-2xl p-6 sm:p-8 md:p-10 border border-slate-200 shadow-sm space-y-4">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0b192c] tracking-snug">
+            2. Service Scope &amp; Commercial Arrangements
+          </h2>
+          <p className="text-slate-700 text-base md:text-lg leading-relaxed">
+            Service scope, personnel, availability, pricing, and other arrangements are subject to discussion and written agreement between the parties. Information provided on this website does not constitute a legally binding service contract until formalized through an official agreement or purchase order.
+          </p>
+          <ul className="space-y-4 pt-2 text-slate-700 text-base md:text-lg">
+            <li className="flex items-start gap-3">
+              <span className="text-[#0b192c] font-bold text-xl">•</span>
+              <span><strong className="text-[#0b192c]">Hospitality Staffing:</strong> Capacity, shift duration, role classifications, and deployable workforce quotas are confirmed via formal service contracts.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-[#0b192c] font-bold text-xl">•</span>
+              <span><strong className="text-[#0b192c]">Housekeeping &amp; Deep Cleaning:</strong> On-site assessments determine specific resource needs, equipment requirements, and schedules.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-[#0b192c] font-bold text-xl">•</span>
+              <span><strong className="text-[#0b192c]">Rates &amp; Quotations:</strong> All commercial quotes issued via official channels are valid for the timeframe specified in the document.</span>
+            </li>
+          </ul>
+        </section>
+
+        {/* Intellectual Property & Usage Limits */}
+        <section className="w-full bg-white rounded-2xl p-6 sm:p-8 md:p-10 border border-slate-200 shadow-sm space-y-4">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0b192c] tracking-snug">
+            3. Intellectual Property &amp; Branding
+          </h2>
+          <p className="text-slate-700 text-base md:text-lg leading-relaxed">
+            All text, branding assets, logos, design structures, and content hosted on this website remain the exclusive property of Durrat Al Noor Hospitality. Reproduction, modification, or commercial exploitation without prior written consent is strictly prohibited.
+          </p>
+        </section>
+
+        {/* Governing Law & Regional Compliance */}
+        <section className="w-full bg-white rounded-2xl p-6 sm:p-8 md:p-10 border border-slate-200 shadow-sm space-y-4">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-[#0b192c] tracking-snug">
+            4. Governing Law &amp; Jurisdiction
+          </h2>
+          <p className="text-slate-700 text-base md:text-lg leading-relaxed">
+            These terms and conditions are governed by and construed in accordance with the laws of the Emirate of Dubai and the federal laws of the United Arab Emirates. Any disputes arising out of the use of this website or initial service enquiries shall fall under the exclusive jurisdiction of the competent courts of Dubai.
+          </p>
+        </section>
+
+        {/* FULL WIDTH Dark Blue Contact & Information Banner */}
+        <section className="w-full bg-[#0b192c] text-white rounded-2xl p-6 sm:p-10 md:p-12 border border-slate-800 shadow-xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#e3c487]/5 rounded-full blur-3xl pointer-events-none" />
+          
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+            {/* Contact Details Grid */}
+            <div className="space-y-6 lg:max-w-3xl">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-bold text-[#e3c487]">
+                  Questions Regarding Our Terms?
+                </h3>
+                <p className="text-slate-300 text-sm md:text-base mt-1">
+                  For service enquiries or clarification on contractual agreements, reach out directly to our management team in Dubai.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 pt-2">
+                <div>
+                  <span className="block text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">
+                    Head Office
+                  </span>
+                  <p className="text-slate-200 text-sm">104, Crystal Building, Al Karama, Dubai, UAE</p>
+                </div>
+
+                <div>
+                  <span className="block text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">
+                    Email Support
+                  </span>
+                  <a
+                    href="mailto:info@durratalnoorhospitality.com"
+                    className="text-[#e3c487] hover:underline transition-colors text-sm break-all font-medium"
+                  >
+                    info@durratalnoorhospitality.com
+                  </a>
+                </div>
+
+                <div>
+                  <span className="block text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">
+                    Phone / WhatsApp
+                  </span>
+                  <a
+                    href="tel:+971582774427"
+                    className="text-slate-200 hover:text-[#e3c487] transition-colors text-sm font-medium"
+                  >
+                    +971 58 277 4427
+                  </a>
+                </div>
+
+                <div>
+                  <span className="block text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">
+                    Operating Hours
+                  </span>
+                  <p className="text-slate-200 text-sm">Mon - Fri, 9:00 AM – 6:00 PM (GST)</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Action Button */}
+            <div className="shrink-0 pt-4 lg:pt-0">
+              <Link
+                href="/contact"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-xl bg-[#e3c487] hover:bg-[#d8b572] text-[#0b192c] font-bold text-base transition-all duration-200 shadow-lg active:scale-[0.98]"
+              >
+                Submit Service Enquiry
+              </Link>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </main>
+  );
+}
