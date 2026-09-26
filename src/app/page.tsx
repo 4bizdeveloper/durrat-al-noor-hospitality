@@ -160,7 +160,8 @@ export default function Home() {
           </video>
         </div>
 
-        <div className="hero-overlay absolute inset-0 z-10 h-full w-full bg-gradient-to-b from-[#0B192C]/85 via-[#0B192C]/75 to-[#0B192C]/95 pointer-events-none" />
+        {/* Hero Overlay */}
+        <div className="hero-overlay absolute inset-0 z-10 h-full w-full bg-gradient-to-b from-[#0B192C]/90 via-[#0B192C]/82 to-[#0B192C]/95 pointer-events-none" />
 
         <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8 flex w-full flex-col justify-center">
           <motion.header
@@ -170,8 +171,9 @@ export default function Home() {
             variants={staggerContainer}
           >
             <motion.div variants={fadeInUp} className="will-change-transform">
-              <span className="eyebrow inline-flex items-center gap-2 rounded-full bg-[#DAB672]/20 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-[#F2C94C] border border-[#DAB672]/40 backdrop-blur-md">
-                <Sparkles className="h-3.5 w-3.5 text-[#F2C94C]" />
+              {/* Tag - Semi-transparent background with frosted glass blur */}
+              <span className="eyebrow inline-flex items-center gap-2 rounded-full bg-[#0B192C]/40 px-4 py-2 text-xs font-black uppercase tracking-widest text-[#F5C242] border border-[#DAB672]/60 shadow-lg backdrop-blur-md">
+                <Sparkles className="h-4 w-4 text-[#F5C242]" />
                 People. Service. Excellence.
               </span>
             </motion.div>
