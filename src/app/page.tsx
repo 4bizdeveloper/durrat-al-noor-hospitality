@@ -156,7 +156,7 @@ export default function Home() {
             aria-label="Durrat Al Noor Hospitality background video"
             className="absolute inset-0 h-full w-full object-cover opacity-90 transform-gpu"
           >
-            <source src="/bg-video-2.mp4" type="video/mp4" />
+            <source src="/bg-video.mp4" type="video/mp4" />
           </video>
         </div>
 
