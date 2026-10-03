@@ -192,7 +192,7 @@ export default function Services() {
         "@id": "https://durratalnoor.ae/#organization",
         name: "Durrat Al Noor Hospitality",
         url: "https://durratalnoor.ae",
-        telephone: "+971582774427",
+        telephone: "971564012332",
         address: {
           "@type": "PostalAddress",
           streetAddress: "Al Karama",
@@ -438,7 +438,7 @@ export default function Services() {
                     Request a Quote
                   </Link>
                   <a
-                    href="https://wa.me/971582774427"
+                    href="https://wa.me/971564012332"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center rounded-full border border-slate-500 bg-slate-800/80 px-7 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:border-[#DEBC7A] hover:text-[#DEBC7A] active:scale-[0.98]"

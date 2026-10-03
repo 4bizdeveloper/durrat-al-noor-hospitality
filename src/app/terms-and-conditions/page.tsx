@@ -50,7 +50,7 @@ export default function Terms() {
       },
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+971 58 277 4427",
+        telephone: "+971 56 401 2332",
         contactType: "customer service",
         email: "info@durratalnoorhospitality.com",
       },
@@ -180,10 +180,10 @@ export default function Terms() {
                     Phone / WhatsApp
                   </span>
                   <a
-                    href="tel:+971582774427"
+                    href="tel:+971564012332"
                     className="text-slate-200 hover:text-[#e3c487] transition-colors text-sm font-medium"
                   >
-                    +971 58 277 4427
+                    +971 56 401 2332
                   </a>
                 </div>
 

@@ -18,7 +18,7 @@ export default function Footer() {
       "addressRegion": "Dubai",
       "addressCountry": "AE"
     },
-    "telephone": "+971582774427",
+    "telephone": "+971564012332",
     "email": "info@durratalnoorhospitality.com",
     "url": "https://www.durratalnoorhospitality.com",
     "openingHours": "Mo-Fr 09:00-18:00",
@@ -107,12 +107,12 @@ export default function Footer() {
               </div>
               <div>
                 <a 
-                  href="tel:+971582774427" 
+                  href="tel:+971564012332" 
                   className="flex items-center gap-3 transition-colors duration-150 hover:text-[#E2C07D] focus:outline-none focus:underline"
                   itemProp="telephone"
                 >
                   <Phone size={18} className="shrink-0 text-[#DAB672]" aria-hidden="true" />
-                  <span>+971 58 277 4427</span>
+                  <span>+971 56 401 2332</span>
                 </a>
               </div>
               <div>

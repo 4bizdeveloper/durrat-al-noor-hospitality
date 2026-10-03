@@ -80,7 +80,7 @@ export default function ContactPage() {
     "@type": "LocalBusiness",
     name: "Durrat Al Noor Hospitality & Cleaning",
     image: "/hsopitality-uae.png",
-    telePhone: "+971582774427",
+    telePhone: "+971564012332",
     email: "info@durratalnoorhospitality.com",
     address: {
       "@type": "PostalAddress",
@@ -108,7 +108,7 @@ export default function ContactPage() {
       <title>Contact Durrat Al Noor Hospitality | Al Karama, Dubai</title>
       <meta
         name="description"
-        content="Contact Durrat Al Noor Hospitality in Al Karama, Dubai. Call +971 58 277 4427 for hospitality staffing, housekeeping and deep cleaning enquiries."
+        content="Contact Durrat Al Noor Hospitality in Al Karama, Dubai. Call +971 56 401 2332 for hospitality staffing, housekeeping and deep cleaning enquiries."
       />
 
       <script
@@ -182,14 +182,14 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-base sm:text-lg font-bold text-[#0B192C]">Call or WhatsApp</h3>
                   <a
-                    href="tel:+971582774427"
+                    href="tel:+971564012332"
                     className="mt-2 inline-flex items-center gap-3 text-sm sm:text-base font-bold text-[#0F172A] transition-colors hover:text-[#B38738]"
-                    aria-label="Call or WhatsApp us at +971 58 277 4427"
+                    aria-label="Call or WhatsApp us at +971 56 401 2332"
                   >
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#DAB672]/15 text-[#B38738] transition-colors group-hover:bg-[#DAB672] group-hover:text-white">
                       <Phone className="h-4 w-4" />
                     </div>
-                    <span>+971 58 277 4427</span>
+                    <span>+971 56 401 2332</span>
                   </a>
                 </div>
 

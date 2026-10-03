@@ -182,7 +182,7 @@ export default function Home() {
               variants={fadeInUp}
               className="mt-6 hero-title text-3xl font-black tracking-tight sm:text-5xl md:text-6xl text-white leading-[1.15] drop-shadow-md will-change-transform"
             >
-              Hospitality Staffing &amp; Cleaning Services in Dubai
+              Hospitality Staffing &amp; Cleaning Services in UAE
             </motion.h1>
 
             <motion.div
@@ -603,7 +603,7 @@ export default function Home() {
 
                 {/* WhatsApp Button */}
                 <a
-                  href="https://wa.me/971582774427"
+                  href="https://wa.me/971564012332"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center justify-center gap-2.5 sm:gap-3 rounded-full bg-[#DAB672] px-6 sm:px-7 py-3.5 sm:py-4 text-xs sm:text-sm font-extrabold text-slate-950 shadow-lg shadow-[#DAB672]/20 transition-all duration-200 hover:bg-[#e0c082] hover:scale-[1.01] active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#DAB672] w-full sm:w-auto"

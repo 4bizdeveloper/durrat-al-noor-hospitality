@@ -19,8 +19,8 @@ function WhatsAppIcon({ size = 22 }: { size?: number }) {
 }
 
 export default function FloatingActions() {
-  const phoneNumber = "+971582774427";
-  const whatsappUrl = "https://wa.me/971582774427?text=Hello%20Durat%20Al%20Noor%20Hospitality%2C%20we%20are%20contacting%20you%20from%20your%20website%20and%20are%20interested%20to%20enquire%20about%20your%20services.";
+  const phoneNumber = "+971564012332";
+  const whatsappUrl = "https://wa.me/971564012332?text=Hello%20Durrat%20Al%20Noor%20Hospitality%2C%20we%20are%20contacting%20you%20from%20your%20website%20and%20are%20interested%20to%20enquire%20about%20your%20services.";
 
   return (
     <>
@@ -47,7 +47,7 @@ export default function FloatingActions() {
         {/* Call Action Button */}
         <a
           href={`tel:${phoneNumber}`}
-          aria-label="Call direct phone line at +971 58 277 4427"
+          aria-label="Call direct phone line at +971 56 401 2332"
           title="Direct Phone Call"
           className="group relative grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-full bg-gradient-to-tr from-[#8A6229] via-[#E5C158] to-[#9A7432] border border-[#7A5218]/30 text-[#0F172A] shadow-[0_8px_25px_rgba(138,98,41,0.35),0_4px_10px_rgba(0,0,0,0.12)] transition-transform duration-300 ease-out hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2"
         >
@@ -68,7 +68,7 @@ export default function FloatingActions() {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Contact us on WhatsApp at +971 58 277 4427"
+          aria-label="Contact us on WhatsApp at +971 56 401 2332"
           title="WhatsApp Chat"
           className="group relative grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-full bg-gradient-to-tr from-[#8A6229] via-[#E5C158] to-[#9A7432] border border-[#7A5218]/30 text-[#0F172A] shadow-[0_8px_25px_rgba(138,98,41,0.35),0_4px_10px_rgba(0,0,0,0.12)] transition-transform duration-300 ease-out hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-2"
         >
